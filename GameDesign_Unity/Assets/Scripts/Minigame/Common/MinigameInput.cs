@@ -7,7 +7,7 @@ public class MinigameInput
     public float TimeScale { get; private set; }
     public float ADifficulty { get; private set; }
     public float BDifficulty { get; private set; }
-    public object GameManager { get; private set; }
+    public IGameManager GameManager { get; private set; }
 
     /// <summary>
     /// Holds all input information for a Minigame.
@@ -16,7 +16,7 @@ public class MinigameInput
     /// <param name="aDifficulty">Affects the difficulty to 'catch' the first answer, range [-1,1].</param>
     /// <param name="bDifficulty">Affects the difficulty to 'catch' the second answer, range [-1,1].</param>
     /// <param name="gameManager">Reference to the GameManager which spawned the minigame.</param>
-    public MinigameInput(float timeScale, float aDifficulty, float bDifficulty, object gameManager)
+    public MinigameInput(float timeScale, float aDifficulty, float bDifficulty, IGameManager gameManager)
     {
         TimeScale = timeScale;
         ADifficulty = aDifficulty;
