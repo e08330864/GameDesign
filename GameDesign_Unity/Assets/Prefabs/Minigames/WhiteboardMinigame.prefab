@@ -327,13 +327,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518378724691747989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b36e525c0bc0424b9c87393ea010364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APositions: []
-  BPositions: []
   spawner:
   - {fileID: 1518378724928047265}
   - {fileID: 1518378724904604456}
@@ -380,7 +378,7 @@ GameObject:
   - component: {fileID: 1518378724904604459}
   m_Layer: 5
   m_Name: PostIt_B
-  m_TagString: Untagged
+  m_TagString: AnswerB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,7 +518,7 @@ GameObject:
   - component: {fileID: 1518378724928047264}
   m_Layer: 5
   m_Name: PostIt_A
-  m_TagString: Untagged
+  m_TagString: AnswerA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,6 +654,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostItTarget (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -804,6 +812,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostItTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -950,6 +968,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostItTarget (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerB
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1103,6 +1131,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostItTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerB
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1254,6 +1292,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostItTarget (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerB
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1407,6 +1455,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostItTarget (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1553,6 +1611,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostItTarget (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1701,6 +1769,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostItTarget (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1847,6 +1925,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostItTarget (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerB
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1999,6 +2087,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostItTarget (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_TagString
+      value: AnswerB
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}

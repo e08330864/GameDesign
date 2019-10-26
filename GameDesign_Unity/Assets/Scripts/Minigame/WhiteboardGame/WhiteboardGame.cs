@@ -9,6 +9,14 @@ public class WhiteboardGame : Minigame
     private float timeLimit = 10.0f;
     private float timeLeft;
 
+    private void Awake()
+    {
+        spawner[0].difficulty = Input.ADifficulty;
+        spawner[1].difficulty = Input.BDifficulty;
+        spawner[0].enabled = true;
+        spawner[1].enabled = true;
+    }
+
     private void Start()
     {
         if(Input == null)
@@ -17,14 +25,8 @@ public class WhiteboardGame : Minigame
             Input = new MinigameInput(0, 0, 0, null);
         }
 
-        spawner[0].difficulty = Input.ADifficulty;
-        spawner[1].difficulty = Input.BDifficulty;
-
         timeLimit = timeLimit - (3.0f * Input.TimeScale);
         timeLeft = timeLimit;
-
-        spawner[0].enabled = true;
-        spawner[1].enabled = true;
     }
 
     // Update is called once per frame
@@ -55,5 +57,10 @@ public class WhiteboardGame : Minigame
         {
             Finish(Answer.B);
         }
+    }
+
+    public override void BeginGame()
+    {
+        this.enabled = true;
     }
 }
