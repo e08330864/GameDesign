@@ -6,11 +6,7 @@ public abstract class Minigame : MonoBehaviour
 {
     public MinigameInput Input;
 
-    [HideInInspector]
-    public Transform[] APositions;
-
-    [HideInInspector]
-    public Transform[] BPositions;
+    public abstract void BeginGame();
 
     protected void Finish(Answer answer)
     {

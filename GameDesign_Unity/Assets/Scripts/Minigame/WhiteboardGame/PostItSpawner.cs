@@ -16,9 +16,11 @@ public class PostItSpawner : MonoBehaviour
     private PostIt draggedPostIt;
     private Color spawnColor;
     private int targetCount;
+    private WhiteboardGame gameController;
 
     private void Start()
     {
+        gameController = FindObjectOfType<WhiteboardGame>();
         targetCount = Mathf.RoundToInt(targets.Length / 2 + (targets.Length / 2 * difficulty)) + 1;
 
         spawnColor = this.GetComponent<Image>().color;
@@ -35,6 +37,7 @@ public class PostItSpawner : MonoBehaviour
                 targets[i].gameObject.SetActive(false);
             }
         }
+
     }
 
     private void Update()
@@ -45,7 +48,7 @@ public class PostItSpawner : MonoBehaviour
             if (t.gameObject.activeInHierarchy && t.hasPostIt)
             {
                 correctCount++;
-                if (correctCount == targetCount)FindObjectOfType<WhiteboardGame>().Answered(this);
+                if (correctCount == targetCount) gameController.Answered(this);
             }
         }
     }
@@ -61,7 +64,7 @@ public class PostItSpawner : MonoBehaviour
 
     public void OnPointerDown(BaseEventData eventData)
     {
-        if (!enabled) return;
+        if (!gameController.enabled || !enabled) return;
         Debug.Log("Spawning PostIt: "+name);
         draggedPostIt = GameObject.Instantiate(postItPrefab, 
                                         Input.mousePosition, 
@@ -74,7 +77,7 @@ public class PostItSpawner : MonoBehaviour
 
     public void OnPointerUp(BaseEventData eventData)
     {
-        if (!enabled) return;
+        if (!gameController.enabled || !enabled) return;
         draggedPostIt.Release();
     }
 }
