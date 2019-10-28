@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Answer : MonoBehaviour
+public class AnswerX : MonoBehaviour
 {
     private string text = "";
     private float startValuePatience = 0f;
@@ -10,7 +10,7 @@ public class Answer : MonoBehaviour
     private float startValueEnergy = 0f;
     private float stopValueEnergy = 0f;
 
-    public Answer(
+    public AnswerX (
         string text,
         float startValuePatience,
         float stopValuePatience,
@@ -23,6 +23,4 @@ public class Answer : MonoBehaviour
         this.startValueEnergy = startValueEnergy;
         this.stopValueEnergy = stopValueEnergy;
     }
-
-
 }

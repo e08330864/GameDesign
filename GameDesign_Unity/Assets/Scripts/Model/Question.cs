@@ -5,7 +5,8 @@ using UnityEngine;
 public class Question : MonoBehaviour
 {
     private string text = "";
-    private List<Answer> answers = new List<Answer>();
+    private List<AnswerX> answers = new List<AnswerX>();
+    
     // Start is called before the first frame updateb
     void Start()
     {
@@ -20,6 +21,6 @@ public class Question : MonoBehaviour
         float startValueEnergy,
         float stopValueEnergy)
     {
-        answers.Add(new Answer(text, startValuePatience, stopValuePatience, startValueEnergy, stopValueEnergy));
+        answers.Add(new AnswerX(text, startValuePatience, stopValuePatience, startValueEnergy, stopValueEnergy));
     }
 }
