@@ -31,7 +31,7 @@ public class Dependency
         this.addValueEnergy = addValueEnergy;
         this.addValuePatience = addValuePatience;
         this.answerAdditionalText = answerAdditionalText;
-        this.answerTextSubstitute = answerTextSubstitute,
+        this.answerTextSubstitute = answerTextSubstitute;
         this.mGIitemText = mGIitemText;
     }
 
