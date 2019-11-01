@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class HighwayGame : Minigame
+public class HighwayGame : LevelController
 {
 
     public GameObject bus;
@@ -22,16 +22,13 @@ public class HighwayGame : Minigame
     private float speed = 0.5f;
     private float busSpeed;
     private float carSpeed;
+    private int aDifficulty;
+    private int bDifficulty;
 
     private void OnEnable()
     {
-        if (Input == null)
-        {
-            Debug.LogError("MinigameInput not set for HighwayGame! Starting with default values");
-            Input = new MinigameInput(1, 1, 1, null);
-        }
 
-        if (Input.BDifficulty > Input.ADifficulty)
+        if (aDifficulty > bDifficulty)
         {
             busAnswer = Answer.A;
             bus.GetComponentInChildren<Text>().text = "A";
@@ -41,8 +38,8 @@ public class HighwayGame : Minigame
             car.GetComponentInChildren<Text>().text = "B";
             car.tag = "answerB";
 
-            busAnimator.speed = speed + 0.1f * Input.ADifficulty;
-            carAnimator.speed = speed + 0.1f * Input.BDifficulty;
+            busAnimator.speed = speed + 0.1f * aDifficulty;
+            carAnimator.speed = speed + 0.1f * bDifficulty;
         }
         else
         {
@@ -54,22 +51,11 @@ public class HighwayGame : Minigame
             car.GetComponentInChildren<Text>().text = "A";
             car.tag = "AnswerA";
 
-            busAnimator.speed = speed + 0.1f * Input.BDifficulty;
-            carAnimator.speed = speed + 0.1f * Input.ADifficulty;
+            busAnimator.speed = speed + 0.1f * aDifficulty;
+            carAnimator.speed = speed + 0.1f * bDifficulty;
         }
 
-        busAnimator.speed += 0.1f * Input.TimeScale;
-        carAnimator.speed += 0.1f * Input.TimeScale;
-
         Debug.Log("HighwayGame: CarSpeed=" + carAnimator.speed + " BusSpeed=" + busAnimator.speed);
-    }
-
-    public override void BeginGame()
-    {
-        this.enabled = true;
-        busAnimator.enabled = true;
-        carAnimator.enabled = true;
-
     }
 
     public void AnswerClicked()
@@ -82,12 +68,12 @@ public class HighwayGame : Minigame
         if (clicked == bus)
         {
             busAnimator.enabled = false;
-            Finish(busAnswer);
+            FinishLevel(busAnswer);
         }
         else if(clicked == car)
         {
             carAnimator.enabled = false;
-            Finish(carAnswer);
+            FinishLevel(carAnswer);
         }
     }
 }

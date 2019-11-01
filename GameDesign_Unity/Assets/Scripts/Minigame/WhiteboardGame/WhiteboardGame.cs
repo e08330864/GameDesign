@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhiteboardGame : Minigame
+public class WhiteboardGame : LevelController
 {
     public PostItSpawner[] spawner = new PostItSpawner[2];
     public float initialDelay;
@@ -13,13 +13,12 @@ public class WhiteboardGame : Minigame
 
     private void Start()
     {
-        this.Input = new MinigameInput(0, 0, 0, null);
-        spawner[0].difficulty = Input.ADifficulty;
-        spawner[1].difficulty = Input.BDifficulty;
+        spawner[0].difficulty = 1;
+        spawner[1].difficulty = 1;
         spawner[0].enabled = true;
         spawner[1].enabled = true;
 
-        timeLimit = timeLimit - (3.0f * Input.TimeScale);
+        timeLimit = timeLimit - (3.0f * 1);
         timeLeft = timeLimit;
         StartCoroutine(UpdateTimeLeft());
     }
@@ -35,7 +34,7 @@ public class WhiteboardGame : Minigame
             spawner[1].updateTimeLimit(timeLeft, timeLimit);
             if (timeLeft <= 0)
             {
-                Finish(Answer.None);
+                FinishLevel(Answer.None);
                 this.enabled = false;
             }
             yield return null;
@@ -50,16 +49,11 @@ public class WhiteboardGame : Minigame
 
         if (spawner[0] == finishedSpawner)
         {
-            Finish(Answer.A);
+            FinishLevel(Answer.A);
         }
         else if(spawner[1] == finishedSpawner)
         {
-            Finish(Answer.B);
+            FinishLevel(Answer.B);
         }
-    }
-
-    public override void BeginGame()
-    {
-        this.enabled = true;
     }
 }

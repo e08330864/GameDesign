@@ -4,29 +4,18 @@ using UnityEngine;
 
 public class TestMinigameManager : MonoBehaviour, IGameManager
 {
-
     public GameObject minigameToSpawn;
     public Transform prefabHolder;
 
-    Minigame game;
-    MinigameInput minigameInput;
+    LevelController game;
 
     private void Awake()
     {
         prefabHolder.gameObject.SetActive(false);
 
         GameObject spawned = GameObject.Instantiate(minigameToSpawn, prefabHolder.transform);
-        game = spawned.GetComponent<Minigame>();
-        //Neutral MinigameInput
-        minigameInput = new MinigameInput(0, 0, 0, this);
+        game = spawned.GetComponent<LevelController>();
 
-        //Hard MinigameInput
-        //minigameInput = new MinigameInput(1, 1, 1, this);
-
-        //Easy MinigameInput
-        //minigameInput = new MinigameInput(-1, -1, -1, this);
-
-        game.Input = minigameInput;
     }
 
     private void Start()
@@ -44,10 +33,5 @@ public class TestMinigameManager : MonoBehaviour, IGameManager
     public void FinishGame(Answer answer)
     {
         Debug.Log("Game Manager: Game finished with Answer: " + answer);
-    }
-
-    public void go()
-    {
-        game.BeginGame();
     }
 }

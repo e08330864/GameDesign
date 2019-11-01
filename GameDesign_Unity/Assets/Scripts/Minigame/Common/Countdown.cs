@@ -10,7 +10,6 @@ public class Countdown : MonoBehaviour
     public int delayBy;
 
     private Text counter;
-    // Start is called before the first frame update
     void Start()
     {
         counter = GetComponentInChildren<Text>();
@@ -27,6 +26,5 @@ public class Countdown : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
         }
         this.gameObject.SetActive(false);
-        FindObjectOfType<Minigame>().BeginGame();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TransitionScreenController : MonoBehaviour
+public class IntroController : LevelController
 {
     public Text dialogText;
     public string nextScene;
@@ -14,7 +14,6 @@ public class TransitionScreenController : MonoBehaviour
         "                                       \n"+
         "Nach einem langem Arbeitstag kommst Du nach hause zu deiner Frau...";
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(TypeText());
@@ -29,12 +28,6 @@ public class TransitionScreenController : MonoBehaviour
             dialogText.text += toWrite[i];
         }
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene(nextScene);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        FinishLevel();
     }
 }
