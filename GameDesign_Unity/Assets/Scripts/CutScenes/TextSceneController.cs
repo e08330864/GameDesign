@@ -5,14 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class IntroController : LevelController
+public class TextSceneController : LevelController
 {
     public Text dialogText;
-    public string nextScene;
-
-    private string toWrite = "Wenn Sie weiterhin so wenig Motivation an den Tag legen sind Ihre Tage bei ACME Consulting gezählt! \n \n" +
-        "                                       \n"+
-        "Nach einem langem Arbeitstag kommst Du nach hause zu deiner Frau...";
+    [TextArea]
+    public string toWrite;
 
     void Start()
     {

@@ -11,15 +11,20 @@ public class WhiteboardGame : LevelController
     private float timeLimit = 10.0f;
     private float timeLeft;
 
-    private void Start()
+    private void Awake()
     {
         spawner[0].difficulty = 1;
         spawner[1].difficulty = 1;
-        spawner[0].enabled = true;
-        spawner[1].enabled = true;
 
         timeLimit = timeLimit - (3.0f * 1);
         timeLeft = timeLimit;
+    }
+
+    public override void StartLevel()
+    {
+        spawner[0].enabled = true;
+        spawner[1].enabled = true;
+        this.enabled = true;
         StartCoroutine(UpdateTimeLeft());
     }
 

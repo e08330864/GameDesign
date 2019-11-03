@@ -346,10 +346,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 11400000, guid: 71bac1ec78d74c34d867f85dc2b36beb, type: 2}
+  - {fileID: 11400000, guid: a7837e16eb8ffd04cae9fe5d5534df5c, type: 2}
   - {fileID: 11400000, guid: 919329691f1f6a049a66925ef1f14a91, type: 2}
+  - {fileID: 11400000, guid: 854ef709b4dc441449dd1bcc2bc4afe1, type: 2}
   - {fileID: 11400000, guid: d7591971ecdd4884a8430d55b8a5423d, type: 2}
+  - {fileID: 11400000, guid: 662f318574a9ce24b9c575a5f4fd0f79, type: 2}
   - {fileID: 11400000, guid: e15dea95562fcc74d8fb4e96c792f527, type: 2}
   levelParent: {fileID: 319579943}
+  currentLevelIndex: -1
 --- !u!1 &1921828539
 GameObject:
   m_ObjectHideFlags: 0

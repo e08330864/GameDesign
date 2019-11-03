@@ -25,7 +25,7 @@ public class HighwayGame : LevelController
     private int aDifficulty;
     private int bDifficulty;
 
-    private void OnEnable()
+    private void Awake()
     {
 
         if (aDifficulty > bDifficulty)
@@ -56,6 +56,12 @@ public class HighwayGame : LevelController
         }
 
         Debug.Log("HighwayGame: CarSpeed=" + carAnimator.speed + " BusSpeed=" + busAnimator.speed);
+    }
+
+    public override void StartLevel()
+    {
+        carAnimator.enabled = true;
+        busAnimator.enabled = true;
     }
 
     public void AnswerClicked()

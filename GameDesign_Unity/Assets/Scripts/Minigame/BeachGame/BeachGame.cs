@@ -25,17 +25,16 @@ public class BeachGame : LevelController
     private float aDifficulty;
     private float bDifficulty;
 
-    private void OnEnable()
+    private void Awake()
     {
-
         if (bDifficulty > aDifficulty)
         {
             sunAnswer = Answer.A;
-            sun.GetComponentInChildren<Text>().text = "A";
+            sun.GetComponentInChildren<Text>().text = "JA";
             sun.tag = "answerA";
 
             crabAnswer = Answer.B;
-            crab.GetComponentInChildren<Text>().text = "B";
+            crab.GetComponentInChildren<Text>().text = "NEIN";
             crab.tag = "answerB";
 
             sunAnimator.speed = speed + 0.05f * aDifficulty;
@@ -44,11 +43,11 @@ public class BeachGame : LevelController
         else
         {
             sunAnswer = Answer.B;
-            sun.GetComponentInChildren<Text>().text = "B";
+            sun.GetComponentInChildren<Text>().text = "NEIN";
             sun.tag = "AnswerB";
 
             crabAnswer = Answer.A;
-            crab.GetComponentInChildren<Text>().text = "A";
+            crab.GetComponentInChildren<Text>().text = "JA";
             crab.tag = "AnswerA";
 
             sunAnimator.speed = speed + 0.05f * bDifficulty;
@@ -56,6 +55,12 @@ public class BeachGame : LevelController
         }
 
         Debug.Log("BeachGame: CrabSpeed=" + crabAnimator.speed + " SunSpeed=" + sunAnimator.speed);
+    }
+
+    public override void StartLevel()
+    {
+        sunAnimator.enabled = true;
+        crabAnimator.enabled = true;
     }
 
     public void AnswerClicked()
