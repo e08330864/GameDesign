@@ -5,32 +5,10 @@ Git LFS: https://git-lfs.github.com/
 
 ## Documentation
 
-### Whiteboard Minigame
+### Structure
 
-Testscene: Scenes/Minigames/Whiteboard.unity
+The "main" scene is the only scene in our game, the SCRIPT GameObject contains the Storyboard Script which holds our Levels as a List of ScriptableObjects.The Storyboard also handles spawning a new Level and finishing a Level with the FinishLevel(Answer? answer) function, a Minigame is supposed to call this with the given answer when its game is finished, a CutScene calls it without a parameter. Each Level Prefab has a root GameObject with a Script which inherits from the LevelController class, this LevelController should look up its dependent Levels via Storyboard.GetLevelByName() to check for previous Answers and adjust its difficulty accordingly.
 
-TestMiniGameSpawner on Canvas implements the IGameManager Interface and spawns the WhiteboardMinigame.prefab, sets the required MinigameInput and activates its root Gameobject.
+### Scriptable Objects
 
-Neutral Difficulty:
-Player has to assign 3 PostIts in 10 seconds.
-
-Hard Difficulty:
-Player has to assign 5 PostIts in 7 seconds.
-
-Easy Difficulty:
-Player has to assign 1 PostIt in 13 seconds.
-
-### Highway Minigame
-
-Testscene: Scenes/Minigames/Highway.unity
-
-TestMiniGameSpawner on Canvas implements the IGameManager Interface and spawns the HighwayMinigame.prefab, sets the required MinigameInput and activates its root Gameobject.
-
-Neutral Difficulty:
-Player has 2 seconds to click Car or Bus.
-
-Hard Difficulty:
-Player has 1.4 seconds to click Car or Bus.
-
-Easy Difficulty:
-Player has 3.3 seconds to click Car or Bus.
+ These Level Objects can be created in the Project View (folder "Levels") -> Right Click -> Level -> CutScene or Minigame. Both types of Levels hold a Prefab which is spawned on the Canvas in the main scene. 

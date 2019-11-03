@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Storyboard: MonoBehaviour {
 
-    public List<Level> gameEvents;
+    public List<Level> levels;
     public Transform levelParent;
 
     private GameObject currentLevel;
@@ -16,15 +16,15 @@ public class Storyboard: MonoBehaviour {
         SpawnNextLevel();
     }
 
-    public Level GetEventByName(string name)
+    public Level GetLevelByName(string name)
     {
-        return gameEvents.Find(e => e.name == name);
+        return levels.Find(e => e.name == name);
     }
 
     public void FinishLevel(Answer? answer)
     {
         if(answer != null)
-            (gameEvents[currentLevelIndex] as MinigameLevel).answer = answer.Value;
+            (levels[currentLevelIndex] as MinigameLevel).answer = answer.Value;
         SpawnNextLevel();
     }
 
@@ -33,6 +33,6 @@ public class Storyboard: MonoBehaviour {
         currentLevelIndex++;
         if(currentLevel != null)
             GameObject.DestroyImmediate(currentLevel);
-        currentLevel = GameObject.Instantiate(gameEvents[currentLevelIndex].prefab, levelParent);
+        currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
     }
 }
