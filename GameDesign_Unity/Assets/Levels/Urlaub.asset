@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45968efff3a128f46b146b3ffe3f2f7e, type: 3}
   m_Name: Urlaub
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7883099700730966581, guid: e37c241e9306c64488b8cf6bda3c735d, type: 3}
   answer: 0
