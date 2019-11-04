@@ -5,20 +5,23 @@ using UnityEngine;
 public class MGICallback : MonoBehaviour
 {
     private bool waiting = false;
+    private Question question = null;
 
-    // minigame return values
-    private float energy;
-    private float patience;
-    private MGIAnswer givenAnswer;
+    // minigame values
+    private MGIQuestion mGIQuestion = null;
+    private float energy = 0f;
+    private float patience = 0f;
+    private MGIAnswer givenAnswer = null;
 
     //--------------------------------------------------------------------------------------------------
     /// <summary>
     /// Function is called before minigame is started
     /// </summary>
-    public void WaitForMinigame()
+    public void WaitForMinigame(Question question)
     {
         if (!waiting)
         {
+            this.question = question;
             waiting = true;
             CheckMinigameResult();
         }
@@ -27,6 +30,28 @@ public class MGICallback : MonoBehaviour
     IEnumerator CheckMinigameResult()
     {
         yield return new WaitUntil(() => !waiting);
+    }
+
+    private void CreateMGIQuestion()
+    {
+        if (question != null)
+        {
+            mGIQuestion = new MGIQuestion();
+            string questionText = question.GetQuestionText();
+            foreach (AnswerX answer in question.GetAnswers())
+            {
+                string answerText = answer.GetAnswerText();
+                foreach (Dependency dependency in answer.GetDependencies())
+                {
+
+                }
+                //mGIQuestion.answers.Add(new MGIAnswer())
+            }
+
+
+            //
+        }
+        else { Debug.LogError("question is NULL in MGICallback"); }
     }
 
     //--------------------------------------------------------------------------------------------------

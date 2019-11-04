@@ -32,7 +32,7 @@ public class Question
     /// <param name="stopValuePatience"></param>
     /// <param name="startValueEnergy"></param>
     /// <param name="stopValueEnergy"></param>
-    public void AddAnswer(
+    public AnswerX AddAnswer(
         string answerText,
         int difficultyRate,
         float startValuePatience,
@@ -40,7 +40,9 @@ public class Question
         float startValueEnergy,
         float stopValueEnergy)
     {
-        answers.Add(new AnswerX(answerText, difficultyRate, startValuePatience, stopValuePatience, startValueEnergy, stopValueEnergy));
+        AnswerX returnValue;
+        answers.Add(returnValue = new AnswerX(answerText, difficultyRate, startValuePatience, stopValuePatience, startValueEnergy, stopValueEnergy));
+        return returnValue;
     }
 
     //--------------------------------------------------------------------------------------------------

@@ -17,7 +17,7 @@ public class AnswerX
     private float startValueEnergy = 0f;
     private float stopValueEnergy = 0f;
     private List<Dependency> dependencies = new List<Dependency>(); // this answer dependencies on previously given answeres
-    private bool answerGiven = false;   // answer flag: false=this answer was not given; true=this answer was given
+    private bool isGiven = false;   // answer flag: false=this answer was not given; true=this answer was given
 
     //--------------------------------------------------------------------------------------------------
     public AnswerX (
@@ -37,7 +37,7 @@ public class AnswerX
     }
 
     //--------------------------------------------------------------------------------------------------
-    public void AddDependency(
+    public Dependency AddDependency(
         AnswerX conditionAnswer,
         float mulFactorEnergy,
         float mulFactorPatience,
@@ -47,7 +47,8 @@ public class AnswerX
         string questionTextSubstitute,
         string mGIItemText)
     {
-        dependencies.Add(new Dependency(
+        Dependency returnValue;
+        dependencies.Add(returnValue = new Dependency(
             conditionAnswer,
             mulFactorEnergy,
             mulFactorPatience,
@@ -56,6 +57,7 @@ public class AnswerX
             questionAdditionalText,
             questionTextSubstitute,
             mGIItemText));
+        return returnValue;
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -66,4 +68,6 @@ public class AnswerX
     public float GetStopValuePatience() { return stopValuePatience; }
     public float GetStartValueEnergy() { return startValueEnergy; }
     public float GetStopValueEnergy() { return stopValueEnergy; }
+    public List<Dependency> GetDependencies() { return dependencies; }
+    public bool IsGiven() { return isGiven; }
 }
