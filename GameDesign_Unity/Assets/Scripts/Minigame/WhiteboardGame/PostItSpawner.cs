@@ -19,12 +19,11 @@ public class PostItSpawner : MonoBehaviour
     private int targetCount;
     private WhiteboardGame whiteBoard;
 
-    private void Awake()
+    public void Init()
     {
         whiteBoard = FindObjectOfType<WhiteboardGame>();
-        targetCount = 3;
+        targetCount = difficulty == 1 ? 3 : 1;
         counter.text = ""+targetCount;
-
         spawnColor = this.GetComponent<Image>().color;
         
         for(int i = 0; i < targets.Length; i++)

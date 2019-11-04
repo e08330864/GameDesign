@@ -13,6 +13,8 @@ public class TextSceneController : LevelController
 
     void Start()
     {
+        Button btn = gameObject.AddComponent<Button>();
+        btn.onClick.AddListener(() => FinishLevel());
         StartCoroutine(TypeText());
     }
 

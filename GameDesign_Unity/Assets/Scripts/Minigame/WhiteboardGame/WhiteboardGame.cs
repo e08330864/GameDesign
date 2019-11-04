@@ -14,11 +14,31 @@ public class WhiteboardGame : LevelController
     private new void Awake()
     {
         base.Awake();
-        spawner[0].difficulty = 1;
-        spawner[1].difficulty = 1;
+        Storyboard story = FindObjectOfType<Storyboard>();
+        Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
+
+        if(holiday == Answer.A)
+        {
+            //Player said Yes to holiday -> make yes here harder
+            spawner[0].difficulty = 1;
+            spawner[1].difficulty = -1;
+        }
+        else if(holiday == Answer.B)
+        {
+            //Player said No to holiday -> make yes here easier
+            spawner[0].difficulty = -1;
+            spawner[1].difficulty = 1;
+        }
+        else if (holiday == Answer.None)
+        {
+            spawner[0].difficulty = 1;
+            spawner[1].difficulty = 1;
+        }
 
         timeLimit = timeLimit - (3.0f * 1);
         timeLeft = timeLimit;
+        spawner[0].Init();
+        spawner[1].Init();
     }
 
     public override void StartLevel()
