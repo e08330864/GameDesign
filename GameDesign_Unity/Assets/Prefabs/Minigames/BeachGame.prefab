@@ -269,7 +269,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7883099700730966577}
+      - m_Target: {fileID: 508214103508959982}
         m_MethodName: AnswerClicked
         m_Mode: 1
         m_Arguments:
@@ -492,7 +492,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7883099700730966577}
+      - m_Target: {fileID: 508214103508959982}
         m_MethodName: AnswerClicked
         m_Mode: 1
         m_Arguments:
@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 7883099700730966578}
   - component: {fileID: 7883099700730966576}
   - component: {fileID: 7883099700730966579}
-  - component: {fileID: 7883099700730966577}
+  - component: {fileID: 508214103508959982}
   m_Layer: 5
   m_Name: BeachGame
   m_TagString: Untagged
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7883099700730966577
+--- !u!114 &508214103508959982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -761,13 +761,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7883099700730966581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c5486592b369e45bdb9c4246593374, type: 3}
+  m_Script: {fileID: 11500000, guid: 98f54d2c22a68f5439c97f33e80f3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sun: {fileID: 7883099699704285467}
-  crab: {fileID: 7883099699413506040}
-  sunAnimator: {fileID: 7883099699704285460}
-  crabAnimator: {fileID: 7883099699413506037}
+  aAnswerObject: {fileID: 7883099699704285467}
+  bAnswerObject: {fileID: 7883099699413506040}
+  aAnimation: {fileID: 7883099699704285460}
+  bAnimation: {fileID: 7883099699413506037}
 --- !u!1 &7883099701293291525
 GameObject:
   m_ObjectHideFlags: 0

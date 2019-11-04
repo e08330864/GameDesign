@@ -841,10 +841,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f54d2c22a68f5439c97f33e80f3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bus: {fileID: 6746591935650232741}
-  car: {fileID: 6746591934707576797}
-  busAnimator: {fileID: 6746591935650232746}
-  carAnimator: {fileID: 6746591934707576738}
+  aAnswerObject: {fileID: 6746591935650232741}
+  bAnswerObject: {fileID: 6746591934707576797}
+  aAnimation: {fileID: 6746591935650232746}
+  bAnimation: {fileID: 6746591934707576738}
 --- !u!1001 &8347215972651133604
 PrefabInstance:
   m_ObjectHideFlags: 0
