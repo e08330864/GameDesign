@@ -841,6 +841,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f54d2c22a68f5439c97f33e80f3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  question: Kann ich mir dein Auto ausborgen?
+  yesAnswer: "Nat\xFCrlich! Gar kein Problem."
+  noAnswer: Tut mir Leid, geht leider nicht.
+  personName: Arbeitskollege
+  personImage: {fileID: 21300000, guid: 1352d74ff3ae88f4bb47dc0a8f031827, type: 3}
   aAnswerObject: {fileID: 6746591935650232741}
   bAnswerObject: {fileID: 6746591934707576797}
   aAnimation: {fileID: 6746591935650232746}

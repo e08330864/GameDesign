@@ -11,8 +11,9 @@ public class WhiteboardGame : LevelController
     private float timeLimit = 10.0f;
     private float timeLeft;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         spawner[0].difficulty = 1;
         spawner[1].difficulty = 1;
 

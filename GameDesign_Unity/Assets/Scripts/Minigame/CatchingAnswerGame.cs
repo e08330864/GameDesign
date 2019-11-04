@@ -25,9 +25,9 @@ public class CatchingAnswerGame : LevelController
     private int aDifficulty;
     private int bDifficulty;
 
-    private void Awake()
+    private new void Awake()
     {
-
+        base.Awake();
         if (aDifficulty > bDifficulty)
         {
             aAnswer = Answer.A;

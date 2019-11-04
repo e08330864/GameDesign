@@ -14,6 +14,14 @@ public class Storyboard: MonoBehaviour {
     public void Start()
     {
         SpawnNextLevel();
+        SetPanelValues();
+    }
+
+    private void SetPanelValues()
+    {
+        FindObjectOfType<Energy>().SetValue(3);
+        FindObjectOfType<Patience>().SetValue(3);
+        FindObjectOfType<Lives>().SetValue(3);
     }
 
     public Level GetLevelByName(string name)
