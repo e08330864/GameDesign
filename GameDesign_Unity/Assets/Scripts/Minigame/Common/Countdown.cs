@@ -10,9 +10,12 @@ public class Countdown : MonoBehaviour
     public int delayBy;
 
     private Text counter;
+    private LevelController controller;
+
     void Start()
     {
         counter = GetComponentInChildren<Text>();
+        controller = FindObjectOfType<LevelController>();
         StartCoroutine(Count());
     }
 
@@ -25,6 +28,7 @@ public class Countdown : MonoBehaviour
             counter.text = ""+i;
             yield return new WaitForSeconds(1.0f);
         }
+        this.controller.StartLevel();
         this.gameObject.SetActive(false);
     }
 }

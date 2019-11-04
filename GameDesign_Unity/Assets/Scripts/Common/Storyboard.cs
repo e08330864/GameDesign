@@ -7,9 +7,9 @@ public class Storyboard: MonoBehaviour {
 
     public List<Level> levels;
     public Transform levelParent;
+    public int currentLevelIndex = -1;
 
     private GameObject currentLevel;
-    private int currentLevelIndex = -1;
 
     public void Start()
     {
@@ -33,6 +33,7 @@ public class Storyboard: MonoBehaviour {
         currentLevelIndex++;
         if(currentLevel != null)
             GameObject.DestroyImmediate(currentLevel);
-        currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
+        if(currentLevelIndex < levels.Count)
+            currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
     }
 }

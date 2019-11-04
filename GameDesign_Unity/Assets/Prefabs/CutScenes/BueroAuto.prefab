@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.7
-  m_Text: 'Chef:
+  m_Text: '
 
 '
 --- !u!1 &4036134869989247675
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4036134869989247673}
   - component: {fileID: 5660194306687184695}
   m_Layer: 5
-  m_Name: Intro
+  m_Name: BueroAuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,4 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 4036134869718351986}
-  nextScene: Whiteboard
+  toWrite: "Am n\xE4chsten Tag kommst Du ins B\xFCro und ein Kollege spricht dich
+    an...\n\nArbeitskollege:\nIch br\xE4uchte n\xE4chste Woche deinen Firmenwagen
+    f\xFCr einige Termine beim Kunden, das ist doch kein Problem, oder?"

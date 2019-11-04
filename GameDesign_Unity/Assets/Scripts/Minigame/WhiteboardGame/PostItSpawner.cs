@@ -22,7 +22,7 @@ public class PostItSpawner : MonoBehaviour
     private void Awake()
     {
         whiteBoard = FindObjectOfType<WhiteboardGame>();
-        targetCount = Mathf.RoundToInt(targets.Length / 2 + (targets.Length / 2 * difficulty)) + 2;
+        targetCount = 3;
         counter.text = ""+targetCount;
 
         spawnColor = this.GetComponent<Image>().color;
