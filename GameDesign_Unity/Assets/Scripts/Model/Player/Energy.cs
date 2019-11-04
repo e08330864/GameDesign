@@ -9,7 +9,9 @@ public class Energy : MonoBehaviour
 
     [SerializeField]
     private int value = 0;
-    
+
+    public int Value { get => value; }
+
     void Start()
     {
         SetValue(value);

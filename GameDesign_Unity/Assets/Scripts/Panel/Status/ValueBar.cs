@@ -9,7 +9,7 @@ public class ValueBar : MonoBehaviour
     private List<GameObject> valueBars = new List<GameObject>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         foreach (GameObject vbp in valueBars_Prefab)
         {

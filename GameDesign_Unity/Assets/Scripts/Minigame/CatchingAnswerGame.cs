@@ -25,9 +25,14 @@ public class CatchingAnswerGame : LevelController
     private int aDifficulty;
     private int bDifficulty;
 
+    private Energy energy;
+    private Patience patience;
+
     private new void Awake()
     {
         base.Awake();
+        energy = FindObjectOfType<Energy>();
+        patience = FindObjectOfType<Patience>();
         if (aDifficulty > bDifficulty)
         {
             aAnswer = Answer.A;
@@ -74,11 +79,14 @@ public class CatchingAnswerGame : LevelController
         if (clicked == aAnswerObject)
         {
             aAnimation.enabled = false;
+            patience.SetValue(patience.Value - 1);
+            energy.SetValue(energy.Value + 1);
             FinishLevel(aAnswer);
         }
         else if(clicked == bAnswerObject)
         {
             bAnimation.enabled = false;
+            energy.SetValue(energy.Value - 1);
             FinishLevel(bAnswer);
         }
     }

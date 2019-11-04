@@ -13,8 +13,8 @@ public class Storyboard: MonoBehaviour {
 
     public void Start()
     {
-        SpawnNextLevel();
         SetPanelValues();
+        SpawnNextLevel();
     }
 
     private void SetPanelValues()

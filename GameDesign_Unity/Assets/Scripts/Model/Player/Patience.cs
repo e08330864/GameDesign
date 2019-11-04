@@ -10,6 +10,8 @@ public class Patience : MonoBehaviour
     [SerializeField]
     private int value = 0;
 
+    public int Value { get => value; }
+
     void Start()
     {
         SetValue(value);
@@ -23,4 +25,6 @@ public class Patience : MonoBehaviour
             valueBar.SetValue(value);
         }
     }
+
+
 }
