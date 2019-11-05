@@ -29,9 +29,10 @@ public class Storyboard: MonoBehaviour {
         return levels.Find(e => e.name == name);
     }
 
-    public void FinishLevel(Answer? answer)
+    internal void FinishLevel(Answer? answer, string timelineText)
     {
-        if(answer != null)
+        (levels[currentLevelIndex] as MinigameLevel).timelineText = timelineText;
+        if (answer != null)
             (levels[currentLevelIndex] as MinigameLevel).answer = answer.Value;
         SpawnNextLevel();
     }

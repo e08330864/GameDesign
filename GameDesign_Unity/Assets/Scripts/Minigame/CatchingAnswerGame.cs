@@ -81,13 +81,13 @@ public class CatchingAnswerGame : LevelController
             aAnimation.enabled = false;
             patience.SetValue(patience.Value - 1);
             energy.SetValue(energy.Value + 1);
-            FinishLevel(aAnswer);
+            FinishLevel(aAnswer); //TODO: TimelineText
         }
         else if(clicked == bAnswerObject)
         {
             bAnimation.enabled = false;
             energy.SetValue(energy.Value - 1);
-            FinishLevel(bAnswer);
+            FinishLevel(bAnswer); //TODO: TimelineText
         }
     }
 }

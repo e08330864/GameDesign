@@ -1013,7 +1013,9 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: "Gehalts-\nerh\xF6hung?!"
+      value: 'Auto
+
+        ausborgen'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
@@ -1160,7 +1162,11 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: Sich dem Chef beweisen!
+      value: 'Urlaub
+
+        versch-
+
+        ieben'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
@@ -1466,7 +1472,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: "\xDCber-\nstunden!"
+      value: "Ausrede \xFCber- legen"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
@@ -1613,9 +1619,11 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: 'Einmalige
+      value: 'Geld
 
-        Chance!'
+        aus-
+
+        borgen'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
@@ -1800,6 +1808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Countdown
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354114017078237102, guid: 9dd205f93db4a254389569faa5fba61a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2354114017078237097, guid: 9dd205f93db4a254389569faa5fba61a,
         type: 3}

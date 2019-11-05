@@ -27,9 +27,9 @@ public abstract class LevelController : MonoBehaviour
         panel.personImage.sprite = personImage;
     }
 
-    protected void FinishLevel(Answer? answer = null)
+    protected void FinishLevel(Answer? answer = null, string timelineText = "")
     {
-        FindObjectOfType<Storyboard>().FinishLevel(answer);
+        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText);
     }
 
     public virtual void StartLevel() { }

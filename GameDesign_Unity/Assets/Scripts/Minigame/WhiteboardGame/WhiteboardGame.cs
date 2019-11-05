@@ -8,7 +8,7 @@ public class WhiteboardGame : LevelController
     public PostItSpawner[] spawner = new PostItSpawner[2];
     public float initialDelay;
 
-    private float timeLimit = 10.0f;
+    private float timeLimit = 30.0f;
     private float timeLeft;
 
     private new void Awake()
@@ -73,6 +73,7 @@ public class WhiteboardGame : LevelController
         spawner[1].enabled = false;
         this.enabled = false;
 
+        //TODO: TimelineText
         if (spawner[0] == finishedSpawner)
         {
             FinishLevel(Answer.A);

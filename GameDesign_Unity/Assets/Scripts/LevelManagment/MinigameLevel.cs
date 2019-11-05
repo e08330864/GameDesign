@@ -7,4 +7,6 @@ public class MinigameLevel : Level
 {
     [HideInInspector]
     public Answer answer;
+    [HideInInspector]
+    public string timelineText;
 }
