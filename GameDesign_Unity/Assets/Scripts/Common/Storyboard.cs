@@ -31,7 +31,8 @@ public class Storyboard: MonoBehaviour {
 
     internal void FinishLevel(Answer? answer, string timelineText)
     {
-        (levels[currentLevelIndex] as MinigameLevel).timelineText = timelineText;
+        if (timelineText != "")
+            (levels[currentLevelIndex] as MinigameLevel).timelineText = timelineText;
         if (answer != null)
             (levels[currentLevelIndex] as MinigameLevel).answer = answer.Value;
         SpawnNextLevel();
