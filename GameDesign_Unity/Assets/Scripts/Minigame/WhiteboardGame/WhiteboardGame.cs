@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhiteboardGame : LevelController
+public class WhiteboardGame : MinigameController
 {
     public PostItSpawner[] spawner = new PostItSpawner[2];
     public float initialDelay;
@@ -73,14 +73,13 @@ public class WhiteboardGame : LevelController
         spawner[1].enabled = false;
         this.enabled = false;
 
-        //TODO: TimelineText
         if (spawner[0] == finishedSpawner)
         {
-            FinishLevel(Answer.A);
+            FinishLevel(Answer.A, yesTimelineText);
         }
         else if(spawner[1] == finishedSpawner)
         {
-            FinishLevel(Answer.B);
+            FinishLevel(Answer.B, noTimelineText);
         }
     }
 }

@@ -2,12 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Storyboard: MonoBehaviour {
 
+    public GameObject answerOverlay;
+    public float displayAnswerDuration;
+    public GameObject countdownPrefab;
     public List<Level> levels;
     public Transform levelParent;
-    public int currentLevelIndex = -1;
+    public int currentLevelIndex;
 
     private GameObject currentLevel;
 
@@ -31,19 +35,41 @@ public class Storyboard: MonoBehaviour {
 
     internal void FinishLevel(Answer? answer, string timelineText)
     {
-        if (timelineText != "")
-            (levels[currentLevelIndex] as MinigameLevel).timelineText = timelineText;
-        if (answer != null)
-            (levels[currentLevelIndex] as MinigameLevel).answer = answer.Value;
+        if (currentLevel != null)
+        {
+            GameObject.DestroyImmediate(currentLevel);
+            currentLevel = null;
+        }
+        MinigameLevel minigame = levels[currentLevelIndex] as MinigameLevel;
+        if (minigame != null)
+        {
+            minigame.timelineText = timelineText;
+            minigame.answer = answer.Value;
+            StartCoroutine(ShowAnswer(timelineText));
+        }
+        else
+        {
+            SpawnNextLevel();
+        }
+    }
+
+    private IEnumerator ShowAnswer(string timelineText)
+    {
+        answerOverlay.GetComponentInChildren<Text>().text = timelineText;
+        answerOverlay.SetActive(true);
+        yield return new WaitForSeconds(displayAnswerDuration);
+        answerOverlay.SetActive(false);
         SpawnNextLevel();
     }
 
     private void SpawnNextLevel()
     {
         currentLevelIndex++;
-        if(currentLevel != null)
-            GameObject.DestroyImmediate(currentLevel);
         if(currentLevelIndex < levels.Count)
+        {
             currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
+            if(levels[currentLevelIndex] is MinigameLevel)
+                GameObject.Instantiate(countdownPrefab, levelParent);
+        }
     }
 }

@@ -76,9 +76,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.7
-  m_Text: '
-
-'
+  m_Text: "Am n\xE4chsten Tag kommst Du ins B\xFCro und ein Kollege spricht dich an...\n\nArbeitskollege:\nIch
+    br\xE4uchte n\xE4chste Woche deinen Firmenwagen f\xFCr einige Termine beim Kunden,
+    das ist doch kein Problem, oder?"
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 4036134869718351986}
-  toWrite: "Am n\xE4chsten Tag kommst Du ins B\xFCro und ein Kollege spricht dich
-    an...\n\nArbeitskollege:\nIch br\xE4uchte n\xE4chste Woche deinen Firmenwagen
-    f\xFCr einige Termine beim Kunden, das ist doch kein Problem, oder?"
+  toWrite: 

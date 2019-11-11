@@ -76,9 +76,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.7
-  m_Text: '
-
-'
+  m_Text: "Du arbeitest den ganzen Tag und kurz bevor du gehen willst \xFCberrascht
+    dich dein Chef...\n\nChef:\nWir haben gerade ein neues Projekt rein bekommen,
+    wollen Sie es \xFCbernehmen?"
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 4036134869718351986}
-  toWrite: "Du arbeitest den ganzen Tag und kurz bevor du gehen willst \xFCberrascht
-    dich dein Chef...\n\nChef:\nWir haben gerade ein neues Projekt rein bekommen,
-    wollen Sie es \xFCbernehmen?"
+  toWrite: 

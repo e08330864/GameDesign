@@ -76,9 +76,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.7
-  m_Text: 'Chef:
-
-'
+  m_Text: "Chef:\nWenn Sie weiterhin so wenig Motivation an den Tag legen sind Ihre
+    Tage bei ACME Consulting gez\xE4hlt!"
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,5 +166,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogText: {fileID: 4036134869718351986}
-  toWrite: "Wenn Sie weiterhin so wenig Motivation an den Tag legen sind Ihre Tage
-    bei ACME Consulting gez\xE4hlt!"
+  toWrite: 

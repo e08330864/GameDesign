@@ -8,11 +8,13 @@ using UnityEngine.UI;
 public class TextSceneController : LevelController
 {
     public Text dialogText;
-    [TextArea]
     public string toWrite;
 
     void Start()
     {
+        toWrite = dialogText.text;
+        dialogText.text = "";
+
         Button btn = gameObject.AddComponent<Button>();
         btn.onClick.AddListener(() => FinishLevel());
         StartCoroutine(TypeText());

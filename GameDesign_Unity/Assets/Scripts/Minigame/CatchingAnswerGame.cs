@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CatchingAnswerGame : LevelController
+public class CatchingAnswerGame : MinigameController
 {
 
     public GameObject aAnswerObject;
@@ -52,6 +52,10 @@ public class CatchingAnswerGame : LevelController
             aAnswerObject.GetComponentInChildren<Text>().text = "NEIN";
             aAnswerObject.tag = "AnswerB";
 
+            string tmp = yesTimelineText;
+            yesTimelineText = noTimelineText;
+            noTimelineText = tmp;
+
             bAnswer = Answer.A;
             bAnswerObject.GetComponentInChildren<Text>().text = "JA";
             bAnswerObject.tag = "AnswerA";
@@ -81,13 +85,13 @@ public class CatchingAnswerGame : LevelController
             aAnimation.enabled = false;
             patience.SetValue(patience.Value - 1);
             energy.SetValue(energy.Value + 1);
-            FinishLevel(aAnswer); //TODO: TimelineText
+            FinishLevel(aAnswer, yesTimelineText);
         }
         else if(clicked == bAnswerObject)
         {
             bAnimation.enabled = false;
             energy.SetValue(energy.Value - 1);
-            FinishLevel(bAnswer); //TODO: TimelineText
+            FinishLevel(bAnswer, noTimelineText);
         }
     }
 }
