@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c8e7eaff3dee64fa922b58c2a9a45c, type: 3}
   m_Name: BueroAuto
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4036134869989247675, guid: 6039c8874b20dff41b162617208dfb3d, type: 3}
+  prefab: {fileID: 4036134869989247675, guid: 9b583bfdb9c00994abd3ff463ff0df88, type: 3}

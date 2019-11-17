@@ -23,30 +23,30 @@ public class TextSceneController : LevelController
         {
             gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = false;
         }
-        foreach (Text dialogText in dialogTextList)
+        foreach (Text txt in dialogTextList)
         {
-            dialogText.enabled = false;
+            txt.enabled = false;
         }
-        foreach (Text dialogText in dialogTextList)
-        {
-            if (counter == 1)
-            {
-                gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = true;
-            }
-            int counterOld = counter;
-            StartCoroutine(TypeText(dialogText, () => { counter += 1; } ));
-            while (counterOld == counter)
-            {
-                //StartCoroutine(WaitForFinish());
-            }
-        }
-        FinishLevel();
+        Text dialogText = dialogTextList[0];
+        StartCoroutine(TypeText(dialogText, CallNextText));
     }
 
-    IEnumerator WaitForFinish()
-    {
-        yield return new WaitForSeconds(0.1f);
-    }
+    void CallNextText()  {
+        counter += 1;
+        if (counter == 1)
+        {
+            gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = true;
+        }
+        if (counter < dialogTextList.Count)
+        {
+            Text dialogText = dialogTextList[counter];
+            StartCoroutine(TypeText(dialogText, CallNextText));
+        }
+        else
+        {
+            FinishLevel();
+        }
+    } 
 
     IEnumerator TypeText(Text dialogText, System.Action callback)
     {
@@ -56,7 +56,7 @@ public class TextSceneController : LevelController
         time = DateTime.Now.AddSeconds(waitSecondsBefore);
         while (DateTime.Now < time)
         {
-            //yield return null;
+            yield return null;
         }
         for (int i = 0; i < toWrite.Length; i++)
         {
@@ -65,7 +65,7 @@ public class TextSceneController : LevelController
                 time = DateTime.Now.AddSeconds(waitSecondsPerNewLine);
                 while (DateTime.Now < time)
                 {
-                    //yield return null;
+                    yield return null;
                 }
             }
             else
@@ -73,7 +73,7 @@ public class TextSceneController : LevelController
                 time = DateTime.Now.AddSeconds(waitSecondsPerChar);
                 while (DateTime.Now < time)
                 {
-                    //yield return null;
+                    yield return null;
                 }
             }
             dialogText.text += toWrite[i];
@@ -82,7 +82,7 @@ public class TextSceneController : LevelController
         time = DateTime.Now.AddSeconds(waitSecondsAfter);
         while (DateTime.Now < time)
         {
-            //yield return null;
+            yield return null;
         }
         callback();
     }
