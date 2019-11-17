@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 850, y: 373.59998}
+  m_AnchoredPosition: {x: 70, y: 0}
+  m_SizeDelta: {x: 1150, y: 373.59998}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4011241659263639467
 CanvasRenderer:
@@ -76,9 +76,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.7
-  m_Text: "Chef:\nWir haben gerade ein neues Projekt rein bekommen. Das wird jetzt
-    eng - wir sind an sich komplett ausgelastet.\nIch habe mir gedacht, dass Sie das
-    noch \xFCbernehmen k\xF6nnen?"
+  m_Text: 'Carolin:
+
+    Hi David! - Good to see you!
+
+    You are my knight in shining armour!!!
+
+    I''m totally stressed by the "DESTINY"-project. We have a presentation to the
+    customer onsite on Friday. - By the way: after that we should go for an after-work
+    drink as already planned couple of times.
+
+    Our boss told me to ask you for borrowing me your company car for the Friday meeting
+    - is it ok for you?   '
 --- !u!1 &1127934759910686361
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1ab4f66d1e2959543a619f6616b7b6d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 845d8dd2f4ece4f4fbefb5b834b113e9, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -187,8 +196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 680, y: 0}
-  m_SizeDelta: {x: 600, y: 695}
+  m_AnchoredPosition: {x: 450, y: 0}
+  m_SizeDelta: {x: 750, y: 695}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &8438778526680659862
 CanvasRenderer:
@@ -216,7 +225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df9a629485044044f8580ec79f5b29cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ec3c4da0f9ffd24690614560d02ac71, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -261,8 +270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 900, y: 430}
+  m_AnchoredPosition: {x: -210, y: 80}
+  m_SizeDelta: {x: 1200, y: 250}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4036134869718351985
 CanvasRenderer:
@@ -303,9 +312,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.7
-  m_Text: "Endlich ist der Arbeitstag vorbei...\njetzt geht es nach hause zur Urlaubsplanung!!!\nSonne,
-    Wein und Pasta...mit Blick auf den Sonnenuntergang am Meereshorizont - ITALIEN
-    RUFT!!!\n\n...pl\xF6tzlich taucht dein Chef auf"
+  m_Text: "Arbeit kann herlich sein - wenn man Kollegen hat wie sie:\nCarolin Bright\n...Sie
+    ist Engl\xE4ndering - und wirklich phantastisch..............."
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
