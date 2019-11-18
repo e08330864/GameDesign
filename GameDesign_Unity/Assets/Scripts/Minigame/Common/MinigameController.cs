@@ -37,7 +37,7 @@ public class MinigameController : LevelController
         panel.personImage.sprite = personImage;
     }
 
-    protected void FinishLevel(Answer answer, string timelineText)
+    internal void FinishLevel(Answer answer, string timelineText)
     {
         FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText);
     }

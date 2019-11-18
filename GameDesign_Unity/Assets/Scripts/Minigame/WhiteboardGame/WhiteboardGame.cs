@@ -8,7 +8,7 @@ public class WhiteboardGame : MinigameController
     public PostItSpawner[] spawner = new PostItSpawner[2];
     public float initialDelay;
 
-    private float timeLimit = 30.0f;
+    private float timeLimit = 10.0f;
     private float timeLeft;
 
     private new void Awake()
@@ -60,8 +60,7 @@ public class WhiteboardGame : MinigameController
             spawner[1].updateTimeLimit(timeLeft, timeLimit);
             if (timeLeft <= 0)
             {
-                FinishLevel(Answer.None);
-                this.enabled = false;
+                FinishLevel(Answer.None, silentTimelineText);
             }
             yield return null;
         }
