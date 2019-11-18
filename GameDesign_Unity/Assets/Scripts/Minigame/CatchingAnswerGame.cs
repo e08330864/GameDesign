@@ -11,9 +11,6 @@ public class CatchingAnswerGame : MinigameController
     public GameObject aAnswerObject;
     public GameObject bAnswerObject;
 
-    //One of these should have a CompleteAfterAnimation Behaviour 
-    //on their main Animation State to call the FinishAnswer
-    //Method with a None Answer
     public Animator aAnimation;
     public Animator bAnimation;
 
@@ -37,43 +34,21 @@ public class CatchingAnswerGame : MinigameController
         base.Awake();
         energy = FindObjectOfType<Energy>();
         patience = FindObjectOfType<Patience>();
-        if (aDifficulty > bDifficulty)
-        {
-            aAnswer = Answer.A;
-            aAnswerObject.GetComponentInChildren<Text>().text = "JA";
-            aAnswerObject.tag = "answerA";
+        aAnswer = Answer.A;
+        aAnswerObject.GetComponentInChildren<Text>().text = "JA";
 
-            bAnswer = Answer.B;
-            bAnswerObject.GetComponentInChildren<Text>().text = "NEIN";
-            bAnswerObject.tag = "answerB";
+        bAnswer = Answer.B;
+        bAnswerObject.GetComponentInChildren<Text>().text = "NEIN";
 
-            aAnimation.speed = speed + 0.1f * aDifficulty;
-            bAnimation.speed = speed + 0.1f * bDifficulty;
-        }
-        else
-        {
-            aAnswer = Answer.B;
-            aAnswerObject.GetComponentInChildren<Text>().text = "NEIN";
-            aAnswerObject.tag = "AnswerB";
-
-            string tmp = yesTimelineText;
-            yesTimelineText = noTimelineText;
-            noTimelineText = tmp;
-
-            bAnswer = Answer.A;
-            bAnswerObject.GetComponentInChildren<Text>().text = "JA";
-            bAnswerObject.tag = "AnswerA";
-
-            aAnimation.speed = speed + 0.1f * aDifficulty;
-            bAnimation.speed = speed + 0.1f * bDifficulty;
-        }
-        Debug.Log("HighwayGame: CarSpeed=" + bAnimation.speed + " BusSpeed=" + aAnimation.speed);
+        aAnimation.speed = speed + 0.1f * aDifficulty;
+        bAnimation.speed = speed + 0.1f * bDifficulty;
         StartCoroutine(AnswerOnAnimationFinish());
     }
 
     private IEnumerator AnswerOnAnimationFinish()
     {
         yield return new WaitUntil(() => aAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        energy.SetValue(energy.Value - 2);
         FinishLevel(Answer.None, silentTimelineText);
     }
 

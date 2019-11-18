@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Storyboard: MonoBehaviour {
 
     public GameObject answerOverlay;
+    public GameObject ambulanceOverlay;
     public float displayAnswerDuration;
     public GameObject countdownPrefab;
     public List<Level> levels;
@@ -14,6 +15,7 @@ public class Storyboard: MonoBehaviour {
     public int currentLevelIndex;
 
     private GameObject currentLevel;
+    private Energy energy;
 
     public void Start()
     {
@@ -23,7 +25,8 @@ public class Storyboard: MonoBehaviour {
 
     private void SetPanelValues()
     {
-        FindObjectOfType<Energy>().SetValue(3);
+        energy = FindObjectOfType<Energy>();
+        energy.SetValue(3);
         FindObjectOfType<Patience>().SetValue(3);
         FindObjectOfType<Lives>().SetValue(3);
     }
@@ -35,19 +38,40 @@ public class Storyboard: MonoBehaviour {
 
     internal void FinishLevel(Answer? answer, string timelineText)
     {
+        energy = FindObjectOfType<Energy>();
         if (currentLevel != null)
         {
             GameObject.DestroyImmediate(currentLevel);
             currentLevel = null;
         }
+
+        if(energy.Value <= 0)
+        {
+            ambulanceOverlay.SetActive(true);
+            Debug.Log("GAME OVER!");
+            return;
+        }
+
         MinigameLevel minigame = levels[currentLevelIndex] as MinigameLevel;
         if (minigame != null)
         {
             minigame.timelineText = timelineText;
             minigame.answer = answer.Value;
+
+            //TODO: Don't hardcode this...
+            if (minigame.answer == Answer.A)
+                timelineText += "\n Patience -1 \n Energy +1";
+            else if(minigame.answer == Answer.B)
+                timelineText += "\n Energy -1";
+            else if(minigame.answer == Answer.None)
+                timelineText += "\n Energy -2";
+
+            if (energy.Value == 1)
+                timelineText += "\n \n Nicht mehr viel Energy übrig, sei vorsichtig....";
+
             StartCoroutine(ShowAnswer(timelineText));
         }
-        else
+        else //level was a Cutscene
         {
             SpawnNextLevel();
         }
