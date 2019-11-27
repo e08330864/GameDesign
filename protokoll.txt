@@ -1,0 +1,20 @@
+patience --> stress ... nur das ist entscheidend
+energy weggeben?
+
+money, popularity (per character) ... nur parameter für den Spielverlauf/Schwierigkeitsgrad
+Die Parameter sind Farben zugeordnet
+...Einheiten???
+
+nur folgende Charaktere:
+- boss
+- ehefrau
+- kollege (Freund)
+- kollegin
+
+Button für text "weiter".
+
+In timeline pro decision point:
+- character picture + headline of decision (f.e. "Auto", "Urlaub")
+- parameter veränderung symbolisch dargestellt (+/-) in der jeweiligen Parameterfarbe
+
+im panel immer die timeline anzeigen.

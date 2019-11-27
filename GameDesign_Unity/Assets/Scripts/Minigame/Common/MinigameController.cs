@@ -23,9 +23,7 @@ public class MinigameController : LevelController
     [TextArea]
     public string silentTimelineText;
 
-    public string personName;
-
-    public Sprite personImage;
+    public Character character;
 
     public void Awake()
     {
@@ -33,12 +31,12 @@ public class MinigameController : LevelController
         panel.question.text = question;
         panel.yesAnswer.text = yesAnswer;
         panel.noAnswer.text = noAnswer;
-        panel.personName.text = personName;
-        panel.personImage.sprite = personImage;
+        panel.personName.text = character.characterName;
+        panel.personImage.sprite = character.GetSprite();
     }
 
     internal void FinishLevel(Answer answer, string timelineText)
     {
-        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText);
+        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText, character);
     }
 }

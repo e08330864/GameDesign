@@ -847,6 +847,8 @@ MonoBehaviour:
   noTimelineText: Du hast dein Auto nicht hergeborgt.
   silentTimelineText: Du hast deinen Arbeitskollegen ignoriert als er dein Auto borgen
     wollte.
+  character: {fileID: 2246810821910462889, guid: 8acab8f336623294d8932dfd532d9ecb,
+    type: 3}
   personName: Arbeitskollege
   personImage: {fileID: 21300000, guid: 1352d74ff3ae88f4bb47dc0a8f031827, type: 3}
   aAnswerObject: {fileID: 6746591935650232741}

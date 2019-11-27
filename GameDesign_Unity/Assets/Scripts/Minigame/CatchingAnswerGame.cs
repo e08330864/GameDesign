@@ -26,14 +26,12 @@ public class CatchingAnswerGame : MinigameController
     private int aDifficulty;
     private int bDifficulty;
 
-    private Energy energy;
-    private Patience patience;
+    private Stress stress;
 
     private new void Awake()
     {
         base.Awake();
-        energy = FindObjectOfType<Energy>();
-        patience = FindObjectOfType<Patience>();
+        stress = FindObjectOfType<Stress>();
         aAnswer = Answer.A;
         aAnswerObject.GetComponentInChildren<Text>().text = "JA";
 
@@ -48,7 +46,7 @@ public class CatchingAnswerGame : MinigameController
     private IEnumerator AnswerOnAnimationFinish()
     {
         yield return new WaitUntil(() => aAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
-        energy.SetValue(energy.Value - 2);
+        stress.SetValue(stress.Value - 2);
         FinishLevel(Answer.None, silentTimelineText);
     }
 
@@ -68,14 +66,13 @@ public class CatchingAnswerGame : MinigameController
         if (clicked == aAnswerObject)
         {
             aAnimation.enabled = false;
-            patience.SetValue(patience.Value - 1);
-            energy.SetValue(energy.Value + 1);
+            stress.SetValue(stress.Value - 1);
             FinishLevel(aAnswer, yesTimelineText);
         }
         else if(clicked == bAnswerObject)
         {
             bAnimation.enabled = false;
-            energy.SetValue(energy.Value - 1);
+            //bstress.SetValue(stress.Value - 1);
             FinishLevel(bAnswer, noTimelineText);
         }
     }

@@ -15,7 +15,7 @@ public class Storyboard: MonoBehaviour {
     public int currentLevelIndex;
 
     private GameObject currentLevel;
-    private Energy energy;
+    private Stress stress;
 
     public void Start()
     {
@@ -25,10 +25,9 @@ public class Storyboard: MonoBehaviour {
 
     private void SetPanelValues()
     {
-        energy = FindObjectOfType<Energy>();
-        energy.SetValue(3);
-        FindObjectOfType<Patience>().SetValue(3);
-        FindObjectOfType<Lives>().SetValue(3);
+        stress = FindObjectOfType<Stress>();
+        stress.SetValue(3);
+        FindObjectOfType<Stress>().SetValue(3);
     }
 
     public Level GetLevelByName(string name)
@@ -36,16 +35,16 @@ public class Storyboard: MonoBehaviour {
         return levels.Find(e => e.name == name);
     }
 
-    internal void FinishLevel(Answer? answer, string timelineText)
+    internal void FinishLevel(Answer? answer, string timelineText, Character character)
     {
-        energy = FindObjectOfType<Energy>();
+        stress = FindObjectOfType<Stress>();
         if (currentLevel != null)
         {
             GameObject.DestroyImmediate(currentLevel);
             currentLevel = null;
         }
 
-        if(energy.Value <= 0)
+        if(stress.Value <= 0)
         {
             ambulanceOverlay.SetActive(true);
             Debug.Log("GAME OVER!");
@@ -57,6 +56,7 @@ public class Storyboard: MonoBehaviour {
         {
             minigame.timelineText = timelineText;
             minigame.answer = answer.Value;
+            minigame.personName = character.characterName;
 
             //TODO: Don't hardcode this...
             if (minigame.answer == Answer.A)
@@ -66,10 +66,11 @@ public class Storyboard: MonoBehaviour {
             else if(minigame.answer == Answer.None)
                 timelineText += "\n Energy -2";
 
-            if (energy.Value == 1)
+            if (stress.Value == 1)
                 timelineText += "\n \n Nicht mehr viel Energy übrig, sei vorsichtig....";
 
             StartCoroutine(ShowAnswer(timelineText));
+            FindObjectOfType<TimeLine>().AddDecisionPoint(character, timelineText);
         }
         else //level was a Cutscene
         {
@@ -91,8 +92,14 @@ public class Storyboard: MonoBehaviour {
         currentLevelIndex++;
         if(currentLevelIndex < levels.Count)
         {
+            GameObject levelContainer = null;
+            if ((levelContainer = GameObject.FindGameObjectWithTag("LevelContainer")) == null)
+            {
+                Debug.LogError("levelContainer is NULL in Storyboard");
+            }
             currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
-            if(levels[currentLevelIndex] is MinigameLevel)
+            currentLevel.gameObject.transform.SetParent(levelContainer.transform);
+            if (levels[currentLevelIndex] is MinigameLevel)
                 GameObject.Instantiate(countdownPrefab, levelParent);
         }
     }
