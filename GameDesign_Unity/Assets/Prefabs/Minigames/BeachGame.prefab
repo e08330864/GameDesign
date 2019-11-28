@@ -769,6 +769,8 @@ MonoBehaviour:
   noAnswer: Tut mir Leid, ich habe gerade zu viel um die Ohren.
   noTimelineText: Du hast den Urlaub mit deiner Frau abgelehnt
   silentTimelineText: Du hast deine Frau ignoriert als mit dir auf Urlaub fahren wollte.
+  character: {fileID: 9037039934281333871, guid: db6a9240bf0a24a47a536a39a3892b2c,
+    type: 3}
   personName: Frau
   personImage: {fileID: 21300000, guid: 7c1dfb682db1d8145af5116a49c09019, type: 3}
   aAnswerObject: {fileID: 7883099699704285467}

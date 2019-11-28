@@ -413,6 +413,8 @@ MonoBehaviour:
   noTimelineText: "Du hast das neue Projekt nicht \xFCbernommen."
   silentTimelineText: Du hast deinen Chef ignoriert als er dir ein neues Projekt geben
     wollte.
+  character: {fileID: 7093009086755748169, guid: bebe1696eaffe1344b33e338bdfad75b,
+    type: 3}
   personName: Chef
   personImage: {fileID: 21300000, guid: 4fbc7eacb01967849bf8daae3791d834, type: 3}
   spawner:

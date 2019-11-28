@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class LevelController : MonoBehaviour
 {
 
-    protected void FinishLevel(Answer? answer = null, string timelineText = "")
+    protected void FinishLevel(Answer? answer = null, string timelineText = "", Character character = null)
     {
-        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText);
+        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText, character);
     }
 
     public virtual void StartLevel() { }

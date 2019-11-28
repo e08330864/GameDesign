@@ -7,6 +7,7 @@ public class MinigameLevel : Level
 {
     internal Answer answer;
     internal string timelineText;
+    internal string personName;
 
     private void OnEnable()
     {

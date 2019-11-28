@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Energy : MonoBehaviour
+public class Money : MonoBehaviour
 {
     [SerializeField]
     private List<ValueBar> valueBars = new List<ValueBar>();

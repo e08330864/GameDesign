@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patience : MonoBehaviour
+public class Stress : MonoBehaviour
 {
     [SerializeField]
     private List<ValueBar> valueBars = new List<ValueBar>();

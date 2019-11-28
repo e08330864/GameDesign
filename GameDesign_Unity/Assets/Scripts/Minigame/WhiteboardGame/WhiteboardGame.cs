@@ -11,14 +11,14 @@ public class WhiteboardGame : MinigameController
     private float timeLimit = 10.0f;
     private float timeLeft;
 
-    private Energy energy;
-    private Patience patience;
+    //private Energy energy;
+    private Stress stress;
 
     private new void Awake()
     {
         base.Awake();
-        energy = FindObjectOfType<Energy>();
-        patience = FindObjectOfType<Patience>();
+        //energy = FindObjectOfType<Energy>();
+        stress = FindObjectOfType<Stress>();
         Storyboard story = FindObjectOfType<Storyboard>();
         Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
 
@@ -65,7 +65,7 @@ public class WhiteboardGame : MinigameController
             spawner[1].updateTimeLimit(timeLeft, timeLimit);
             if (timeLeft <= 0)
             {
-                energy.SetValue(energy.Value - 2);
+                //energy.SetValue(energy.Value - 2);
                 FinishLevel(Answer.None, silentTimelineText);
             }
             yield return null;
@@ -80,13 +80,13 @@ public class WhiteboardGame : MinigameController
 
         if (spawner[0] == finishedSpawner)
         {
-            patience.SetValue(patience.Value - 1);
-            energy.SetValue(energy.Value + 1);
+            stress.SetValue(stress.Value - 1);
+            //energy.SetValue(energy.Value + 1);
             FinishLevel(Answer.A, yesTimelineText);
         }
         else if(spawner[1] == finishedSpawner)
         {
-            energy.SetValue(energy.Value - 1);
+            //energy.SetValue(energy.Value - 1);
             FinishLevel(Answer.B, noTimelineText);
         }
     }
