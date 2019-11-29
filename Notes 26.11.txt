@@ -1,0 +1,21 @@
+Notes:
+
+patience -> StressLevel (von 0 bis 5)
+Energy -> vorerst weg.
+
+Zusatzressourcen: (zusätzliche Werte die Schwierigkeit beeinflussen.) Farbe pro Ressource, 50er stufen
+Geld?
+Beliebtheit?
+
+Wenige Charaktere -> story driven -> Handlungen von Personen klar
+Boss
+Kollegen, als Freund, positive Auswirkungen
+Kollegin
+Frau
+
+Beliebtheit pro Person 
+Timeline nie ausblenden, + / - Icon, beim Character Bild ein Wort als Levelbeschreibung.
+
+Autofrage auch mit Post It game.
+Hände Kino Game
+
