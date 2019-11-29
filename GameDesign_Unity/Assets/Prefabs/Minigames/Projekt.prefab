@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b36e525c0bc0424b9c87393ea010364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameShortText: Projekt
   question: "Wollen Sie das Projekt \xFCbernehmen?"
   yesAnswer: "Selbstverst\xE4ndlich, vielen Dank f\xFCr die Chance!"
   yesTimelineText: "Du hast das neue Projekt \xFCbernommen."
@@ -415,8 +416,6 @@ MonoBehaviour:
     wollte.
   character: {fileID: 7093009086755748169, guid: bebe1696eaffe1344b33e338bdfad75b,
     type: 3}
-  personName: Chef
-  personImage: {fileID: 21300000, guid: 4fbc7eacb01967849bf8daae3791d834, type: 3}
   spawner:
   - {fileID: 1518378724928047265}
   - {fileID: 1518378724904604456}

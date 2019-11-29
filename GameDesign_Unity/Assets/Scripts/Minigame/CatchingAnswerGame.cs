@@ -14,8 +14,8 @@ public class CatchingAnswerGame : MinigameController
     public Animator aAnimation;
     public Animator bAnimation;
 
-    private Answer aAnswer;
-    private Answer bAnswer;
+    private AnswerValue aAnswer;
+    private AnswerValue bAnswer;
 
     private float timeLimit = 10.0f;
     private float timeLeft;
@@ -32,10 +32,10 @@ public class CatchingAnswerGame : MinigameController
     {
         base.Awake();
         stress = FindObjectOfType<Stress>();
-        aAnswer = Answer.A;
+        aAnswer = AnswerValue.A;
         aAnswerObject.GetComponentInChildren<Text>().text = "JA";
 
-        bAnswer = Answer.B;
+        bAnswer = AnswerValue.B;
         bAnswerObject.GetComponentInChildren<Text>().text = "NEIN";
 
         aAnimation.speed = speed + 0.1f * aDifficulty;
@@ -47,7 +47,7 @@ public class CatchingAnswerGame : MinigameController
     {
         yield return new WaitUntil(() => aAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
         stress.SetValue(stress.Value - 2);
-        FinishLevel(Answer.None, silentTimelineText);
+        FinishLevel(AnswerValue.None, silentTimelineText);
     }
 
     public override void StartLevel()

@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    public string characterName;
+    public string characterName = "";
+    public Sprite iconImage = null;
+    public Sprite figureImage = null;
     private float playerSympathy = 3;
     private float maxSympathy = 5;
     private float minSympathy = 0;
@@ -23,10 +25,5 @@ public class Character : MonoBehaviour
     public float GetPlayerSympathy()
     {
         return playerSympathy;
-    }
-
-    public Sprite GetSprite()
-    {
-        return gameObject.GetComponent<Image>().sprite;
     }
 }

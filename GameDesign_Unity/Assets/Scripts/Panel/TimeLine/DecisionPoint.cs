@@ -8,33 +8,30 @@ using TMPro;
 public class DecisionPoint : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Character character = null;
-    private string decisionText = "";
-    private float stress;
-    private float money;
-
-    public DecisionPoint(Character character, string decisionText)
-    {
-        this.character = character;
-        this.decisionText = decisionText;
-    }
+    private Answer answer = null;
+    private string gameShortText = "";
 
     private void Start()
     {
-        stress = Object.FindObjectOfType<Stress>().Value;
-        money = Object.FindObjectOfType<Money>().Value;
+    }
+
+    public void SetGameShortText(string gameShortText)
+    {
+        gameObject.transform.Find("GameShortText").GetComponent<TextMeshProUGUI>().text = gameShortText;
     }
 
     public void SetCharacter(Character character)
     {
         this.character = character;
-        gameObject.transform.Find("PersonIcon").GetComponent<Image>().sprite = character.GetSprite();
+        gameObject.transform.Find("PersonIcon").GetComponent<Image>().sprite = character.iconImage;
+        gameObject.transform.Find("PersonImage").GetComponent<Image>().sprite = character.figureImage;
         gameObject.transform.Find("PersonName").GetComponent<TextMeshProUGUI>().text = character.characterName;
     }
 
-    public void SetDecisionText(string decisionText)
+    public void SetAnswer(Answer answer)
     {
-        this.decisionText = decisionText;
-        gameObject.transform.Find("Decision").Find("DecisionBackground").Find("DecisionText").GetComponent<TextMeshProUGUI>().text = decisionText;
+        this.answer = answer;
+        gameObject.transform.Find("Decision").Find("DecisionBackground").Find("DecisionText").GetComponent<TextMeshProUGUI>().text = answer.timeLineText;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

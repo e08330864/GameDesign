@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MinigameController : LevelController
 {
+    [TextArea]
+    public string gameShortText;
 
     [TextArea]
     public string question;
@@ -32,11 +34,11 @@ public class MinigameController : LevelController
         panel.yesAnswer.text = yesAnswer;
         panel.noAnswer.text = noAnswer;
         panel.personName.text = character.characterName;
-        panel.personImage.sprite = character.GetSprite();
+        panel.personImage.sprite = character.figureImage;
     }
 
-    internal void FinishLevel(Answer answer, string timelineText)
+    internal void FinishLevel(AnswerValue answerValue, string timelineText)
     {
-        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText, character);
+        FindObjectOfType<Storyboard>().FinishLevel(answerValue, timelineText, character, gameShortText);
     }
 }

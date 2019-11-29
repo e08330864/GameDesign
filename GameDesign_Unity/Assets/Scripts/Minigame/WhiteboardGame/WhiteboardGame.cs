@@ -22,19 +22,19 @@ public class WhiteboardGame : MinigameController
         Storyboard story = FindObjectOfType<Storyboard>();
         Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
 
-        if(holiday == Answer.A)
+        if(holiday.answer == AnswerValue.A)
         {
             //Player said Yes to holiday -> make yes here harder
             spawner[0].difficulty = 1;
             spawner[1].difficulty = -1;
         }
-        else if(holiday == Answer.B)
+        else if(holiday.answer == AnswerValue.B)
         {
             //Player said No to holiday -> make yes here easier
             spawner[0].difficulty = -1;
             spawner[1].difficulty = 1;
         }
-        else if (holiday == Answer.None)
+        else if (holiday.answer == AnswerValue.None)
         {
             spawner[0].difficulty = 1;
             spawner[1].difficulty = 1;
@@ -66,7 +66,7 @@ public class WhiteboardGame : MinigameController
             if (timeLeft <= 0)
             {
                 //energy.SetValue(energy.Value - 2);
-                FinishLevel(Answer.None, silentTimelineText);
+                FinishLevel(AnswerValue.None, silentTimelineText);
             }
             yield return null;
         }
@@ -82,12 +82,12 @@ public class WhiteboardGame : MinigameController
         {
             stress.SetValue(stress.Value - 1);
             //energy.SetValue(energy.Value + 1);
-            FinishLevel(Answer.A, yesTimelineText);
+            FinishLevel(AnswerValue.A, yesTimelineText);
         }
         else if(spawner[1] == finishedSpawner)
         {
             //energy.SetValue(energy.Value - 1);
-            FinishLevel(Answer.B, noTimelineText);
+            FinishLevel(AnswerValue.B, noTimelineText);
         }
     }
 }
