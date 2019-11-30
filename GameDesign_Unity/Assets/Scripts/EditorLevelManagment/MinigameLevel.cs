@@ -13,8 +13,6 @@ public class MinigameLevel : Level
         Debug.Log("Resetting MinigameLevels...");
         answer.answer = AnswerValue.NULL;
         answer.timeLineText = "";
-        answer.deltaStress = 0f;
-        answer.deltaMoney = 0f;
-        answer.deltaCharacterSympathy = 0;
+        answer.deltas = null;
     }
 }

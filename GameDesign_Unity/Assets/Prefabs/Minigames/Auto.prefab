@@ -844,13 +844,13 @@ MonoBehaviour:
   question: Kann ich mir dein Auto ausborgen?
   yesAnswer: "Nat\xFCrlich! Gar kein Problem."
   yesTimelineText: Du hast deinem Arbeitskollegen dein Auto geborgt.
-  yesDeltas: {x: 0, y: 0, z: 0}
+  yesDeltas: {x: 1, y: 0, z: 1}
   noAnswer: Tut mir Leid, geht leider nicht.
   noTimelineText: Du hast dein Auto nicht hergeborgt.
-  noDeltas: {x: 0, y: 0, z: 0}
+  noDeltas: {x: 0, y: 0, z: -1}
   silentTimelineText: Du hast deinen Arbeitskollegen ignoriert als er dein Auto borgen
     wollte.
-  silentDeltas: {x: 0, y: 0, z: 0}
+  silentDeltas: {x: -1, y: 0, z: -1}
   character: {fileID: 2246810821910462889, guid: 8acab8f336623294d8932dfd532d9ecb,
     type: 3}
   yesObject: {fileID: 6746591935650232741}

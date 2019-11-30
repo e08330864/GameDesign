@@ -10,24 +10,28 @@ public class MinigameController : LevelController
     [TextArea]
     public string question;
 
-    [Header("YES Answer")]
+    [Space(20)]
+
     [TextArea]
     public string yesAnswer;
     [TextArea]
     public string yesTimelineText;
-    public Vector3 yesDeltas;
+    public ResourceDeltas yesDeltas;
 
-    [Header("NO Answer")]
+    [Space(20)]
+
     [TextArea]
     public string noAnswer;
     [TextArea]
     public string noTimelineText;
-    public Vector3 noDeltas;
+    public ResourceDeltas noDeltas;
 
     [Header("Silent Answer")]
     [TextArea]
     public string silentTimelineText;
-    public Vector3 silentDeltas;
+    public ResourceDeltas silentDeltas;
+
+    [Space(20)]
 
     public Character character;
 

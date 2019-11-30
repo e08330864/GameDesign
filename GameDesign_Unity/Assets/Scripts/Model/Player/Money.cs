@@ -25,4 +25,5 @@ public class Money : MonoBehaviour
             valueBar.SetValue(value);
         }
     }
+
 }

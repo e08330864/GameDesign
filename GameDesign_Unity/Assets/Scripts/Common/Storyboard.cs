@@ -16,6 +16,7 @@ public class Storyboard: MonoBehaviour {
 
     private GameObject currentLevel;
     private Stress stress;
+    private Money money;
 
     public void Start()
     {
@@ -26,8 +27,9 @@ public class Storyboard: MonoBehaviour {
     private void SetPanelValues()
     {
         stress = FindObjectOfType<Stress>();
-        FindObjectOfType<Stress>().SetValue(3);
-        //FindObjectOfType<Money>().SetValue(100);
+        stress.SetValue(3);
+        money = FindObjectOfType<Money>();
+        money.SetValue(3);
     }
 
     public Level GetLevelByName(string name)
@@ -37,19 +39,18 @@ public class Storyboard: MonoBehaviour {
 
     internal void FinishLevel(Answer answer, Character character, string gameShortText)
     {
-        destroyCurrentLevel();
-        applyDeltas(answer);
-
-        if(stress.Value <= 0)
-        {
-            ambulanceOverlay.SetActive(true);
-            Debug.Log("GAME OVER!");
-            return;
-        }
+        DestroyCurrentLevel();
 
         MinigameLevel minigame = levels[currentLevelIndex] as MinigameLevel;
         if (minigame != null)
         {
+            ApplyDeltas(answer, character);
+            if (stress.Value <= 0)
+            {
+                ambulanceOverlay.SetActive(true);
+                Debug.Log("GAME OVER!");
+                return;
+            }
             minigame.character = character;
             minigame.answer = answer;
 
@@ -62,14 +63,14 @@ public class Storyboard: MonoBehaviour {
         }
     }
 
-    private void applyDeltas(Answer answer)
+    private void ApplyDeltas(Answer answer, Character character)
     {
-        //Stress Delta Apply
-        //Money Delta Apply
-        //Sympathy Apply
+        stress.ApplyDelta(answer.deltas.stressDelta);
+        //money.ApplyDelta(answer.money.stressDelta);
+        character.applySympathyDelta(answer.deltas.sympathyDelta);
     }
 
-    private void destroyCurrentLevel()
+    private void DestroyCurrentLevel()
     {
         if (currentLevel != null)
         {

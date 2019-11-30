@@ -22,6 +22,11 @@ public class Character : MonoBehaviour
         playerSympathy = Mathf.Min(maxSympathy, Mathf.Max(minSympathy, playerSympathy - 1));
     }
 
+    public void applySympathyDelta(float delta)
+    {
+        playerSympathy = Mathf.Min(maxSympathy, Mathf.Max(minSympathy, playerSympathy + delta));
+    }
+
     public float GetPlayerSympathy()
     {
         return playerSympathy;
