@@ -26,8 +26,8 @@ public class Storyboard: MonoBehaviour {
     private void SetPanelValues()
     {
         stress = FindObjectOfType<Stress>();
-        stress.SetValue(3);
         FindObjectOfType<Stress>().SetValue(3);
+        //FindObjectOfType<Money>().SetValue(100);
     }
 
     public Level GetLevelByName(string name)
@@ -35,14 +35,10 @@ public class Storyboard: MonoBehaviour {
         return levels.Find(e => e.name == name);
     }
 
-    internal void FinishLevel(AnswerValue answerValue, string timeLineText, Character character, string gameShortText)
+    internal void FinishLevel(Answer answer, Character character, string gameShortText)
     {
-        stress = FindObjectOfType<Stress>();
-        if (currentLevel != null)
-        {
-            GameObject.DestroyImmediate(currentLevel);
-            currentLevel = null;
-        }
+        destroyCurrentLevel();
+        applyDeltas(answer);
 
         if(stress.Value <= 0)
         {
@@ -55,26 +51,30 @@ public class Storyboard: MonoBehaviour {
         if (minigame != null)
         {
             minigame.character = character;
-            minigame.answer.answer = answerValue;
-            minigame.answer.timeLineText = timeLineText;
-            
-            //TODO: Don't hardcode this...
-            if (minigame.answer.answer == AnswerValue.A)
-                minigame.answer.timeLineText += "\n Patience -1 \n Energy +1";
-            else if(minigame.answer.answer == AnswerValue.B)
-                minigame.answer.timeLineText += "\n Energy -1";
-            else if(minigame.answer.answer == AnswerValue.None)
-                minigame.answer.timeLineText += "\n Energy -2";
+            minigame.answer = answer;
 
-            if (stress.Value == 1)
-                minigame.answer.timeLineText += "\n \n Nicht mehr viel Energy übrig, sei vorsichtig....";
-
-            StartCoroutine(ShowAnswer(timeLineText));
+            StartCoroutine(ShowAnswer(answer.timeLineText));
             FindObjectOfType<TimeLine>().AddDecisionPoint(character, minigame.answer, gameShortText);
         }
         else //level was a Cutscene
         {
             SpawnNextLevel();
+        }
+    }
+
+    private void applyDeltas(Answer answer)
+    {
+        //Stress Delta Apply
+        //Money Delta Apply
+        //Sympathy Apply
+    }
+
+    private void destroyCurrentLevel()
+    {
+        if (currentLevel != null)
+        {
+            GameObject.DestroyImmediate(currentLevel);
+            currentLevel = null;
         }
     }
 
@@ -103,4 +103,5 @@ public class Storyboard: MonoBehaviour {
                 GameObject.Instantiate(countdownPrefab, levelParent);
         }
     }
+
 }

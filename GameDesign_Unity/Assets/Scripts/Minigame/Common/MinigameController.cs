@@ -10,20 +10,24 @@ public class MinigameController : LevelController
     [TextArea]
     public string question;
 
+    [Header("YES Answer")]
     [TextArea]
     public string yesAnswer;
-
     [TextArea]
     public string yesTimelineText;
+    public Vector3 yesDeltas;
 
+    [Header("NO Answer")]
     [TextArea]
     public string noAnswer;
-
     [TextArea]
     public string noTimelineText;
+    public Vector3 noDeltas;
 
+    [Header("Silent Answer")]
     [TextArea]
     public string silentTimelineText;
+    public Vector3 silentDeltas;
 
     public Character character;
 
@@ -37,8 +41,8 @@ public class MinigameController : LevelController
         panel.personImage.sprite = character.figureImage;
     }
 
-    internal void FinishLevel(AnswerValue answerValue, string timelineText)
+    internal void FinishLevel(Answer answer)
     {
-        FindObjectOfType<Storyboard>().FinishLevel(answerValue, timelineText, character, gameShortText);
+        FindObjectOfType<Storyboard>().FinishLevel(answer, character, gameShortText);
     }
 }

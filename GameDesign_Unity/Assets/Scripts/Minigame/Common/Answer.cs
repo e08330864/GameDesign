@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public enum AnswerValue
 {
     NULL,
-    A,
-    B,
+    YES,
+    NO,
     None
 }
 
@@ -19,4 +19,24 @@ public class Answer
     public float deltaStress = 0f;
     public float deltaMoney = 0f;
     public float deltaCharacterSympathy = 0f;
+
+    public Answer() { }
+
+    public Answer(AnswerValue answer, string timeLineText, Vector3 deltas)
+    {
+        this.answer = answer;
+        this.timeLineText = timeLineText;
+        this.deltaStress = deltas.x;
+        this.deltaMoney = deltas.y;
+        this.deltaCharacterSympathy = deltas.z;
+    }
+
+    public Answer(AnswerValue answer, string timeLineText, float deltaStress, float deltaMoney, float deltaCharacterSympathy)
+    {
+        this.answer = answer;
+        this.timeLineText = timeLineText;
+        this.deltaStress = deltaStress;
+        this.deltaMoney = deltaMoney;
+        this.deltaCharacterSympathy = deltaCharacterSympathy;
+    }
 }

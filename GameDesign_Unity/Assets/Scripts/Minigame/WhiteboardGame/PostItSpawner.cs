@@ -46,6 +46,7 @@ public class PostItSpawner : MonoBehaviour
         int correctCount = 0;
         foreach(PostItTarget t in targets)
         {
+            if (t == null) continue; 
             if (t.gameObject.activeInHierarchy && t.hasPostIt)
             {
                 correctCount++;

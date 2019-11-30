@@ -767,15 +767,18 @@ MonoBehaviour:
   question: Willst Du mit mir auf Urlaub fahren?
   yesAnswer: Tolle Idee!
   yesTimelineText: Du hast versprochen mit deiner Frau auf Urlaub zu fahren.
+  yesDeltas: {x: 0, y: 0, z: 0}
   noAnswer: Tut mir Leid, ich habe gerade zu viel um die Ohren.
   noTimelineText: Du hast den Urlaub mit deiner Frau abgelehnt
+  noDeltas: {x: 0, y: 0, z: 0}
   silentTimelineText: Du hast deine Frau ignoriert als mit dir auf Urlaub fahren wollte.
+  silentDeltas: {x: 0, y: 0, z: 0}
   character: {fileID: 9037039934281333871, guid: db6a9240bf0a24a47a536a39a3892b2c,
     type: 3}
-  aAnswerObject: {fileID: 7883099699704285467}
-  bAnswerObject: {fileID: 7883099699413506040}
-  aAnimation: {fileID: 7883099699704285460}
-  bAnimation: {fileID: 7883099699413506037}
+  yesObject: {fileID: 7883099699704285467}
+  noObject: {fileID: 7883099699413506040}
+  yesAnim: {fileID: 7883099699704285460}
+  noAnim: {fileID: 7883099699413506037}
 --- !u!1 &7883099701293291525
 GameObject:
   m_ObjectHideFlags: 0

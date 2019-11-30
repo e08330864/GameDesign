@@ -11,24 +11,22 @@ public class WhiteboardGame : MinigameController
     private float timeLimit = 10.0f;
     private float timeLeft;
 
-    //private Energy energy;
     private Stress stress;
 
     private new void Awake()
     {
         base.Awake();
-        //energy = FindObjectOfType<Energy>();
         stress = FindObjectOfType<Stress>();
         Storyboard story = FindObjectOfType<Storyboard>();
         Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
 
-        if(holiday.answer == AnswerValue.A)
+        if(holiday.answer == AnswerValue.YES)
         {
             //Player said Yes to holiday -> make yes here harder
             spawner[0].difficulty = 1;
             spawner[1].difficulty = -1;
         }
-        else if(holiday.answer == AnswerValue.B)
+        else if(holiday.answer == AnswerValue.NO)
         {
             //Player said No to holiday -> make yes here easier
             spawner[0].difficulty = -1;
@@ -65,8 +63,8 @@ public class WhiteboardGame : MinigameController
             spawner[1].updateTimeLimit(timeLeft, timeLimit);
             if (timeLeft <= 0)
             {
-                //energy.SetValue(energy.Value - 2);
-                FinishLevel(AnswerValue.None, silentTimelineText);
+                var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
+                FinishLevel(noneAnswer);
             }
             yield return null;
         }
@@ -80,14 +78,13 @@ public class WhiteboardGame : MinigameController
 
         if (spawner[0] == finishedSpawner)
         {
-            stress.SetValue(stress.Value - 1);
-            //energy.SetValue(energy.Value + 1);
-            FinishLevel(AnswerValue.A, yesTimelineText);
+            var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
+            FinishLevel(yes);
         }
         else if(spawner[1] == finishedSpawner)
         {
-            //energy.SetValue(energy.Value - 1);
-            FinishLevel(AnswerValue.B, noTimelineText);
+            var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
+            FinishLevel(no);
         }
     }
 }
