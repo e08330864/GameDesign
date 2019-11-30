@@ -27,7 +27,7 @@ public class Storyboard: MonoBehaviour {
     private void SetPanelValues()
     {
         stress = FindObjectOfType<Stress>();
-        stress.SetValue(3);
+        stress.SetValue(0);
         money = FindObjectOfType<Money>();
         money.SetValue(3);
     }
@@ -45,7 +45,7 @@ public class Storyboard: MonoBehaviour {
         if (minigame != null)
         {
             ApplyDeltas(answer, character);
-            if (stress.Value <= 0)
+            if (stress.Value >= 5)
             {
                 ambulanceOverlay.SetActive(true);
                 Debug.Log("GAME OVER!");
@@ -54,7 +54,7 @@ public class Storyboard: MonoBehaviour {
             minigame.character = character;
             minigame.answer = answer;
 
-            StartCoroutine(ShowAnswer(answer.timeLineText));
+            StartCoroutine(ShowAnswer(answer));
             FindObjectOfType<TimeLine>().AddDecisionPoint(character, minigame.answer, gameShortText);
         }
         else //level was a Cutscene
@@ -79,9 +79,9 @@ public class Storyboard: MonoBehaviour {
         }
     }
 
-    private IEnumerator ShowAnswer(string timelineText)
+    private IEnumerator ShowAnswer(Answer answer)
     {
-        answerOverlay.GetComponentInChildren<Text>().text = timelineText;
+        answerOverlay.GetComponentInChildren<Text>().text = answer.timeLineText;
         answerOverlay.SetActive(true);
         yield return new WaitForSeconds(displayAnswerDuration);
         answerOverlay.SetActive(false);
