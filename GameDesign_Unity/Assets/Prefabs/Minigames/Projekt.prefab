@@ -410,13 +410,22 @@ MonoBehaviour:
   question: "Wollen Sie das Projekt \xFCbernehmen?"
   yesAnswer: "Selbstverst\xE4ndlich, vielen Dank f\xFCr die Chance!"
   yesTimelineText: "Du hast das neue Projekt \xFCbernommen."
-  yesDeltas: {x: 0, y: 0, z: 0}
+  yesDeltas:
+    stressDelta: 1
+    moneyDelta: 1000
+    sympathyDelta: 1
   noAnswer: Ich schaff das leider nicht.
   noTimelineText: "Du hast das neue Projekt nicht \xFCbernommen."
-  noDeltas: {x: 0, y: 0, z: 0}
+  noDeltas:
+    stressDelta: 0
+    moneyDelta: 0
+    sympathyDelta: -1
   silentTimelineText: Du hast deinen Chef ignoriert als er dir ein neues Projekt geben
     wollte.
-  silentDeltas: {x: 0, y: 0, z: 0}
+  silentDeltas:
+    stressDelta: 0
+    moneyDelta: 0
+    sympathyDelta: -2
   character: {fileID: 2136297721390866012, guid: bebe1696eaffe1344b33e338bdfad75b,
     type: 3}
   spawner:
