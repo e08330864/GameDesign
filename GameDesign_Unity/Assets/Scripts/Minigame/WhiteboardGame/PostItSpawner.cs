@@ -32,10 +32,12 @@ public class PostItSpawner : MonoBehaviour
             {
                 targets[i].spawner = this;
                 targets[i].gameObject.SetActive(true);
+                targets[i].gameObject.transform.parent.gameObject.SetActive(true);
             }
             else
             {
                 targets[i].gameObject.SetActive(false);
+                targets[i].gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
 

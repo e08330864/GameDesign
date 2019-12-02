@@ -5,49 +5,48 @@ using UnityEngine;
 
 public class WhiteboardGame : MinigameController
 {
-    public PostItSpawner[] spawner = new PostItSpawner[2];
+    public PostItSpawner yesSpawner;
+    public PostItSpawner noSpawner;
     public float initialDelay;
 
     private float timeLimit = 10.0f;
     private float timeLeft;
 
-    private Stress stress;
 
     private new void Awake()
     {
         base.Awake();
-        stress = FindObjectOfType<Stress>();
         Storyboard story = FindObjectOfType<Storyboard>();
         Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
 
         if(holiday.answer == AnswerValue.YES)
         {
             //Player said Yes to holiday -> make yes here harder
-            spawner[0].difficulty = 1;
-            spawner[1].difficulty = -1;
+            yesSpawner.difficulty = 1;
+            noSpawner.difficulty = -1;
         }
         else if(holiday.answer == AnswerValue.NO)
         {
             //Player said No to holiday -> make yes here easier
-            spawner[0].difficulty = -1;
-            spawner[1].difficulty = 1;
+            yesSpawner.difficulty = -1;
+            noSpawner.difficulty = 1;
         }
         else if (holiday.answer == AnswerValue.None)
         {
-            spawner[0].difficulty = 1;
-            spawner[1].difficulty = 1;
+            yesSpawner.difficulty = 1;
+            noSpawner.difficulty = 1;
         }
 
         timeLimit = timeLimit - (3.0f * 1);
         timeLeft = timeLimit;
-        spawner[0].Init();
-        spawner[1].Init();
+        yesSpawner.Init();
+        noSpawner.Init();
     }
 
     public override void StartLevel()
     {
-        spawner[0].enabled = true;
-        spawner[1].enabled = true;
+        yesSpawner.enabled = true;
+        noSpawner.enabled = true;
         this.enabled = true;
         StartCoroutine(UpdateTimeLeft());
     }
@@ -59,8 +58,8 @@ public class WhiteboardGame : MinigameController
         {
             timeLeft -= Time.deltaTime;
 
-            spawner[0].updateTimeLimit(timeLeft, timeLimit);
-            spawner[1].updateTimeLimit(timeLeft, timeLimit);
+            yesSpawner.updateTimeLimit(timeLeft, timeLimit);
+            noSpawner.updateTimeLimit(timeLeft, timeLimit);
             if (timeLeft <= 0)
             {
                 var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
@@ -72,16 +71,16 @@ public class WhiteboardGame : MinigameController
 
     public void Answered(PostItSpawner finishedSpawner)
     {
-        spawner[0].enabled = false;
-        spawner[1].enabled = false;
+        yesSpawner.enabled = false;
+        noSpawner.enabled = false;
         this.enabled = false;
 
-        if (spawner[0] == finishedSpawner)
+        if (yesSpawner == finishedSpawner)
         {
             var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
             FinishLevel(yes);
         }
-        else if(spawner[1] == finishedSpawner)
+        else if(noSpawner == finishedSpawner)
         {
             var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
             FinishLevel(no);
