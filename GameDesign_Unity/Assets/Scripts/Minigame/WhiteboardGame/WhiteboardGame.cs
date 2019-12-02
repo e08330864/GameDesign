@@ -8,6 +8,7 @@ public class WhiteboardGame : MinigameController
     public PostItSpawner yesSpawner;
     public PostItSpawner noSpawner;
     public float initialDelay;
+    public bool checkHoliday = true; //TODO: Make this dynamic for different Levels...
 
     private float timeLimit = 10.0f;
     private float timeLeft;
@@ -17,15 +18,32 @@ public class WhiteboardGame : MinigameController
     {
         base.Awake();
         Storyboard story = FindObjectOfType<Storyboard>();
+        
+        //TODO: Make this dynamic for different Levels...
+        if (checkHoliday)
+            setDifficultyHoliday(story); 
+        else{
+            yesSpawner.difficulty = 1;
+            noSpawner.difficulty = 1;
+        }
+
+        timeLimit = timeLimit - (3.0f * 1);
+        timeLeft = timeLimit;
+        yesSpawner.Init();
+        noSpawner.Init();
+    }
+
+    private void setDifficultyHoliday(Storyboard story)
+    {
         Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
 
-        if(holiday.answer == AnswerValue.YES)
+        if (holiday.answer == AnswerValue.YES)
         {
             //Player said Yes to holiday -> make yes here harder
             yesSpawner.difficulty = 1;
             noSpawner.difficulty = -1;
         }
-        else if(holiday.answer == AnswerValue.NO)
+        else if (holiday.answer == AnswerValue.NO)
         {
             //Player said No to holiday -> make yes here easier
             yesSpawner.difficulty = -1;
@@ -36,11 +54,6 @@ public class WhiteboardGame : MinigameController
             yesSpawner.difficulty = 1;
             noSpawner.difficulty = 1;
         }
-
-        timeLimit = timeLimit - (3.0f * 1);
-        timeLeft = timeLimit;
-        yesSpawner.Init();
-        noSpawner.Init();
     }
 
     public override void StartLevel()
