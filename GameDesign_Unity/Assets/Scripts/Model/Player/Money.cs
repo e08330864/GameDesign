@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Money : MonoBehaviour
 {
-    [SerializeField]
-    private List<ValueBar> valueBars = new List<ValueBar>();
 
     [SerializeField]
     private int value = 0;
@@ -20,10 +18,10 @@ public class Money : MonoBehaviour
     public void SetValue(int value)
     {
         this.value = value;
-        foreach (ValueBar valueBar in valueBars)
-        {
-            valueBar.SetValue(value);
-        }
+        //foreach (ValueBar valueBar in valueBars)
+        //{
+        //    valueBar.SetValue(value);
+        //}
     }
 
 }
