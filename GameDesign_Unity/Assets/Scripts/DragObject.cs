@@ -7,18 +7,18 @@ public class DragObject : MonoBehaviour
 	private Vector3 mOffset;
 	private float mZCoord;
 
-	public Collider2D m_ObjectCollider;
+	private Collider2D m_ObjectCollider;
 
     void Start()
     {
         //Fetch the GameObject's Collider (make sure they have a Collider component)
         //Here the GameObject's Collider is not a trigger
-        //m_ObjectCollider.isTrigger = false;
+        m_ObjectCollider = GetComponent<Collider2D>();
         //Output whether the Collider is a trigger type Collider or not
         Debug.Log("Trigger On : " + m_ObjectCollider.isTrigger);
     }
 
-	void OnTriggerEnter(Collider collider)
+	void OnTriggerEnter2D(Collider2D collider)
 	{
     
         Debug.Log("Triggered");
