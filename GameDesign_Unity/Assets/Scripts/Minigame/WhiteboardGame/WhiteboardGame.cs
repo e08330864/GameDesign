@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class WhiteboardGame : MinigameController
 {
+    [Space(20)]
+    [Header("Whiteboard Game Settings")]
     public PostItSpawner yesSpawner;
     public PostItSpawner noSpawner;
     public float initialDelay;
-    public bool checkHoliday = true; //TODO: Make this dynamic for different Levels...
 
     private float timeLimit = 10.0f;
     private float timeLeft;
@@ -19,13 +20,8 @@ public class WhiteboardGame : MinigameController
         base.Awake();
         Storyboard story = FindObjectOfType<Storyboard>();
         
-        //TODO: Make this dynamic for different Levels...
-        if (checkHoliday)
-            setDifficultyHoliday(story); 
-        else{
-            yesSpawner.difficulty = 1;
-            noSpawner.difficulty = 1;
-        }
+        yesSpawner.difficulty = yesDifficulty;
+        noSpawner.difficulty = noDifficulty;
 
         timeLimit = timeLimit - (3.0f * 1);
         timeLeft = timeLimit;

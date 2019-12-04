@@ -427,10 +427,18 @@ MonoBehaviour:
     sympathyDelta: -2
   character: {fileID: -3129542898922548473, guid: 2c648db3f6fa71b4ea823dd2ce8d3128,
     type: 3}
+  yesMoreDifficultYes:
+  - {fileID: 11400000, guid: 919329691f1f6a049a66925ef1f14a91, type: 2}
+  noMoreDifficultYes: []
+  yesEasierYes: []
+  noEasierYes: []
+  yesMoreDifficultNo: []
+  noMoreDifficultNo: []
+  yesEasierNo: []
+  noEasierNo: []
   yesSpawner: {fileID: 1518378724928047265}
   noSpawner: {fileID: 1518378724904604456}
   initialDelay: 2
-  checkHoliday: 0
 --- !u!114 &1518378724691747987
 MonoBehaviour:
   m_ObjectHideFlags: 0

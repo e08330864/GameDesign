@@ -12,17 +12,18 @@ public class PostItSpawner : MonoBehaviour
     public Text counter;
 
     [HideInInspector]
-    public float difficulty;
+    public int difficulty;
 
     private PostIt draggedPostIt;
     private Color spawnColor;
     private int targetCount;
     private WhiteboardGame whiteBoard;
 
-    public void Init()
+    public void Init()  
     {
         whiteBoard = FindObjectOfType<WhiteboardGame>();
-        targetCount = difficulty == 1 ? 3 : 1;
+        var maxTargets = targets.Length;
+        targetCount = Mathf.Clamp( Mathf.RoundToInt(difficulty / 5.0f * maxTargets) + 1, 1, maxTargets);
         counter.text = ""+targetCount;
         spawnColor = this.GetComponent<Image>().color;
         
