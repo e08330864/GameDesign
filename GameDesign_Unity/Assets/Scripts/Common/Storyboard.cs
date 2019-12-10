@@ -16,6 +16,7 @@ public class Storyboard: MonoBehaviour {
 
     private GameObject currentLevel;
     private Stress stress;
+    private Money money;
 
     public void Start()
     {
@@ -26,8 +27,9 @@ public class Storyboard: MonoBehaviour {
     private void SetPanelValues()
     {
         stress = FindObjectOfType<Stress>();
-        stress.SetValue(3);
-        FindObjectOfType<Stress>().SetValue(3);
+        stress.SetValue(0);
+        money = FindObjectOfType<Money>();
+        money.SetValue(2000);
     }
 
     public Level GetLevelByName(string name)
@@ -35,42 +37,25 @@ public class Storyboard: MonoBehaviour {
         return levels.Find(e => e.name == name);
     }
 
-    internal void FinishLevel(Answer? answer, string timelineText, Character character)
+    internal void FinishLevel(Answer answer, Character character, string gameShortText)
     {
-        stress = FindObjectOfType<Stress>();
-        if (currentLevel != null)
-        {
-            GameObject.DestroyImmediate(currentLevel);
-            currentLevel = null;
-        }
-
-        if(stress.Value <= 0)
-        {
-            ambulanceOverlay.SetActive(true);
-            Debug.Log("GAME OVER!");
-            return;
-        }
+        DestroyCurrentLevel();
 
         MinigameLevel minigame = levels[currentLevelIndex] as MinigameLevel;
         if (minigame != null)
         {
-            minigame.timelineText = timelineText;
-            minigame.answer = answer.Value;
-            minigame.personName = character.characterName;
+            ApplyDeltas(answer, character);
+            if (stress.Value >= 5)
+            {
+                ambulanceOverlay.SetActive(true);
+                Debug.Log("GAME OVER!");
+                return;
+            }
+            minigame.character = character;
+            minigame.answer = answer;
 
-            //TODO: Don't hardcode this...
-            if (minigame.answer == Answer.A)
-                timelineText += "\n Patience -1 \n Energy +1";
-            else if(minigame.answer == Answer.B)
-                timelineText += "\n Energy -1";
-            else if(minigame.answer == Answer.None)
-                timelineText += "\n Energy -2";
-
-            if (stress.Value == 1)
-                timelineText += "\n \n Nicht mehr viel Energy übrig, sei vorsichtig....";
-
-            StartCoroutine(ShowAnswer(timelineText));
-            FindObjectOfType<TimeLine>().AddDecisionPoint(character, timelineText);
+            StartCoroutine(ShowAnswer(answer));
+            FindObjectOfType<TimeLine>().AddDecisionPoint(character, minigame.answer, gameShortText);
         }
         else //level was a Cutscene
         {
@@ -78,9 +63,41 @@ public class Storyboard: MonoBehaviour {
         }
     }
 
-    private IEnumerator ShowAnswer(string timelineText)
+    private void ApplyDeltas(Answer answer, Character character)
     {
-        answerOverlay.GetComponentInChildren<Text>().text = timelineText;
+        stress.ApplyDelta(answer.deltas.stressDelta);
+        //TODO: Apply Money Delta money.ApplyDelta(answer.deltas.moneyDelta);
+        character.applySympathyDelta(answer.deltas.sympathyDelta);
+        answer.timeLineText = addDeltasText(answer.timeLineText, answer.deltas);
+    }
+
+    private string addDeltasText(string timeLineText, ResourceDeltas deltas)
+    {
+        timeLineText += "\n\n";
+        if (deltas.stressDelta > 0) timeLineText += "Du fühlst dich gestresst.\n";
+        else if (deltas.stressDelta < 0) timeLineText += "Du fühlst dich entspannter.\n";
+
+        if (deltas.moneyDelta > 0) timeLineText += "Du bekommst "+deltas.moneyDelta+ "€.\n";
+        else if (deltas.moneyDelta < 0) timeLineText += "Du verlierst " + deltas.moneyDelta + "€.\n";
+
+        if (deltas.sympathyDelta > 0) timeLineText += "Dein Gegenüber scheint dich besser Leiden zu können.\n";
+        else if (deltas.sympathyDelta < 0) timeLineText += "Dein Gegenüber scheint dich weniger zu mögen.\n";
+
+        return timeLineText;
+    }
+
+    private void DestroyCurrentLevel()
+    {
+        if (currentLevel != null)
+        {
+            GameObject.DestroyImmediate(currentLevel);
+            currentLevel = null;
+        }
+    }
+
+    private IEnumerator ShowAnswer(Answer answer)
+    {
+        answerOverlay.GetComponentInChildren<Text>().text = answer.timeLineText;
         answerOverlay.SetActive(true);
         yield return new WaitForSeconds(displayAnswerDuration);
         answerOverlay.SetActive(false);
@@ -103,4 +120,5 @@ public class Storyboard: MonoBehaviour {
                 GameObject.Instantiate(countdownPrefab, levelParent);
         }
     }
+
 }

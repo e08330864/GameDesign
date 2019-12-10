@@ -12,17 +12,18 @@ public class PostItSpawner : MonoBehaviour
     public Text counter;
 
     [HideInInspector]
-    public float difficulty;
+    public int difficulty;
 
     private PostIt draggedPostIt;
     private Color spawnColor;
     private int targetCount;
     private WhiteboardGame whiteBoard;
 
-    public void Init()
+    public void Init()  
     {
         whiteBoard = FindObjectOfType<WhiteboardGame>();
-        targetCount = difficulty == 1 ? 3 : 1;
+        var maxTargets = targets.Length;
+        targetCount = Mathf.Clamp( Mathf.RoundToInt(difficulty / 5.0f * maxTargets) + 1, 1, maxTargets);
         counter.text = ""+targetCount;
         spawnColor = this.GetComponent<Image>().color;
         
@@ -32,10 +33,12 @@ public class PostItSpawner : MonoBehaviour
             {
                 targets[i].spawner = this;
                 targets[i].gameObject.SetActive(true);
+                targets[i].gameObject.transform.parent.gameObject.SetActive(true);
             }
             else
             {
                 targets[i].gameObject.SetActive(false);
+                targets[i].gameObject.transform.parent.gameObject.SetActive(false);
             }
         }
 
@@ -46,6 +49,7 @@ public class PostItSpawner : MonoBehaviour
         int correctCount = 0;
         foreach(PostItTarget t in targets)
         {
+            if (t == null) continue; 
             if (t.gameObject.activeInHierarchy && t.hasPostIt)
             {
                 correctCount++;

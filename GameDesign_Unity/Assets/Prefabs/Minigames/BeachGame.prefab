@@ -763,20 +763,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f54d2c22a68f5439c97f33e80f3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameShortText: Urlaub
   question: Willst Du mit mir auf Urlaub fahren?
   yesAnswer: Tolle Idee!
   yesTimelineText: Du hast versprochen mit deiner Frau auf Urlaub zu fahren.
+  yesDeltas:
+    stressDelta: 1
+    moneyDelta: -2000
+    sympathyDelta: 1
   noAnswer: Tut mir Leid, ich habe gerade zu viel um die Ohren.
   noTimelineText: Du hast den Urlaub mit deiner Frau abgelehnt
+  noDeltas:
+    stressDelta: 0
+    moneyDelta: 0
+    sympathyDelta: -1
   silentTimelineText: Du hast deine Frau ignoriert als mit dir auf Urlaub fahren wollte.
+  silentDeltas:
+    stressDelta: 0
+    moneyDelta: 0
+    sympathyDelta: -2
   character: {fileID: 9037039934281333871, guid: db6a9240bf0a24a47a536a39a3892b2c,
     type: 3}
-  personName: Frau
-  personImage: {fileID: 21300000, guid: 7c1dfb682db1d8145af5116a49c09019, type: 3}
-  aAnswerObject: {fileID: 7883099699704285467}
-  bAnswerObject: {fileID: 7883099699413506040}
-  aAnimation: {fileID: 7883099699704285460}
-  bAnimation: {fileID: 7883099699413506037}
+  yesObject: {fileID: 7883099699704285467}
+  noObject: {fileID: 7883099699413506040}
 --- !u!1 &7883099701293291525
 GameObject:
   m_ObjectHideFlags: 0

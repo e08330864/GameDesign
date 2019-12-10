@@ -5,51 +5,57 @@ using UnityEngine;
 
 public class WhiteboardGame : MinigameController
 {
-    public PostItSpawner[] spawner = new PostItSpawner[2];
+    [Space(20)]
+    [Header("Whiteboard Game Settings")]
+    public PostItSpawner yesSpawner;
+    public PostItSpawner noSpawner;
     public float initialDelay;
 
     private float timeLimit = 10.0f;
     private float timeLeft;
 
-    //private Energy energy;
-    private Stress stress;
 
     private new void Awake()
     {
         base.Awake();
-        //energy = FindObjectOfType<Energy>();
-        stress = FindObjectOfType<Stress>();
         Storyboard story = FindObjectOfType<Storyboard>();
-        Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
-
-        if(holiday == Answer.A)
-        {
-            //Player said Yes to holiday -> make yes here harder
-            spawner[0].difficulty = 1;
-            spawner[1].difficulty = -1;
-        }
-        else if(holiday == Answer.B)
-        {
-            //Player said No to holiday -> make yes here easier
-            spawner[0].difficulty = -1;
-            spawner[1].difficulty = 1;
-        }
-        else if (holiday == Answer.None)
-        {
-            spawner[0].difficulty = 1;
-            spawner[1].difficulty = 1;
-        }
+        
+        yesSpawner.difficulty = yesDifficulty;
+        noSpawner.difficulty = noDifficulty;
 
         timeLimit = timeLimit - (3.0f * 1);
         timeLeft = timeLimit;
-        spawner[0].Init();
-        spawner[1].Init();
+        yesSpawner.Init();
+        noSpawner.Init();
+    }
+
+    private void setDifficultyHoliday(Storyboard story)
+    {
+        Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
+
+        if (holiday.answer == AnswerValue.YES)
+        {
+            //Player said Yes to holiday -> make yes here harder
+            yesSpawner.difficulty = 1;
+            noSpawner.difficulty = -1;
+        }
+        else if (holiday.answer == AnswerValue.NO)
+        {
+            //Player said No to holiday -> make yes here easier
+            yesSpawner.difficulty = -1;
+            noSpawner.difficulty = 1;
+        }
+        else if (holiday.answer == AnswerValue.None)
+        {
+            yesSpawner.difficulty = 1;
+            noSpawner.difficulty = 1;
+        }
     }
 
     public override void StartLevel()
     {
-        spawner[0].enabled = true;
-        spawner[1].enabled = true;
+        yesSpawner.enabled = true;
+        noSpawner.enabled = true;
         this.enabled = true;
         StartCoroutine(UpdateTimeLeft());
     }
@@ -61,12 +67,12 @@ public class WhiteboardGame : MinigameController
         {
             timeLeft -= Time.deltaTime;
 
-            spawner[0].updateTimeLimit(timeLeft, timeLimit);
-            spawner[1].updateTimeLimit(timeLeft, timeLimit);
+            yesSpawner.updateTimeLimit(timeLeft, timeLimit);
+            noSpawner.updateTimeLimit(timeLeft, timeLimit);
             if (timeLeft <= 0)
             {
-                //energy.SetValue(energy.Value - 2);
-                FinishLevel(Answer.None, silentTimelineText);
+                var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
+                FinishLevel(noneAnswer);
             }
             yield return null;
         }
@@ -74,20 +80,19 @@ public class WhiteboardGame : MinigameController
 
     public void Answered(PostItSpawner finishedSpawner)
     {
-        spawner[0].enabled = false;
-        spawner[1].enabled = false;
+        yesSpawner.enabled = false;
+        noSpawner.enabled = false;
         this.enabled = false;
 
-        if (spawner[0] == finishedSpawner)
+        if (yesSpawner == finishedSpawner)
         {
-            stress.SetValue(stress.Value - 1);
-            //energy.SetValue(energy.Value + 1);
-            FinishLevel(Answer.A, yesTimelineText);
+            var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
+            FinishLevel(yes);
         }
-        else if(spawner[1] == finishedSpawner)
+        else if(noSpawner == finishedSpawner)
         {
-            //energy.SetValue(energy.Value - 1);
-            FinishLevel(Answer.B, noTimelineText);
+            var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
+            FinishLevel(no);
         }
     }
 }

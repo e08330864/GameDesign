@@ -1,29 +1,57 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MinigameController : LevelController
 {
+    [TextArea]
+    public string gameShortText;
 
     [TextArea]
     public string question;
 
-    [TextArea]
-    public string yesAnswer;
+    [Space(20)]
 
     [TextArea]
+    public string yesAnswer;
+    [TextArea]
     public string yesTimelineText;
+    public ResourceDeltas yesDeltas;
+
+    [Space(20)]
 
     [TextArea]
     public string noAnswer;
-
     [TextArea]
     public string noTimelineText;
+    public ResourceDeltas noDeltas;
 
+    [Header("Silent Answer")]
     [TextArea]
     public string silentTimelineText;
+    public ResourceDeltas silentDeltas;
 
+    [Space(20)]
     public Character character;
+
+    [Header("Adjust Difficulty of Yes Answer")]
+    public List<MinigameLevel> yesMoreDifficultYes;
+    public List<MinigameLevel> noMoreDifficultYes;
+    public List<MinigameLevel> yesEasierYes;
+    public List<MinigameLevel> noEasierYes;
+
+    [Header("Adjust Difficulty of No Answer")]
+    public List<MinigameLevel> yesMoreDifficultNo;
+    public List<MinigameLevel> noMoreDifficultNo;
+    public List<MinigameLevel> yesEasierNo;
+    public List<MinigameLevel> noEasierNo;
+
+    internal int yesDifficulty = 0;
+    internal int noDifficulty = 0;
+
+    private readonly int minDifficulty = 0;
+    private readonly int maxDifficulty = 5;
 
     public void Awake()
     {
@@ -32,11 +60,45 @@ public class MinigameController : LevelController
         panel.yesAnswer.text = yesAnswer;
         panel.noAnswer.text = noAnswer;
         panel.personName.text = character.characterName;
-        panel.personImage.sprite = character.GetSprite();
+        panel.personImage.sprite = character.figureImage;
+        yesDifficulty = calcDifficulty(yesMoreDifficultYes, yesMoreDifficultNo, yesEasierYes, yesEasierNo, FindObjectOfType<Stress>().Value);
+        noDifficulty = calcDifficulty(noMoreDifficultYes, noMoreDifficultNo, noEasierYes, noEasierNo, FindObjectOfType<Stress>().Value);
     }
 
-    internal void FinishLevel(Answer answer, string timelineText)
+    internal void FinishLevel(Answer answer)
     {
-        FindObjectOfType<Storyboard>().FinishLevel(answer, timelineText, character);
+        FindObjectOfType<Storyboard>().FinishLevel(answer, character, gameShortText);
+    }
+
+    private int calcDifficulty(List<MinigameLevel> yesMoreDifficult, List<MinigameLevel> noMoreDifficult, List<MinigameLevel> yesEasier, List<MinigameLevel> noEasier, int stress)
+    {
+        int difficulty = 0;
+
+        yesMoreDifficult.ForEach(lvl =>
+        {
+            difficulty += minigameAnswerIs(lvl, AnswerValue.YES);
+        });
+
+        noMoreDifficult.ForEach(lvl =>
+        {
+            difficulty += minigameAnswerIs(lvl, AnswerValue.NO);
+        });
+
+        yesEasier.ForEach(lvl =>
+        {
+            difficulty -= minigameAnswerIs(lvl, AnswerValue.YES);
+        });
+
+        noEasier.ForEach(lvl =>
+        {
+            difficulty -= minigameAnswerIs(lvl, AnswerValue.NO);
+        });
+
+        return Mathf.Clamp(difficulty+stress, minDifficulty, maxDifficulty);
+    }
+
+    private int minigameAnswerIs(MinigameLevel minigame, AnswerValue value)
+    {
+        return minigame.answer.answer == value ? 1 : 0;
     }
 }

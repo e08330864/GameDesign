@@ -20,12 +20,13 @@ public class TimeLine : MonoBehaviour
         //}
     }
 
-    public void AddDecisionPoint(Character character, string timeLineText)
+    public void AddDecisionPoint(Character character, Answer answer, string gameShortText)
     {
         DecisionPoint decisionPoint = Instantiate(decisionPointPrefab);
         decisionPoint.gameObject.transform.SetParent(transform, true);
-        decisionPoint.SetDecisionText(timeLineText);
         decisionPoint.SetCharacter(character);
+        decisionPoint.SetAnswer(answer);
+        decisionPoint.SetGameShortText(gameShortText);
 
         decisionPoints.Add(decisionPoint);
         UpdateTimeLine();

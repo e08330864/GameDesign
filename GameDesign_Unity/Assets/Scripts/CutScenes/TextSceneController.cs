@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class TextSceneController : LevelController
 {
     public List<Text> dialogTextList;
-    private float waitSecondsBefore = 3.0f;
+    private float waitSecondsBefore = 2.0f;
     private float waitSecondsAfter = 3.0f;
-    private float waitSecondsPerChar = 0.05f;
-    private float waitSecondsPerNewLine = 1.5f;
+    private float waitSecondsPerChar = 0.02f;
+    private float waitSecondsPerNewLine = 1f;
     private DateTime time;
     private int counter = 0;
 

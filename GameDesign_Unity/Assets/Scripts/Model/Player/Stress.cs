@@ -26,5 +26,9 @@ public class Stress : MonoBehaviour
         }
     }
 
+    public void ApplyDelta(int delta)
+    {
+        SetValue(value + delta);
+    }
 
 }

@@ -8,72 +8,67 @@ using UnityEngine.UI;
 public class CatchingAnswerGame : MinigameController
 {
 
-    public GameObject aAnswerObject;
-    public GameObject bAnswerObject;
+    public GameObject yesObject;
+    public GameObject noObject;
 
-    public Animator aAnimation;
-    public Animator bAnimation;
-
-    private Answer aAnswer;
-    private Answer bAnswer;
+    private Animator yesAnim;
+    private Animator noAnim;
 
     private float timeLimit = 10.0f;
     private float timeLeft;
 
     private float speed = 0.5f;
-    private float aSpeed;
-    private float bSpeed;
-    private int aDifficulty;
-    private int bDifficulty;
-
-    private Stress stress;
+    private float yesSpeed;
+    private float noSpeed;
+    private int yesDifficulty;
+    private int noDifficulty;
 
     private new void Awake()
     {
         base.Awake();
-        stress = FindObjectOfType<Stress>();
-        aAnswer = Answer.A;
-        aAnswerObject.GetComponentInChildren<Text>().text = "JA";
+        yesObject.GetComponentInChildren<Text>().text = "JA";
+        noObject.GetComponentInChildren<Text>().text = "NEIN";
 
-        bAnswer = Answer.B;
-        bAnswerObject.GetComponentInChildren<Text>().text = "NEIN";
+        yesAnim = yesObject.GetComponent<Animator>();
+        noAnim = noObject.GetComponent<Animator>();
 
-        aAnimation.speed = speed + 0.1f * aDifficulty;
-        bAnimation.speed = speed + 0.1f * bDifficulty;
+        yesAnim.speed = speed + 0.1f * yesDifficulty;
+        noAnim.speed = speed + 0.1f * noDifficulty;
         StartCoroutine(AnswerOnAnimationFinish());
     }
 
+
     private IEnumerator AnswerOnAnimationFinish()
     {
-        yield return new WaitUntil(() => aAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
-        stress.SetValue(stress.Value - 2);
-        FinishLevel(Answer.None, silentTimelineText);
+        yield return new WaitUntil(() => yesAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+        var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
+        FinishLevel(noneAnswer);
     }
 
     public override void StartLevel()
     {
-        bAnimation.enabled = true;
-        aAnimation.enabled = true;
+        noAnim.enabled = true;
+        yesAnim.enabled = true;
     }
 
     public void AnswerClicked()
     {
         GameObject clicked = EventSystem.current.currentSelectedGameObject;
 
-        aAnswerObject.GetComponent<Button>().interactable = false;
-        bAnswerObject.GetComponent<Button>().interactable = false;
+        yesObject.GetComponent<Button>().interactable = false;
+        noObject.GetComponent<Button>().interactable = false;
+        noAnim.enabled = false;
+        yesAnim.enabled = false;
 
-        if (clicked == aAnswerObject)
+        if (clicked == yesObject)
         {
-            aAnimation.enabled = false;
-            stress.SetValue(stress.Value - 1);
-            FinishLevel(aAnswer, yesTimelineText);
+            var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
+            FinishLevel(yes);
         }
-        else if(clicked == bAnswerObject)
+        else if(clicked == noObject)
         {
-            bAnimation.enabled = false;
-            //bstress.SetValue(stress.Value - 1);
-            FinishLevel(bAnswer, noTimelineText);
+            var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
+            FinishLevel(no);
         }
     }
 }
