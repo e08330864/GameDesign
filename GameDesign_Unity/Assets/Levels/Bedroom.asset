@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45968efff3a128f46b146b3ffe3f2f7e, type: 3}
-  m_Name: GrabHand
+  m_Script: {fileID: 11500000, guid: 35c8e7eaff3dee64fa922b58c2a9a45c, type: 3}
+  m_Name: Bedroom
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6857903663698149685, guid: b49a9e5cd86bd684fa9fb603cfc1d4e3, type: 3}
+  prefab: {fileID: 6426543504417115017, guid: d76e496426ad9094ba41be1e9d692ac8, type: 3}

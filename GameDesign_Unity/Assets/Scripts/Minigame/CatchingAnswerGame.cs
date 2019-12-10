@@ -37,6 +37,7 @@ public class CatchingAnswerGame : MinigameController
         StartCoroutine(AnswerOnAnimationFinish());
     }
 
+
     private IEnumerator AnswerOnAnimationFinish()
     {
         yield return new WaitUntil(() => yesAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
