@@ -29,8 +29,8 @@ public class DragObject : MonoBehaviour
 	
 	void FixedUpdate()
 	{
-	var rawPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-	var targetPosition = new Vector2(0, rawPosition.y + verschieb);
+	var rawPosition = Input.mousePosition;
+	var targetPosition = new Vector2(0, rawPosition.y);
 	GetComponent<Rigidbody2D>().MovePosition(targetPosition);
 	}
 
@@ -80,7 +80,7 @@ public class DragObject : MonoBehaviour
 	void OnMouseDrag()
 	{
 			//transform.position= mousePosWorld + mOffset
-			transform.position = GetMouseWorldPos() + mOffset;
+			//transform.position = GetMouseWorldPos() + mOffset;
 
 			
 	}
