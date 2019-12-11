@@ -8,20 +8,10 @@ public class Money : MonoBehaviour
     [SerializeField]
     private int value = 0;
 
-    public int Value { get => value; }
+    public int Value { get => value; set => this.value = value; }
 
     void Start()
     {
-        SetValue(value);
+        Value = value;
     }
-
-    public void SetValue(int value)
-    {
-        this.value = value;
-        //foreach (ValueBar valueBar in valueBars)
-        //{
-        //    valueBar.SetValue(value);
-        //}
-    }
-
 }

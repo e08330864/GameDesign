@@ -32,6 +32,12 @@ public class DecisionPoint : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         this.answer = answer;
         gameObject.transform.Find("Decision").Find("DecisionBackground").Find("DecisionText").GetComponent<TextMeshProUGUI>().text = answer.timeLineText;
+        Transform go = gameObject.transform.Find("GameShortText").Find("DeltaStress");
+        go.GetComponent<TextMeshProUGUI>().text = (answer.deltas.stressDelta > 0 ? "+" : "") + answer.deltas.stressDelta.ToString();
+        go = go.Find("DeltaMoney");
+        go.GetComponent<TextMeshProUGUI>().text = (answer.deltas.moneyDelta > 0 ? "+" : "") + answer.deltas.moneyDelta.ToString() + " €";
+        go = go.Find("DeltaSympathy");
+        go.GetComponent<TextMeshProUGUI>().text = (answer.deltas.sympathyDelta > 0 ? "+" : "") + answer.deltas.sympathyDelta.ToString();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
