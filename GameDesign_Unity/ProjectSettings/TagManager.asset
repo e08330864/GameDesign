@@ -10,6 +10,12 @@ TagManager:
   - PanelQuestion
   - PanelAnswerB
   - LevelContainer
+  - MoneyPanelValue
+  - SympathyCharacters
+  - Boss
+  - Vanessa
+  - David
+  - Bright
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,8 @@ public class MinigameController : LevelController
     public ResourceDeltas silentDeltas;
 
     [Space(20)]
-    public Character character;
+    public Character gameCharacterPrefab;
+    private Character character;
 
     [Header("Adjust Difficulty of Yes Answer")]
     public List<MinigameLevel> yesMoreDifficultYes;
@@ -56,11 +57,20 @@ public class MinigameController : LevelController
     public void Awake()
     {
         Panel panel = FindObjectOfType<Panel>();
-        panel.question.text = question;
-        panel.yesAnswer.text = yesAnswer;
-        panel.noAnswer.text = noAnswer;
-        panel.personName.text = character.characterName;
-        panel.personImage.sprite = character.figureImage;
+        
+        // character game initialization - if not already initialized
+        GameObject characterGO = null;
+        if ((characterGO = GameObject.FindGameObjectWithTag(gameCharacterPrefab.tag)) == null)
+        {
+            character = Instantiate(gameCharacterPrefab);
+            character.transform.parent = GameObject.Find("SympathyCharacters").transform;
+        }
+        else
+        {
+            character = characterGO.GetComponent<Character>();
+        }
+
+
         yesDifficulty = calcDifficulty(yesMoreDifficultYes, yesMoreDifficultNo, yesEasierYes, yesEasierNo, FindObjectOfType<Stress>().Value);
         noDifficulty = calcDifficulty(noMoreDifficultYes, noMoreDifficultNo, noEasierYes, noEasierNo, FindObjectOfType<Stress>().Value);
     }

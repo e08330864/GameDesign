@@ -29,7 +29,6 @@ public class Storyboard: MonoBehaviour {
         stress = FindObjectOfType<Stress>();
         stress.SetValue(0);
         money = FindObjectOfType<Money>();
-        money.Value = 5000;
     }
 
     public Level GetLevelByName(string name)
@@ -66,7 +65,7 @@ public class Storyboard: MonoBehaviour {
     private void ApplyDeltas(Answer answer, Character character)
     {
         stress.ApplyDelta(answer.deltas.stressDelta);
-        money.Value = money.Value - answer.deltas.moneyDelta;
+        money.SetValue(money.Value - answer.deltas.moneyDelta);
         character.applySympathyDelta(answer.deltas.sympathyDelta);
         answer.timeLineText = addDeltasText(answer.timeLineText, answer.deltas);
     }

@@ -23,8 +23,7 @@ public class DecisionPoint : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void SetCharacter(Character character)
     {
         this.character = character;
-        gameObject.transform.Find("PersonIcon").GetComponent<Image>().sprite = character.iconImage;
-        gameObject.transform.Find("PersonImage").GetComponent<Image>().sprite = character.figureImage;
+        gameObject.transform.Find("PersonImage").GetComponent<Image>().sprite = character.GetFigureImage();
         gameObject.transform.Find("PersonName").GetComponent<TextMeshProUGUI>().text = character.characterName;
     }
 

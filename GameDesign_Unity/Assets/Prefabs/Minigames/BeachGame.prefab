@@ -782,8 +782,16 @@ MonoBehaviour:
     stressDelta: 0
     moneyDelta: 0
     sympathyDelta: -2
-  character: {fileID: 9037039934281333871, guid: db6a9240bf0a24a47a536a39a3892b2c,
+  gameCharacterPrefab: {fileID: 3537675763610850388, guid: e4c9f8fa75d06e34bb136e8c476f503c,
     type: 3}
+  yesMoreDifficultYes: []
+  noMoreDifficultYes: []
+  yesEasierYes: []
+  noEasierYes: []
+  yesMoreDifficultNo: []
+  noMoreDifficultNo: []
+  yesEasierNo: []
+  noEasierNo: []
   yesObject: {fileID: 7883099699704285467}
   noObject: {fileID: 7883099699413506040}
 --- !u!1 &7883099701293291525
