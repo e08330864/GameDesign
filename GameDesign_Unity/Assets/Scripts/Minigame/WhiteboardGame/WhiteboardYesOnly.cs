@@ -3,13 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhiteboardYesOnly : MinigameController
+public class WhiteboardYesOnly : WhiteboardGame
 {
-    [Space(20)]
-    [Header("Whiteboard Game Settings")]
-    public PostItSpawner yesSpawner;
-    public float initialDelay;
-
     private float timeLimit = 15.0f;
     private float timeLeft;
 
@@ -49,7 +44,7 @@ public class WhiteboardYesOnly : MinigameController
         }
     }
 
-    public void Answered(PostItSpawner finishedSpawner)
+    public new void Answered(PostItSpawner finishedSpawner)
     {
         yesSpawner.enabled = false;
         this.enabled = false;

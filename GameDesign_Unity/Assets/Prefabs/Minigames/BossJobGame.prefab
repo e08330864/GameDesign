@@ -406,6 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b36e525c0bc0424b9c87393ea010364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipOnYes: []
+  skipOnNo: []
   gameShortText: Abteilungsleiter
   question: Sie werden jetzt Abteilungsleiter!
   yesAnswer: "Selbstverst\xE4ndlich, vielen Dank f\xFCr die Chance!"
@@ -415,7 +417,7 @@ MonoBehaviour:
     moneyDelta: 1000
     sympathyDelta: 1
   noAnswer: Ich schaff das leider nicht.
-  noTimelineText: Du hast den Abteilungsleiter Posten abgelehnt
+  noTimelineText: Du hast den Abteilungsleiter Posten abgelehnt.
   noDeltas:
     stressDelta: 0
     moneyDelta: 0

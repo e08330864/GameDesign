@@ -325,7 +325,7 @@ MonoBehaviour:
   gameShortText: "\xDCberzeugung"
   question: "Du musst mir helfen den Boss zu \xFCberzeugen!"
   yesAnswer: Danke Danke Danke!
-  yesTimelineText: "John hilft dir den Boss zu \xFCberzuegen!"
+  yesTimelineText: "John hilft dir den Boss zu \xFCberzeugen!"
   yesDeltas:
     stressDelta: 0
     moneyDelta: 0
@@ -341,7 +341,8 @@ MonoBehaviour:
     stressDelta: 0
     moneyDelta: 0
     sympathyDelta: 0
-  gameCharacterPrefab: {fileID: 0}
+  gameCharacterPrefab: {fileID: 7929803375957869780, guid: d4a6b9f64ac79a540b295c27a683ef6e,
+    type: 3}
   yesMoreDifficultYes: []
   noMoreDifficultYes: []
   yesEasierYes: []
@@ -351,7 +352,10 @@ MonoBehaviour:
   yesEasierNo: []
   noEasierNo: []
   yesSpawner: {fileID: 1518378724928047265}
-  initialDelay: 0
+  noSpawner: {fileID: 0}
+  initialDelay: 3
+  yesSpawner: {fileID: 1518378724928047265}
+  initialDelay: 3
 --- !u!1 &1518378724928047268
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +451,8 @@ MonoBehaviour:
   - {fileID: 500666031867153127}
   - {fileID: 500666031107703330}
   - {fileID: 500666031929706233}
+  - {fileID: 8727086361768862298}
+  - {fileID: 6640385615568387702}
   counter: {fileID: 1794550399005927158}
   difficulty: 0
 --- !u!114 &1518378724928047264
@@ -850,6 +856,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
+--- !u!224 &3198324467298014370 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+    type: 3}
+  m_PrefabInstance: {fileID: 1518378723725756643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &500666031867153127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1432395911230947844, guid: 717d0dec01b8edc4cb1f2778c8559c84,
@@ -862,12 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe3c6182575c2b479ec4a3ba45a03ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &3198324467298014370 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-    type: 3}
-  m_PrefabInstance: {fileID: 1518378723725756643}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1518378724526063654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1164,6 +1170,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
+--- !u!114 &6640385615568387702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1432395911230947844, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+    type: 3}
+  m_PrefabInstance: {fileID: 5748712935718763634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe3c6182575c2b479ec4a3ba45a03ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8554413472373792819 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
@@ -1304,6 +1322,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
+--- !u!114 &8727086361768862298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1432395911230947844, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+    type: 3}
+  m_PrefabInstance: {fileID: 7709092407333560414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe3c6182575c2b479ec4a3ba45a03ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6020420984783600671 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,

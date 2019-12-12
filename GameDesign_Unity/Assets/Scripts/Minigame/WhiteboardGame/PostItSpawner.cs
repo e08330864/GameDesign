@@ -54,7 +54,13 @@ public class PostItSpawner : MonoBehaviour
             {
                 correctCount++;
                 counter.text = ""+(targetCount-correctCount);
-                if (correctCount == targetCount) whiteBoard.Answered(this);
+                if (correctCount == targetCount)
+                {
+                    if (whiteBoard is WhiteboardYesOnly)
+                        (whiteBoard as WhiteboardYesOnly).Answered(this);
+                    else
+                        whiteBoard.Answered(this);
+                }
             }
         }
     }
