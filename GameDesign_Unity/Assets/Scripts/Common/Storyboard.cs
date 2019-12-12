@@ -112,11 +112,47 @@ public class Storyboard: MonoBehaviour {
             {
                 Debug.LogError("levelContainer is NULL in Storyboard");
             }
+            var nextLevel = levels[currentLevelIndex].prefab.GetComponent<LevelController>();
+
+            if (shouldSkip(nextLevel))
+            {
+                SpawnNextLevel();
+                return;
+            }
+
             currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
             currentLevel.gameObject.transform.SetParent(levelContainer.transform);
             if (levels[currentLevelIndex] is MinigameLevel)
                 GameObject.Instantiate(countdownPrefab, levelParent);
         }
+    }
+
+    private bool shouldSkip(LevelController nextLevel)
+    {
+        bool shouldSkip = false;
+        nextLevel.skipOnYes.ForEach((level) =>
+        {
+            if (level.answer.answer == AnswerValue.YES)
+            {
+                Debug.Log("Skipping Level: " + nextLevel.name);
+                shouldSkip = true;
+            }
+        });
+        nextLevel.skipOnNo.ForEach((level) =>
+        {
+
+            if (level.answer.answer == AnswerValue.NO)
+            {
+                Debug.Log("Skipping Level: " + nextLevel.name);
+                shouldSkip = true;
+            }
+        });
+        return shouldSkip;
+    }
+
+    public void GameOver(string endText)
+    {
+        //Create summary of game progress.
     }
 
 }

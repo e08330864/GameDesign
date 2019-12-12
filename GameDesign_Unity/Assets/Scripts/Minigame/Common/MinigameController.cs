@@ -51,8 +51,8 @@ public class MinigameController : LevelController
     internal int yesDifficulty = 0;
     internal int noDifficulty = 0;
 
-    private readonly int minDifficulty = 0;
-    private readonly int maxDifficulty = 5;
+    internal readonly int minDifficulty = 0;
+    internal readonly int maxDifficulty = 5;
 
     public void Awake()
     {
