@@ -53,7 +53,10 @@ public class Storyboard: MonoBehaviour {
             minigame.answer = answer;
 
             StartCoroutine(ShowAnswer(answer));
-            FindObjectOfType<TimeLine>().AddDecisionPoint(character, minigame.answer, gameShortText);
+            if (minigame.answer != null)
+            {
+                FindObjectOfType<TimeLine>().AddDecisionPoint(character, minigame.answer, gameShortText);
+            }
         }
         else //level was a Cutscene
         {
