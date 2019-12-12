@@ -27,7 +27,6 @@ public class Storyboard: MonoBehaviour {
     private void SetPanelValues()
     {
         stress = FindObjectOfType<Stress>();
-        stress.SetValue(0);
         money = FindObjectOfType<Money>();
     }
 

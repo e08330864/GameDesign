@@ -8,7 +8,7 @@ public class Stress : MonoBehaviour
     private List<ValueBar> valueBars = new List<ValueBar>();
 
     [SerializeField]
-    private int value = 0;
+    private int value = 3;
 
     public int Value { get => value; }
 
