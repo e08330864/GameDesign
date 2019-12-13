@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c8e7eaff3dee64fa922b58c2a9a45c, type: 3}
   m_Name: BossKicked
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4036134869989247675, guid: d9b9eb2b034ae3d4b96a91e70789ee4f, type: 3}

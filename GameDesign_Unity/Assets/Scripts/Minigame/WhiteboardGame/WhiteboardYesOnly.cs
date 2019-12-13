@@ -38,7 +38,7 @@ public class WhiteboardYesOnly : WhiteboardGame
             if (timeLeft <= 0)
             {
                 Storyboard story = FindObjectOfType<Storyboard>();
-                story.GameOver("Dein Chef hat dich gefeuert.");
+                story.GameOver("Dein Boss hat dich gefeuert, ohne disen Job wird sich dein Leben gewaltig verändern...");
             }
             yield return null;
         }
