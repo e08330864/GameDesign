@@ -6,8 +6,10 @@ public class GrabHand : MinigameController
 {
     public GameObject aAnswerObject;
     public GameObject bAnswerObject;
+	public Collider2D m_ObjectCollider;
+	public DragObject playerHand;
 
-    private Animator fhandAnim;
+    public Animator fhandAnim;
 
     private float timeLimit = 10.0f;
     private float timeLeft;
@@ -19,7 +21,6 @@ public class GrabHand : MinigameController
     private int noDifficulty;
 	private Vector3 mOffset;
 	private float mZCoord;
-	private Collider2D m_ObjectCollider;
 
 
 	private new void Awake()
@@ -32,25 +33,26 @@ public class GrabHand : MinigameController
 	private IEnumerator AnswerOnAnimationFinish()
     {
         yield return new WaitUntil(() => fhandAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
-        var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
-        FinishLevel(noneAnswer);
-    }
+        Debug.Log("Time Over.");
+		var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
+		FinishLevel(no);
+	}
 	    
      
 	void Start()
     {
         //Fetch the GameObject's Collider (make sure they have a Collider component)
         //Here the GameObject's Collider is not a trigger
-        m_ObjectCollider = GetComponent<Collider2D>();
         //Output whether the Collider is a trigger type Collider or not
         Debug.Log("Trigger On : " + m_ObjectCollider.isTrigger);
     }
-	void OnTriggerEnter2D(Collider2D collider)
+	public void AnswerYes()
 	{
-    
-        Debug.Log("Triggered");
-        GameObject fhand = collider.gameObject;
-    
+        StopAllCoroutines();
+		var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
+
+		FinishLevel(yes);
+
 	}
 	void OnMouseDown()
 	{
@@ -74,34 +76,10 @@ public class GrabHand : MinigameController
 		return Camera.main.ScreenToWorldPoint(mousePoint);
 		
 	}
-	
-
 
 	public override void StartLevel()
     {
         fhandAnim.enabled = true;
+        playerHand.enabled = true;
     }
-	public void Answered(){
-
-		
-
-	    fhandAnim.enabled = false;
-		
-		if(m_ObjectCollider.isTrigger == true)
-		{
-		var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
-		FinishLevel(yes);
-		}
-		
-
-
-	/*
-		else 
-		{
-		FinishLevel(no);
-		}
-		
-    */
-	
-	}
 }

@@ -63,7 +63,7 @@ public class MinigameController : LevelController
         if ((characterGO = GameObject.FindGameObjectWithTag(gameCharacterPrefab.tag)) == null)
         {
             character = Instantiate(gameCharacterPrefab);
-            character.transform.parent = GameObject.Find("SympathyCharacters").transform;
+            character.transform.parent = GameObject.Find("SympathyCharacters")?.transform;
         }
         else
         {

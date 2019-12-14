@@ -10,7 +10,8 @@ public class DragObject : MonoBehaviour
 	private float depth = 10.0f;
 	public Camera cam;
 	private float maxHeight;
-	private float verschieb =550;
+	private float verschieb =550; //startpositions-verschiebung
+	private float wtos;
 
 	private Collider2D m_ObjectCollider;
 
@@ -27,11 +28,13 @@ public class DragObject : MonoBehaviour
         Debug.Log("Trigger On : " + m_ObjectCollider.isTrigger);
     }
 	
-	void FixedUpdate()
+	void FixedUpdate()//move the hand
 	{
 	var rawPosition = Input.mousePosition;
 	var targetPosition = new Vector2(0, rawPosition.y);
 	GetComponent<Rigidbody2D>().MovePosition(targetPosition);
+
+	mOffset = gameObject.transform.position - GetMouseWorldPos();
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)
@@ -39,19 +42,9 @@ public class DragObject : MonoBehaviour
     
         Debug.Log("Triggered");
         GameObject fhand = collider.gameObject;
-    
+        FindObjectOfType<GrabHand>().AnswerYes();
 	}
-	/*
-	void Update ()
 
-    {
-		
-         var mousePos = Input.mousePosition;
-     
-         var wantedPos = Camera.main.ScreenToWorldPoint (new Vector3 (mousePos.x, mousePos.y, depth));
-     
-         transform.position = wantedPos;
-    }*/
 
 	void OnMouseDown()
 	{
@@ -77,13 +70,7 @@ public class DragObject : MonoBehaviour
 		
 	}
 
-	void OnMouseDrag()
-	{
-			//transform.position= mousePosWorld + mOffset
-			//transform.position = GetMouseWorldPos() + mOffset;
 
-			
-	}
 
 
 }

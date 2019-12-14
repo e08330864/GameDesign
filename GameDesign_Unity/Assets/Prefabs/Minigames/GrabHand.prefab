@@ -330,6 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859862d217ab28743adce1feacdd413b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipOnYes: []
+  skipOnNo: []
   gameShortText: Potentieller "Nachtisch"
   question: "Willst du nicht noch auf einen Sprung mit zu mir kommen?\nEs w\xFCrde
     dir sicher gefallen"
@@ -365,6 +367,9 @@ MonoBehaviour:
   noEasierNo: []
   aAnswerObject: {fileID: 0}
   bAnswerObject: {fileID: 0}
+  m_ObjectCollider: {fileID: 6857903664956430450}
+  playerHand: {fileID: 6857903664956430449}
+  fhandAnim: {fileID: 6857903664139376744}
 --- !u!1 &6857903664126912750
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +699,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6857903664956430454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 402cd5ec9c0ae5d4daa3860d0db225d8, type: 3}
   m_Name: 

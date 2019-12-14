@@ -1451,8 +1451,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e780a720571f1440a6fc5dfa84d0360, type: 2}
   - {fileID: 11400000, guid: 5f761db9b14d01142850c9515f95d0ab, type: 2}
   - {fileID: 11400000, guid: f710666d9e2741043a13dd1b1d692b52, type: 2}
+  - {fileID: 11400000, guid: 96415e562b2c46b498bf161aea53a0c7, type: 2}
   levelParent: {fileID: 319579943}
-  currentLevelIndex: -1
+  currentLevelIndex: 10
 --- !u!1 &876397423
 GameObject:
   m_ObjectHideFlags: 0

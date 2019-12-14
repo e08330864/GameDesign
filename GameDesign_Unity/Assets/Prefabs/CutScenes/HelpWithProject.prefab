@@ -563,6 +563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bffda19a6f264419b658fb2c298f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipOnYes: []
+  skipOnNo: []
   dialogTextList:
   - {fileID: 8005471120298727185}
   - {fileID: 5566794375128461182}
