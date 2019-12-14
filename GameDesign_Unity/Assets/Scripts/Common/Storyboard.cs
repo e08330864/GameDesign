@@ -8,11 +8,13 @@ public class Storyboard: MonoBehaviour {
 
     public GameObject answerOverlay;
     public GameObject ambulanceOverlay;
+    public GameOverOverlay gameOver;
     public float displayAnswerDuration;
     public GameObject countdownPrefab;
     public List<Level> levels;
     public Transform levelParent;
     public int currentLevelIndex;
+    public int lifes = 2;
 
     private GameObject currentLevel;
     private Stress stress;
@@ -43,12 +45,7 @@ public class Storyboard: MonoBehaviour {
         if (minigame != null)
         {
             ApplyDeltas(answer, character);
-            if (stress.Value >= 5)
-            {
-                ambulanceOverlay.SetActive(true);
-                Debug.Log("GAME OVER!");
-                return;
-            }
+
             minigame.character = character;
             minigame.answer = answer;
 
@@ -102,6 +99,19 @@ public class Storyboard: MonoBehaviour {
         answerOverlay.SetActive(true);
         yield return new WaitForSeconds(displayAnswerDuration);
         answerOverlay.SetActive(false);
+        if (stress.Value >= 5)
+        {
+            lifes--;
+            if (lifes <= 0)
+            {
+                GameOver("Du hättest auf den Arzt hören sollen...");
+                yield break;
+            }
+            ambulanceOverlay.SetActive(true);
+            stress.SetValue(1);
+            yield return new WaitForSeconds(displayAnswerDuration);
+            ambulanceOverlay.SetActive(false);
+        }
         SpawnNextLevel();
     }
 
@@ -155,7 +165,7 @@ public class Storyboard: MonoBehaviour {
 
     public void GameOver(string endText)
     {
-        //Create summary of game progress.
+        gameOver.GameOver(endText);
     }
 
 }
