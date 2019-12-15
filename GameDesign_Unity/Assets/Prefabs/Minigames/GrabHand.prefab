@@ -331,7 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipOnYes: []
-  skipOnNo: []
+  skipOnNo:
+  - {fileID: 11400000, guid: 736afcd3beed75f4f9afa5cf014afb87, type: 2}
   gameShortText: Potentieller "Nachtisch"
   question: "Willst du nicht noch auf einen Sprung mit zu mir kommen?\nEs w\xFCrde
     dir sicher gefallen"

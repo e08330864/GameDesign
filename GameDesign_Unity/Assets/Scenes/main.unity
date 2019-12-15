@@ -1436,6 +1436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answerOverlay: {fileID: 1637332825}
   ambulanceOverlay: {fileID: 2136622887}
+  gameOver: {fileID: 0}
   displayAnswerDuration: 8
   countdownPrefab: {fileID: 2354114017078237102, guid: 9dd205f93db4a254389569faa5fba61a,
     type: 3}
@@ -1448,12 +1449,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 662f318574a9ce24b9c575a5f4fd0f79, type: 2}
   - {fileID: 11400000, guid: e15dea95562fcc74d8fb4e96c792f527, type: 2}
   - {fileID: 11400000, guid: 9aa20dd9164ebf04b982bdc0ff09a524, type: 2}
+  - {fileID: 11400000, guid: 736afcd3beed75f4f9afa5cf014afb87, type: 2}
   - {fileID: 11400000, guid: 9e780a720571f1440a6fc5dfa84d0360, type: 2}
   - {fileID: 11400000, guid: 5f761db9b14d01142850c9515f95d0ab, type: 2}
   - {fileID: 11400000, guid: f710666d9e2741043a13dd1b1d692b52, type: 2}
+  - {fileID: 11400000, guid: 09082567bcdc3e347bd66ae2bb91d44c, type: 2}
   - {fileID: 11400000, guid: 96415e562b2c46b498bf161aea53a0c7, type: 2}
+  - {fileID: 11400000, guid: 8f916848b4a83ef42981893dd8400032, type: 2}
   levelParent: {fileID: 319579943}
-  currentLevelIndex: 10
+  currentLevelIndex: 9
+  lifes: 2
 --- !u!1 &876397423
 GameObject:
   m_ObjectHideFlags: 0
