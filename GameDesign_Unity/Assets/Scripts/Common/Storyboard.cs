@@ -15,6 +15,7 @@ public class Storyboard: MonoBehaviour {
     public Transform levelParent;
     public int currentLevelIndex;
     public int lifes = 2;
+    public GameObject nextButton;
 
     private GameObject currentLevel;
     private Stress stress;
@@ -48,8 +49,8 @@ public class Storyboard: MonoBehaviour {
 
             minigame.character = character;
             minigame.answer = answer;
-
-            StartCoroutine(ShowAnswer(answer));
+            nextButton.SetActive(true);
+            ShowAnswer(answer);
             if (minigame.answer != null)
             {
                 FindObjectOfType<TimeLine>().AddDecisionPoint(character, minigame.answer, gameShortText);
@@ -88,31 +89,47 @@ public class Storyboard: MonoBehaviour {
     {
         if (currentLevel != null)
         {
-            GameObject.DestroyImmediate(currentLevel);
+            GameObject.Destroy(currentLevel);
             currentLevel = null;
         }
     }
 
-    private IEnumerator ShowAnswer(Answer answer)
+    public void GoNextButtonPressed()
+    {
+        
+        if (answerOverlay.activeInHierarchy) //Player in Answer Screen
+        {
+            answerOverlay.SetActive(false);
+
+            if (stress.Value >= 5)
+            {
+                lifes--;
+                if (lifes <= 0)
+                {
+                    GameOver("Du hättest auf den Arzt hören sollen...");
+                    return;
+                }
+                ambulanceOverlay.SetActive(true);
+                stress.SetValue(1);
+                SpawnNextLevel();
+            }
+            else
+            {
+                SpawnNextLevel();
+            }
+        }else if (ambulanceOverlay.activeInHierarchy) // Ambulance Screen open
+        {
+            ambulanceOverlay.SetActive(false);
+        }else if (currentLevelIndex < levels.Count && levels[currentLevelIndex] is CutSceneLevel)
+        {
+            currentLevel.GetComponent<TextSceneController>().SkipText();
+        }
+    }
+
+    private void ShowAnswer(Answer answer)
     {
         answerOverlay.GetComponentInChildren<Text>().text = answer.timeLineText;
         answerOverlay.SetActive(true);
-        yield return new WaitForSeconds(displayAnswerDuration);
-        answerOverlay.SetActive(false);
-        if (stress.Value >= 5)
-        {
-            lifes--;
-            if (lifes <= 0)
-            {
-                GameOver("Du hättest auf den Arzt hören sollen...");
-                yield break;
-            }
-            ambulanceOverlay.SetActive(true);
-            stress.SetValue(1);
-            yield return new WaitForSeconds(displayAnswerDuration);
-            ambulanceOverlay.SetActive(false);
-        }
-        SpawnNextLevel();
     }
 
     private void SpawnNextLevel()
@@ -136,7 +153,13 @@ public class Storyboard: MonoBehaviour {
             currentLevel = GameObject.Instantiate(levels[currentLevelIndex].prefab, levelParent);
             currentLevel.gameObject.transform.SetParent(levelContainer.transform);
             if (levels[currentLevelIndex] is MinigameLevel)
+            {
+                nextButton.SetActive(false);
                 GameObject.Instantiate(countdownPrefab, levelParent);
+            }
+        } else
+        {
+            GameOver("Gratuliere du hast es bis zum Ende geschafft!");
         }
     }
 

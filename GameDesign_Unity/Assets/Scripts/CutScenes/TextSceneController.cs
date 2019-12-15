@@ -13,15 +13,18 @@ public class TextSceneController : LevelController
     private float waitSecondsPerChar = 0.02f;
     private float waitSecondsPerNewLine = 1f;
     private DateTime time;
+    private string toWrite;
+    private Text currentText;
     private int counter = 0;
+    private bool finished = false;
+    private Image charImage;
 
     void Start()
     {
-        Button btn = gameObject.AddComponent<Button>();
-        btn.onClick.AddListener(() => FinishLevel());
+        charImage = gameObject.transform.Find("Character")?.Find("Image")?.GetComponent<Image>();
         if (dialogTextList.Count > 1)
         {
-            gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = false;
+            if(charImage != null) charImage.enabled = false;
         }
         foreach (Text txt in dialogTextList)
         {
@@ -35,7 +38,7 @@ public class TextSceneController : LevelController
         counter += 1;
         if (counter == 1)
         {
-            gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = true;
+            if (charImage != null) charImage.enabled = true;
         }
         if (counter < dialogTextList.Count)
         {
@@ -44,13 +47,14 @@ public class TextSceneController : LevelController
         }
         else
         {
-            FinishLevel();
+            finished = true;
         }
     } 
 
     IEnumerator TypeText(Text dialogText, System.Action callback)
     {
-        string toWrite = dialogText.text;
+        toWrite = dialogText.text;
+        currentText = dialogText;
         dialogText.text = "";
         dialogText.enabled = true;
         time = DateTime.Now.AddSeconds(waitSecondsBefore);
@@ -85,5 +89,18 @@ public class TextSceneController : LevelController
             yield return null;
         }
         callback();
+    }
+
+    public void SkipText()
+    {
+        if (finished) {
+            FinishLevel();
+            return;
+        }
+        StopAllCoroutines();
+        currentText.text = toWrite;
+        dialogTextList.ForEach(t => t.enabled = true);
+        if (charImage != null) charImage.enabled = true;
+        finished = true;
     }
 }
