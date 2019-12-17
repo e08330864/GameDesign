@@ -8,7 +8,6 @@ public class YesOrNo : MinigameController
     public GameObject noObject;
 
 
-
     public void AnswerYes()
     {
       

@@ -573,12 +573,14 @@ MonoBehaviour:
     moneyDelta: 0
     sympathyDelta: 1
   noAnswer: Das ist die traurige Wahrheit
-  noTimelineText: "Du hast ihr die Wahrheit erz\xE4hlt"
+  noTimelineText: "Du hast ihr die Wahrheit erz\xE4hlt, deine Frau wird w\xFCtend
+    schreit dich an und droht damit auszuziehen!"
   noDeltas:
     stressDelta: 1
     moneyDelta: 0
     sympathyDelta: -1
-  silentTimelineText: "Du hast gez\xF6gert und deiner Frau keine Erkl\xE4rung gegeben!"
+  silentTimelineText: "Du hast gez\xF6gert und deiner Frau keine Erkl\xE4rung gegeben!\nDas
+    wird sicher noch Folgen haben...."
   silentDeltas:
     stressDelta: 1
     moneyDelta: 0
