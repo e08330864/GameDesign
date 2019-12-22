@@ -1573,7 +1573,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96415e562b2c46b498bf161aea53a0c7, type: 2}
   - {fileID: 11400000, guid: 8f916848b4a83ef42981893dd8400032, type: 2}
   levelParent: {fileID: 319579943}
-  currentLevelIndex: 13
+  currentLevelIndex: -1
   lifes: 2
   nextButton: {fileID: 582552097}
 --- !u!1 &771014668

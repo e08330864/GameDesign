@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WhiteboardGame : MinigameController
 {
@@ -83,16 +84,31 @@ public class WhiteboardGame : MinigameController
         yesSpawner.enabled = false;
         noSpawner.enabled = false;
         this.enabled = false;
+        StopAllCoroutines();
 
         if (yesSpawner == finishedSpawner)
         {
-            var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
-            FinishLevel(yes);
+            GameObject yesButton = Instantiate(Resources.Load("YES", typeof(GameObject)), FindObjectOfType<Canvas>().transform) as GameObject;
+            Button b = yesButton.GetComponentInChildren<Button>();
+            b.onClick.AddListener( () =>
+            {
+                var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
+                FinishLevel(yes);
+                Destroy(yesButton);
+            });
+
+            
         }
         else if(noSpawner == finishedSpawner)
         {
-            var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
-            FinishLevel(no);
+            GameObject noButton = Instantiate(Resources.Load("NO", typeof(GameObject)), FindObjectOfType<Canvas>().transform) as GameObject;
+            Button b = noButton.GetComponentInChildren<Button>();
+            b.onClick.AddListener( () =>
+            {
+                var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);
+                FinishLevel(no);
+                Destroy(noButton);
+            });
         }
     }
 }
