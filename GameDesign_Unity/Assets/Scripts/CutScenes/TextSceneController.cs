@@ -8,16 +8,16 @@ using UnityEngine.UI;
 public class TextSceneController : LevelController
 {
     public List<Text> dialogTextList;
-    private float waitSecondsBefore = 2.0f;
-    private float waitSecondsAfter = 3.0f;
-    private float waitSecondsPerChar = 0.02f;
-    private float waitSecondsPerNewLine = 1f;
+    private float waitSecondsBefore = 0.5f;
+    private float waitSecondsPerChar = 0.002f;
+    private float waitSecondsPerNewLine = 0f;
     private DateTime time;
     private string toWrite;
     private Text currentText;
     private int counter = 0;
     private bool finished = false;
     private Image charImage;
+    private int charsPerTick = 2;
 
     void Start()
     {
@@ -62,32 +62,26 @@ public class TextSceneController : LevelController
         {
             yield return null;
         }
-        for (int i = 0; i < toWrite.Length; i++)
+        for (int i = 0; i < toWrite.Length; i += charsPerTick)
         {
-            if (toWrite[i] == '\n')
+            time = DateTime.Now.AddSeconds(waitSecondsPerChar);
+            while (DateTime.Now < time)
             {
-                time = DateTime.Now.AddSeconds(waitSecondsPerNewLine);
-                while (DateTime.Now < time)
-                {
-                    yield return null;
-                }
+                yield return null;
+            }
+            int startIndex = i - charsPerTick + 1;
+            if ( startIndex > 0 )
+            {
+                for(int j = startIndex; j <= i; j++)
+                    dialogText.text += toWrite[j];
             }
             else
             {
-                time = DateTime.Now.AddSeconds(waitSecondsPerChar);
-                while (DateTime.Now < time)
-                {
-                    yield return null;
-                }
+                dialogText.text += toWrite[i];
             }
-            dialogText.text += toWrite[i];
             yield return null;
         }
-        time = DateTime.Now.AddSeconds(waitSecondsAfter);
-        while (DateTime.Now < time)
-        {
-            yield return null;
-        }
+        dialogText.text = toWrite;
         callback();
     }
 
