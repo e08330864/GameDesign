@@ -469,8 +469,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipOnYes:
   - {fileID: 11400000, guid: 736afcd3beed75f4f9afa5cf014afb87, type: 2}
+  - {fileID: 11400000, guid: 5f761db9b14d01142850c9515f95d0ab, type: 2}
   skipOnNo:
   - {fileID: 11400000, guid: 5f761db9b14d01142850c9515f95d0ab, type: 2}
+  - {fileID: 11400000, guid: 96415e562b2c46b498bf161aea53a0c7, type: 2}
   dialogTextList:
   - {fileID: 5906526755955354088}
   - {fileID: 5906526755523204387}

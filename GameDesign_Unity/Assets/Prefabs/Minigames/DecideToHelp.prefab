@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 2542760860806529698}
   - component: {fileID: 2542760860806529699}
   - component: {fileID: 2542760860806529696}
+  - component: {fileID: 650609723881333486}
   m_Layer: 5
   m_Name: Yes
   m_TagString: Untagged
@@ -337,8 +338,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43, y: -240}
-  m_SizeDelta: {x: 210, y: 74}
+  m_AnchoredPosition: {x: -49.25, y: -353.05002}
+  m_SizeDelta: {x: 305.5, y: 123.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2542760860806529698
 CanvasRenderer:
@@ -361,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.49322778, g: 1, b: 0.4669811, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -419,8 +420,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1039672316092635285}
-        m_MethodName: AnswerYes
+      - m_Target: {fileID: 2718736175681389693}
+        m_MethodName: AnswerClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -430,6 +431,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &650609723881333486
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542760860806529726}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c6ec4cf6ac52378458f10d72bffb187b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2542760860813163548
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +461,7 @@ GameObject:
   - component: {fileID: 2542760860813163551}
   - component: {fileID: 2542760860813163521}
   - component: {fileID: 2542760860813163550}
-  - component: {fileID: 1039672316092635285}
+  - component: {fileID: 2718736175681389693}
   m_Layer: 5
   m_Name: DecideToHelp
   m_TagString: Untagged
@@ -505,7 +525,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1039672316092635285
+--- !u!114 &2718736175681389693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,30 +534,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 2542760860813163548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8863dd1c2a0b2428d46d5b824fed5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 98f54d2c22a68f5439c97f33e80f3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skipOnYes: []
   skipOnNo: []
-  gameShortText: Caroline beim Projekt helfen
-  question: Hilfst du Caroline aus?
-  yesAnswer: I gladly help, no biggie!
-  yesTimelineText: Du hast deiner Kollegin geholfen und ihr geht nun zusammen essen!
+  gameShortText: Carolin's Projekt
+  question: Do you help?
+  yesAnswer: Du entscheidest dich ihr zu helfen!
+  yesTimelineText: Du hast Carolin bei ihrem Projekt geholfen!
   yesDeltas:
-    stressDelta: 0
+    stressDelta: 2
     moneyDelta: 0
-    sympathyDelta: 2
-  noAnswer: Sorry, I can't help you right now!
-  noTimelineText: Du hast ihr die Hilfe verweigert und eilst nach Hause
+    sympathyDelta: 3
+  noAnswer: "Du entschlie\xDFt dich ihr nicht zu helfen und stattdessen nach Hause
+    zu eilen!"
+  noTimelineText: Du hast Carolin alleine gelassen mit ihrem Projekt
   noDeltas:
     stressDelta: 0
     moneyDelta: 0
     sympathyDelta: -1
-  silentTimelineText: 
+  silentTimelineText: "Nach zu langen \xDCberlegungen, \xFCberzeugt Carolin dich ihr
+    zu helfen und ihr macht euch sofort daran!"
   silentDeltas:
     stressDelta: 0
     moneyDelta: 0
-    sympathyDelta: 0
+    sympathyDelta: 2
   gameCharacterPrefab: {fileID: 100507515729380145, guid: f3a445a7f2b0dc347b78b347c5f7de08,
     type: 3}
   yesMoreDifficultYes: []
@@ -639,6 +661,7 @@ GameObject:
   - component: {fileID: 2542760861152485625}
   - component: {fileID: 2542760861152485622}
   - component: {fileID: 2542760861152485623}
+  - component: {fileID: 569384418523039105}
   m_Layer: 5
   m_Name: No
   m_TagString: Untagged
@@ -663,8 +686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: -240}
-  m_SizeDelta: {x: 187.2, y: 74}
+  m_AnchoredPosition: {x: 879.75, y: -369.95}
+  m_SizeDelta: {x: 160.5, y: 90.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2542760861152485625
 CanvasRenderer:
@@ -687,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.79246813, g: 0.5310609, b: 0.9622642, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -745,8 +768,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1039672316092635285}
-        m_MethodName: AnswerNo
+      - m_Target: {fileID: 2718736175681389693}
+        m_MethodName: AnswerClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -756,6 +779,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &569384418523039105
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542760861152485621}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4fb364723973b7439e197de104e6174, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8103970609758048500
 GameObject:
   m_ObjectHideFlags: 0

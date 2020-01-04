@@ -8,20 +8,23 @@ using UnityEngine.UI;
 public class TextSceneController : LevelController
 {
     public List<Text> dialogTextList;
-    private float waitSecondsBefore = 2.0f;
-    private float waitSecondsAfter = 3.0f;
-    private float waitSecondsPerChar = 0.02f;
-    private float waitSecondsPerNewLine = 1f;
+    private float waitSecondsBefore = 0.5f;
+    private float waitSecondsPerChar = 0.002f;
+    private float waitSecondsPerNewLine = 0f;
     private DateTime time;
+    private string toWrite;
+    private Text currentText;
     private int counter = 0;
+    private bool finished = false;
+    private Image charImage;
+    private int charsPerTick = 2;
 
     void Start()
     {
-        Button btn = gameObject.AddComponent<Button>();
-        btn.onClick.AddListener(() => FinishLevel());
+        charImage = gameObject.transform.Find("Character")?.Find("Image")?.GetComponent<Image>();
         if (dialogTextList.Count > 1)
         {
-            gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = false;
+            if(charImage != null) charImage.enabled = false;
         }
         foreach (Text txt in dialogTextList)
         {
@@ -35,7 +38,7 @@ public class TextSceneController : LevelController
         counter += 1;
         if (counter == 1)
         {
-            gameObject.transform.Find("Character").Find("Image").GetComponent<Image>().enabled = true;
+            if (charImage != null) charImage.enabled = true;
         }
         if (counter < dialogTextList.Count)
         {
@@ -44,13 +47,14 @@ public class TextSceneController : LevelController
         }
         else
         {
-            FinishLevel();
+            finished = true;
         }
     } 
 
     IEnumerator TypeText(Text dialogText, System.Action callback)
     {
-        string toWrite = dialogText.text;
+        toWrite = dialogText.text;
+        currentText = dialogText;
         dialogText.text = "";
         dialogText.enabled = true;
         time = DateTime.Now.AddSeconds(waitSecondsBefore);
@@ -58,32 +62,39 @@ public class TextSceneController : LevelController
         {
             yield return null;
         }
-        for (int i = 0; i < toWrite.Length; i++)
+        for (int i = 0; i < toWrite.Length; i += charsPerTick)
         {
-            if (toWrite[i] == '\n')
+            time = DateTime.Now.AddSeconds(waitSecondsPerChar);
+            while (DateTime.Now < time)
             {
-                time = DateTime.Now.AddSeconds(waitSecondsPerNewLine);
-                while (DateTime.Now < time)
-                {
-                    yield return null;
-                }
+                yield return null;
+            }
+            int startIndex = i - charsPerTick + 1;
+            if ( startIndex > 0 )
+            {
+                for(int j = startIndex; j <= i; j++)
+                    dialogText.text += toWrite[j];
             }
             else
             {
-                time = DateTime.Now.AddSeconds(waitSecondsPerChar);
-                while (DateTime.Now < time)
-                {
-                    yield return null;
-                }
+                dialogText.text += toWrite[i];
             }
-            dialogText.text += toWrite[i];
             yield return null;
         }
-        time = DateTime.Now.AddSeconds(waitSecondsAfter);
-        while (DateTime.Now < time)
-        {
-            yield return null;
-        }
+        dialogText.text = toWrite;
         callback();
+    }
+
+    public void SkipText()
+    {
+        if (finished) {
+            FinishLevel();
+            return;
+        }
+        StopAllCoroutines();
+        currentText.text = toWrite;
+        dialogTextList.ForEach(t => t.enabled = true);
+        if (charImage != null) charImage.enabled = true;
+        finished = true;
     }
 }
