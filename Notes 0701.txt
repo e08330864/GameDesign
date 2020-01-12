@@ -1,0 +1,12 @@
+Mittagessen im Büro:
+? Essen aus dem Kühlschrank
+? Pizzaria
+
+Geld, Zeit,...
+
+Zeit für Postit:
+Parameter pro Spiel anpassen, unendlich Zeit beim ersten Spiel
+kleiner werden -> unabhängig von Zeit sondern was leichter / schwieriger ist (ja / nein)
+Kreise größer, voll farbig?
+Post-its Farbe? (rot/grün)
+negative Folge für Nicht antworten
