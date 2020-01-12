@@ -21,12 +21,10 @@ public class Countdown : MonoBehaviour
 
     IEnumerator Count()
     {
-        yield return new WaitForSeconds(delayBy);
-        counter.text = "" + countdownFrom;
-        for (int i = countdownFrom-1; i > 0; i--)
+        for (int i = countdownFrom; i > 0; i--)
         {
             counter.text = ""+i;
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.8f);
         }
         this.controller.StartLevel();
         this.gameObject.SetActive(false);

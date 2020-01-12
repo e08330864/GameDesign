@@ -67,8 +67,8 @@ public class PostItSpawner : MonoBehaviour
 
     public void updateTimeLimit(float timeLeft, float totalTime)
     {
-        if (timeLeft < 0) return;
-        foreach(PostItTarget t in targets)
+        if (timeLeft < 2) return;
+        foreach (PostItTarget t in targets)
         {
             t.transform.localScale = Vector3.one * timeLeft/totalTime;
         }
