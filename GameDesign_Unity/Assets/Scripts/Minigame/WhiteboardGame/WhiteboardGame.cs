@@ -13,9 +13,10 @@ public class WhiteboardGame : MinigameController
     public float initialDelay;
 
     public float timeMultiplier = 1;
-    private float timeLimit = 10.0f;
-    private float timeLeft;
-    private RectTransform timelineRect;
+    protected float timeLimit = 10.0f;
+    protected float timeLeft;
+
+    protected RectTransform timelineRect;
 
     private new void Awake()
     {

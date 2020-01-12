@@ -440,6 +440,7 @@ MonoBehaviour:
   yesSpawner: {fileID: 1518378724928047265}
   noSpawner: {fileID: 1518378724904604456}
   initialDelay: 2
+  timeMultiplier: 2
 --- !u!114 &1518378724691747987
 MonoBehaviour:
   m_ObjectHideFlags: 0

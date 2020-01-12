@@ -354,8 +354,7 @@ MonoBehaviour:
   yesSpawner: {fileID: 1518378724928047265}
   noSpawner: {fileID: 0}
   initialDelay: 3
-  yesSpawner: {fileID: 1518378724928047265}
-  initialDelay: 3
+  timeMultiplier: 2
 --- !u!1 &1518378724928047268
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,16 +990,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_FontData.m_LineSpacing
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Text
-      value: "... wie soll ich sonst jemals Caroline n\xE4her kommen?"
-      objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1015,6 +1004,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 229.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Text
+      value: "... wie soll ich sonst jemals Caroline n\xE4her kommen?"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}

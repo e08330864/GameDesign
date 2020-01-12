@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class WhiteboardYesOnly : WhiteboardGame
 {
-    private float timeLimit = 15.0f;
-    private float timeLeft;
 
 
     private new void Awake()
     {
         base.Awake();
-
+        
         yesSpawner.difficulty = this.maxDifficulty;
 
         timeLeft = timeLimit;
@@ -35,6 +33,8 @@ public class WhiteboardYesOnly : WhiteboardGame
             timeLeft -= Time.deltaTime;
 
             yesSpawner.updateTimeLimit(timeLeft, timeLimit);
+
+            timelineRect.sizeDelta = new Vector2(1920 * timeLeft/timeLimit, timelineRect.sizeDelta.y);
             if (timeLeft <= 0)
             {
                 Storyboard story = FindObjectOfType<Storyboard>();
