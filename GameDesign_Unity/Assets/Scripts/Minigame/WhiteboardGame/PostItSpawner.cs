@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,6 +19,7 @@ public class PostItSpawner : MonoBehaviour
     private Color spawnColor;
     private int targetCount;
     private WhiteboardGame whiteBoard;
+    private int correctCount;
 
     public void Init()  
     {
@@ -44,16 +46,16 @@ public class PostItSpawner : MonoBehaviour
 
     }
 
-    private void Update()
+    internal void updateCorrect()
     {
-        int correctCount = 0;
-        foreach(PostItTarget t in targets)
+        correctCount = 0;
+
+        foreach (PostItTarget t in targets)
         {
-            if (t == null) continue; 
+            if (t == null) continue;
             if (t.gameObject.activeInHierarchy && t.hasPostIt)
             {
                 correctCount++;
-                counter.text = ""+(targetCount-correctCount);
                 if (correctCount == targetCount)
                 {
                     if (whiteBoard is WhiteboardYesOnly)
@@ -63,6 +65,7 @@ public class PostItSpawner : MonoBehaviour
                 }
             }
         }
+        counter.text = "" + (targetCount - correctCount);
     }
 
     public void updateTimeLimit(float timeLeft, float totalTime)
@@ -84,11 +87,13 @@ public class PostItSpawner : MonoBehaviour
                                             .GetComponent<PostIt>();
         draggedPostIt.spawner = this;
         draggedPostIt.GetComponent<Image>().color = spawnColor;
+        counter.text = "" + (targetCount - correctCount - 1);
     }
 
     public void OnPointerUp(BaseEventData eventData)
     {
         if (!whiteBoard.enabled || !enabled || draggedPostIt == null) return;
         draggedPostIt.Release();
+        counter.text = "" + (targetCount - correctCount);
     }
 }
