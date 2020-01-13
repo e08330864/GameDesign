@@ -598,6 +598,7 @@ MonoBehaviour:
   yesSpawner: {fileID: 2912253187314292042}
   noSpawner: {fileID: 2912253187122888812}
   initialDelay: 3
+  timeMultiplier: 2
 --- !u!1 &2912253188394763923
 GameObject:
   m_ObjectHideFlags: 0

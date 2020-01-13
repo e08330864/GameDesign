@@ -19,6 +19,7 @@ public class PostIt : MonoBehaviour
             this.enabled = false;
             this.currentTarget.hasPostIt = true;
             this.currentTarget.GetComponent<Collider2D>().enabled = false;
+            spawner.updateCorrect();
         }
         else
         {

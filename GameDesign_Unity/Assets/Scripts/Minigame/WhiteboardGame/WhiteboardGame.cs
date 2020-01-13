@@ -12,9 +12,11 @@ public class WhiteboardGame : MinigameController
     public PostItSpawner noSpawner;
     public float initialDelay;
 
-    private float timeLimit = 10.0f;
-    private float timeLeft;
+    public float timeMultiplier = 1;
+    protected float timeLimit = 10.0f;
+    protected float timeLeft;
 
+    protected RectTransform timelineRect;
 
     private new void Awake()
     {
@@ -24,10 +26,16 @@ public class WhiteboardGame : MinigameController
         yesSpawner.difficulty = yesDifficulty;
         noSpawner.difficulty = noDifficulty;
 
-        timeLimit = timeLimit - (3.0f * 1);
+        timeLimit = timeLimit * timeMultiplier;
         timeLeft = timeLimit;
         yesSpawner.Init();
         noSpawner.Init();
+    }
+
+    private void Start()
+    {
+        var timeline = Instantiate(Resources.Load("Timeline", typeof(GameObject)), this.transform) as GameObject;
+        timelineRect = timeline.GetComponent<RectTransform>();
     }
 
     private void setDifficultyHoliday(Storyboard story)
@@ -70,6 +78,8 @@ public class WhiteboardGame : MinigameController
 
             yesSpawner.updateTimeLimit(timeLeft, timeLimit);
             noSpawner.updateTimeLimit(timeLeft, timeLimit);
+
+            timelineRect.sizeDelta = new Vector2(1920 * timeLeft/timeLimit, timelineRect.sizeDelta.y);
             if (timeLeft <= 0)
             {
                 var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);

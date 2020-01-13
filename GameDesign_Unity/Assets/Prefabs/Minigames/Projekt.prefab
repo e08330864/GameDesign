@@ -406,6 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b36e525c0bc0424b9c87393ea010364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipOnYes: []
+  skipOnNo: []
   gameShortText: Projekt
   question: "Wollen Sie das Projekt \xFCbernehmen?"
   yesAnswer: "Selbstverst\xE4ndlich, vielen Dank f\xFCr die Chance!"
@@ -440,6 +442,7 @@ MonoBehaviour:
   yesSpawner: {fileID: 1518378724928047265}
   noSpawner: {fileID: 1518378724904604456}
   initialDelay: 2
+  timeMultiplier: 2
 --- !u!114 &1518378724691747987
 MonoBehaviour:
   m_ObjectHideFlags: 0
