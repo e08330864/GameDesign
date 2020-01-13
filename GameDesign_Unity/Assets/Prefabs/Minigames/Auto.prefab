@@ -1029,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: '... mir ein Busticket kaufen'
+      value: "... mir f\xFCr die Arbeit ein Busticket kaufen"
       objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1181,7 +1181,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: "... ein Auto f\xFCr den Urlaub mieten"
+      value: "... einen Mobilit\xE4tsersatz \xFCberlegen"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717d0dec01b8edc4cb1f2778c8559c84, type: 3}
