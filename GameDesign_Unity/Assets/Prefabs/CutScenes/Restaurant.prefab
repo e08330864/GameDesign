@@ -32,9 +32,9 @@ RectTransform:
   m_Father: {fileID: 2245724143105328442}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.6, y: -405.7}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -256, y: -451}
   m_SizeDelta: {x: 1010, y: 408.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2245724142306729519
@@ -67,14 +67,14 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd96f1ca081e1ab43a5778f1c3d942ae, type: 3}
     m_FontSize: 26
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 26
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.7
   m_Text: 'Carolin:
 
@@ -88,7 +88,7 @@ MonoBehaviour:
 
     Makes for a romantic atmosphere actually... Oh, what am I saying
 
-    Unless... you would like that?'
+    unless... you would like that?'
 --- !u!1 &2245724142491291662
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +119,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2245724143127765655}
+  - {fileID: 2245724143105328442}
   m_Father: {fileID: 2245724143024578076}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -295,17 +296,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2245724143105328443}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2245724142306729517}
-  m_Father: {fileID: 2245724143127765655}
-  m_RootOrder: 0
+  m_Father: {fileID: 2245724142491291649}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 956.3, y: 452}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 562, y: 226}
   m_SizeDelta: {x: 995, y: 140.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2245724143105328444
@@ -338,14 +339,14 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd96f1ca081e1ab43a5778f1c3d942ae, type: 3}
     m_FontSize: 26
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 26
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.7
   m_Text: 'Als du das Lokal siehst, musst du geradezu staunen:
 
@@ -377,15 +378,14 @@ RectTransform:
   m_GameObject: {fileID: 2245724143127765652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2245724143105328442}
+  m_LocalScale: {x: 1.4347, y: 1.4347, z: 1.4347}
+  m_Children: []
   m_Father: {fileID: 2245724142491291649}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0.0024719238}
+  m_AnchoredPosition: {x: 182, y: 106}
   m_SizeDelta: {x: 0.64001465, y: -0.36999512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2245724143127765641
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

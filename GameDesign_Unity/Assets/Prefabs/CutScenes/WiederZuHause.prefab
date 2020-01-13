@@ -31,7 +31,7 @@ RectTransform:
   m_Children:
   - {fileID: 5906526755336216543}
   m_Father: {fileID: 5906526755655432868}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -108,8 +108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.6000061, y: 0.5}
+  m_AnchoredPosition: {x: -56, y: -14}
+  m_SizeDelta: {x: 42.6, y: 171.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5906526755336216529
 CanvasRenderer:
@@ -139,7 +139,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 22c3a3c6c70ef394dbf1eae2ef14fa3b, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -181,8 +181,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113.7, y: -306.4}
-  m_SizeDelta: {x: 616.7, y: 286.4}
+  m_AnchoredPosition: {x: 736, y: -376}
+  m_SizeDelta: {x: 984.1, y: 450.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5906526755523204388
 CanvasRenderer:
@@ -214,7 +214,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: dd96f1ca081e1ab43a5778f1c3d942ae, type: 3}
     m_FontSize: 27
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 27
     m_Alignment: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
     m_LineSpacing: 1.7
   m_Text: "Vanessa:\nDa bist du ja! Ich habe schon auf dich gewartet. Ich hoffe du
     bist hungrig. Ich hab dir heute dein Leibgericht gekocht!  \n\nDu:\nAch, herrlich...
-    Gibt doch nichts sch\xF6neres"
+    Gibt doch nichts sch\xF6neres!!!!!"
 --- !u!1 &5906526755655432867
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,8 +255,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5906526755955354071}
   - {fileID: 5906526755199311883}
+  - {fileID: 5906526755955354071}
   m_Father: {fileID: 5906526756082444328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -332,12 +332,12 @@ RectTransform:
   m_Children:
   - {fileID: 5906526755523204386}
   m_Father: {fileID: 5906526755655432868}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 128, y: 234}
-  m_SizeDelta: {x: 613.8, y: 132.4}
+  m_AnchoredPosition: {x: -301, y: 217}
+  m_SizeDelta: {x: 1022.3, y: 123.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5906526755955354089
 CanvasRenderer:
@@ -376,10 +376,10 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.7
   m_Text: Nach vollbrachter Arbeit kommst du endlich nach Hause, wo deine Frau schon
-    anscheinend auf dich wartet
+    auf dich wartet
 --- !u!1 &5906526756082444311
 GameObject:
   m_ObjectHideFlags: 0
