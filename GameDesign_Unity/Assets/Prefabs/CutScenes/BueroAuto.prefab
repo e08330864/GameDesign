@@ -313,7 +313,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1.7
   m_Text: "Arbeit kann herlich sein - wenn man Kollegen hat wie sie:\nCarolin Bright\n...Sie
-    ist Engl\xE4ndering - und wirklich phantastisch..............."
+    ist Engl\xE4nderin - und wirklich phantastisch..............."
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bffda19a6f264419b658fb2c298f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skipOnYes: []
+  skipOnNo: []
   dialogTextList:
   - {fileID: 4036134869718351986}
   - {fileID: 2802882192695043472}

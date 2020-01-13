@@ -1026,7 +1026,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: Ich habe die Nacht mit einer einen Frau verbracht
+      value: Ich habe die Nacht mit meiner scharfen Arbeitskollegin verbracht
       objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1173,7 +1173,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: Eine Kollegin hat mich auch noch gebeten ihr zu helfen
+      value: Eine Kollegin hat mich noch gebeten, ihr zu helfen
       objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1325,7 +1325,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: Ich bin bei der Arbeit dann verschlafen
+      value: Ich bin in der Arbeit eingeschlafen
       objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
@@ -1607,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
-      value: "Der Chef h\xE4tte mir sonst der Lohn gek\xFCrzt"
+      value: "Der Chef h\xE4tte mir sonst den Lohn gek\xFCrzt"
       objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
