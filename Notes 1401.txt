@@ -1,0 +1,22 @@
+Wenn stress fast voll, dann evntl. Auswirkung auf Geschwindigkeit.
+Ignorieren Bug
+AbteilungslIeter
+Lügen am Schluss Button NEIN (sollte Antwort enthalten)
+Geld - kann 0 werden? Hotel, einladen Essen, Minigame um Geld ausborgen - Mehr umso weniger sie einen mögen und mehr stress, Like -> Stress, Geld.
+Geld weniger zu Beginn, falls kein Geld -> Minigame mit Geld ausborgen
+Antworten unterschiedlich schnell kleiner -> Antwort weg wenn size 0
+Stress hervorheben wenn fast voll
+Start Stress höher
+Start Geld niedriger
+Rettung kostet Geld
+Krankenhaus Szene "schöner"
+
+Wenn sichs aus geht:
+Bessere Grafiken (Artist)
+Schützenverein Storyline - Zusatzanwtort bei Minigames mit "Nein, weil... dann kann ich nicht trainieren gehen"
+-> Wenn Nein dann Trainingsszene
+
+Niemand beim ersten Mal
+50% beim zweiten Mal
+90% beim dritten Mal
+(100% der spieler haben immer selbst das gefühl es selbst (nicht) geschafft zu haben)
