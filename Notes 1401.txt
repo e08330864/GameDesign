@@ -15,6 +15,7 @@ Wenn sichs aus geht:
 Bessere Grafiken (Artist)
 Schützenverein Storyline - Zusatzanwtort bei Minigames mit "Nein, weil... dann kann ich nicht trainieren gehen"
 -> Wenn Nein dann Trainingsszene
+Boss feuert -> Man hat Armbrust mit 
 
 Niemand beim ersten Mal
 50% beim zweiten Mal
