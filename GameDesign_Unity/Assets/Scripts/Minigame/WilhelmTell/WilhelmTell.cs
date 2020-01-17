@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WilhelmTell : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class WilhelmTell : MonoBehaviour
     [SerializeField]
     private Sprite secondRingSprite = null;
     [SerializeField]
+    private Sprite hitRingSprite = null;
+    [SerializeField]
     private int numberOfTargets = 1;
     [SerializeField]
     private int targetSize = 800;
@@ -20,14 +23,21 @@ public class WilhelmTell : MonoBehaviour
     private int numberOfTargetRings = 3;
     [SerializeField]
     private float targetSpeed = 3.0f;
+    [SerializeField]
+    private Texture2D crossHairTexture = null;
+    public Texture2D CrossHair
+    {
+        get => crossHairTexture;
+    }
 
     private List<Target> targets = new List<Target>();
     private Vector3 sizeInScreen;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        sizeInScreen = transform.Find("Range").GetComponent<SpriteRenderer>().bounds.size;
+        sizeInScreen = transform.Find("ShootingRange").GetComponent<SpriteRenderer>().bounds.size;
         for (int i = 0; i < numberOfTargets; i++)
         {
             Target target = Instantiate(targetPrefab);
@@ -36,7 +46,8 @@ public class WilhelmTell : MonoBehaviour
                 new Vector2(200, 200), 
                 new Vector2(200, 200), 
                 bullEyeSprite, 
-                secondRingSprite, 
+                secondRingSprite,
+                hitRingSprite,
                 targetSize, 
                 numberOfTargetRings, 
                 targetSpeed);
@@ -47,6 +58,6 @@ public class WilhelmTell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(EventSystem.current.IsPointerOverGameObject());
     }
 }

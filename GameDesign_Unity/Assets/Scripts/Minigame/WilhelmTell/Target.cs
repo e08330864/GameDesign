@@ -16,6 +16,7 @@ public class Target : MonoBehaviour
     private Vector3 velocity;
     private Sprite bullEyeSprite;
     private Sprite secondRingSprite;
+    private Sprite hitRingSprite;
     private int targetSize;
     private int numberOfTargetRings;
     private float targetSpeed;
@@ -45,8 +46,8 @@ public class Target : MonoBehaviour
                     ring.gameObject.transform.localPosition = Vector3.zero;
                     RectTransform rt = (RectTransform)ring.transform;
                     float scale = targetSize / (numberOfTargetRings * 2 - 1) * (i * 2 - 1) / rt.rect.width;
-                    Debug.Log("rect-width=" + img.sprite.rect.width);
-                    Debug.Log("scale=" + scale);
+                    //Debug.Log("rect-width=" + img.sprite.rect.width);
+                    //Debug.Log("scale=" + scale);
                     ring.gameObject.transform.localScale = new Vector3(scale, scale, 1.0f);
                 }
                 isInstanziated = true;
@@ -64,6 +65,7 @@ public class Target : MonoBehaviour
                               Vector2 stopPosition,
                               Sprite bullEyeSprite,
                               Sprite secondRingSprite,
+                              Sprite hitRingSprite,
                               int targetSize = 100, 
                               int numberOfTargetRings = 4, 
                               float targetSpeed = 1.0f)
@@ -74,8 +76,27 @@ public class Target : MonoBehaviour
         this.velocity = (stopPosition - startPosition).normalized * targetSpeed;
         this.bullEyeSprite = bullEyeSprite;
         this.secondRingSprite = secondRingSprite;
+        this.hitRingSprite = hitRingSprite;
         this.targetSize = targetSize;
         this.numberOfTargetRings = numberOfTargetRings;
         this.targetSpeed = targetSpeed;
+    }
+
+    public bool ringHitCounts(Ring ring)
+    {
+        bool validHit = true;
+        foreach (Ring r in rings)
+        {
+            if (r.IsHit)
+            {
+                validHit = false;
+                break;
+            }
+        }
+        if (validHit)
+        {
+            ring.gameObject.GetComponent<Image>().sprite = hitRingSprite;
+        }
+        return validHit;
     }
 }
