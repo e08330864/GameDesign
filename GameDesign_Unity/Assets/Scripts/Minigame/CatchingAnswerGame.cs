@@ -41,7 +41,7 @@ public class CatchingAnswerGame : MinigameController
     private IEnumerator AnswerOnAnimationFinish()
     {
         yield return new WaitUntil(() => yesAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
-        var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
+        var noneAnswer = new Answer(AnswerValue.IGNORE, silentTimelineText, silentDeltas);
         FinishLevel(noneAnswer);
     }
 

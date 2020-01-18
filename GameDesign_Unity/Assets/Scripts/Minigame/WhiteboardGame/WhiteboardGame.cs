@@ -13,6 +13,8 @@ public class WhiteboardGame : MinigameController
     public float initialDelay;
 
     public float timeMultiplier = 1;
+    public string yesButtonOverride;
+    public string noButtonOverride;
     protected float timeLimit = 10.0f;
     protected float timeLeft;
 
@@ -38,29 +40,6 @@ public class WhiteboardGame : MinigameController
         timelineRect = timeline.GetComponent<RectTransform>();
     }
 
-    private void setDifficultyHoliday(Storyboard story)
-    {
-        Answer holiday = (story.GetLevelByName("Urlaub") as MinigameLevel).answer;
-
-        if (holiday.answer == AnswerValue.YES)
-        {
-            //Player said Yes to holiday -> make yes here harder
-            yesSpawner.difficulty = 1;
-            noSpawner.difficulty = -1;
-        }
-        else if (holiday.answer == AnswerValue.NO)
-        {
-            //Player said No to holiday -> make yes here easier
-            yesSpawner.difficulty = -1;
-            noSpawner.difficulty = 1;
-        }
-        else if (holiday.answer == AnswerValue.None)
-        {
-            yesSpawner.difficulty = 1;
-            noSpawner.difficulty = 1;
-        }
-    }
-
     public override void StartLevel()
     {
         yesSpawner.enabled = true;
@@ -82,7 +61,7 @@ public class WhiteboardGame : MinigameController
             timelineRect.sizeDelta = new Vector2(1920 * timeLeft/timeLimit, timelineRect.sizeDelta.y);
             if (timeLeft <= 0)
             {
-                var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
+                var noneAnswer = new Answer(AnswerValue.IGNORE, silentTimelineText, silentDeltas);
                 FinishLevel(noneAnswer);
             }
             yield return null;
@@ -100,6 +79,7 @@ public class WhiteboardGame : MinigameController
         {
             GameObject yesButton = Instantiate(Resources.Load("YES", typeof(GameObject)), FindObjectOfType<Canvas>().transform) as GameObject;
             Button b = yesButton.GetComponentInChildren<Button>();
+            if (yesButtonOverride != "") yesButton.GetComponentInChildren<Text>().text = yesButtonOverride;
             b.onClick.AddListener( () =>
             {
                 var yes = new Answer(AnswerValue.YES, yesTimelineText, yesDeltas);
@@ -113,6 +93,7 @@ public class WhiteboardGame : MinigameController
         {
             GameObject noButton = Instantiate(Resources.Load("NO", typeof(GameObject)), FindObjectOfType<Canvas>().transform) as GameObject;
             Button b = noButton.GetComponentInChildren<Button>();
+            if (noButtonOverride != "") noButton.GetComponentInChildren<Text>().text = noButtonOverride;
             b.onClick.AddListener( () =>
             {
                 var no = new Answer(AnswerValue.NO, noTimelineText, noDeltas);

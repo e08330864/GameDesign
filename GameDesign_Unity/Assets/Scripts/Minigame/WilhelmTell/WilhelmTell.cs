@@ -37,7 +37,7 @@ public class WilhelmTell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sizeInScreen = transform.Find("ShootingRange").GetComponent<SpriteRenderer>().bounds.size;
+        //sizeInScreen = transform.Find("ShootingRange").GetComponent<SpriteRenderer>().bounds.size; <-- User RectTransform for this
         for (int i = 0; i < numberOfTargets; i++)
         {
             Target target = Instantiate(targetPrefab);

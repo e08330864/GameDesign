@@ -322,6 +322,8 @@ MonoBehaviour:
   skipOnYes:
   - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   skipOnNo: []
+  skipOnIgnore:
+  - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   gameShortText: "\xDCberzeugung"
   question: "Du musst mir helfen den Boss zu \xFCberzeugen!"
   yesAnswer: Danke Danke Danke!
@@ -581,11 +583,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1518378724128557645}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -691,6 +688,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -753,11 +755,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1518378724128557645}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -863,6 +860,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_FontData.m_LineSpacing
@@ -900,11 +902,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1518378724128557645}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1010,6 +1007,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1067,11 +1069,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1518378724128557645}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1177,6 +1174,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1239,11 +1241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1518378724128557645}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1348,6 +1345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (3)
       objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}

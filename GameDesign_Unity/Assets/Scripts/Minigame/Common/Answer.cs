@@ -9,7 +9,7 @@ public enum AnswerValue
     NULL,
     YES,
     NO,
-    None
+    IGNORE
 }
 
 public class Answer
