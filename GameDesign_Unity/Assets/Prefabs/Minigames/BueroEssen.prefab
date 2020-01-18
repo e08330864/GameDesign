@@ -414,7 +414,7 @@ MonoBehaviour:
   yesTimelineText: Du gehst mit deinen Kollegen Essen.
   yesDeltas:
     stressDelta: 0
-    moneyDelta: -30
+    moneyDelta: -50
     sympathyDelta: 1
   noAnswer: Nein
   noTimelineText: "Du bleibst im B\xFCro und isst dein mitgebrachtes Essen."
