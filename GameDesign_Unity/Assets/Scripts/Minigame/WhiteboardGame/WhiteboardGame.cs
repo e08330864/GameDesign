@@ -54,7 +54,7 @@ public class WhiteboardGame : MinigameController
             yesSpawner.difficulty = -1;
             noSpawner.difficulty = 1;
         }
-        else if (holiday.answer == AnswerValue.None)
+        else if (holiday.answer == AnswerValue.IGNORE)
         {
             yesSpawner.difficulty = 1;
             noSpawner.difficulty = 1;
@@ -82,7 +82,7 @@ public class WhiteboardGame : MinigameController
             timelineRect.sizeDelta = new Vector2(1920 * timeLeft/timeLimit, timelineRect.sizeDelta.y);
             if (timeLeft <= 0)
             {
-                var noneAnswer = new Answer(AnswerValue.None, silentTimelineText, silentDeltas);
+                var noneAnswer = new Answer(AnswerValue.IGNORE, silentTimelineText, silentDeltas);
                 FinishLevel(noneAnswer);
             }
             yield return null;

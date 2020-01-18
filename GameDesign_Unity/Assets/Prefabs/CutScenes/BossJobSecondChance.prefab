@@ -394,6 +394,8 @@ MonoBehaviour:
   skipOnYes:
   - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   skipOnNo: []
+  skipOnIgnore:
+  - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   dialogTextList:
   - {fileID: 4036134869718351986}
 --- !u!114 &2353748259037242279

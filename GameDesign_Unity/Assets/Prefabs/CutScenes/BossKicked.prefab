@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 5660194306687184695}
   - component: {fileID: 2353748259037242279}
   m_Layer: 5
-  m_Name: BossNoToJob
+  m_Name: BossKicked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,6 +316,8 @@ MonoBehaviour:
   skipOnYes:
   - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   skipOnNo: []
+  skipOnIgnore:
+  - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   dialogTextList:
   - {fileID: 4036134869718351986}
 --- !u!114 &2353748259037242279

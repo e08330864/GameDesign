@@ -6,6 +6,7 @@ public abstract class LevelController : MonoBehaviour
 {
     public List<MinigameLevel> skipOnYes;
     public List<MinigameLevel> skipOnNo;
+    public List<MinigameLevel> skipOnIgnore;
 
     protected void FinishLevel(Answer answer = null, Character character = null, string gameShortText = "")
     {

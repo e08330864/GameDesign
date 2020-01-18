@@ -176,8 +176,15 @@ public class Storyboard: MonoBehaviour {
         });
         nextLevel.skipOnNo.ForEach((level) =>
         {
-
             if (level.answer.answer == AnswerValue.NO)
+            {
+                Debug.Log("Skipping Level: " + nextLevel.name);
+                shouldSkip = true;
+            }
+        });
+        nextLevel.skipOnIgnore.ForEach((level) =>
+        {
+            if (level.answer.answer == AnswerValue.IGNORE)
             {
                 Debug.Log("Skipping Level: " + nextLevel.name);
                 shouldSkip = true;
