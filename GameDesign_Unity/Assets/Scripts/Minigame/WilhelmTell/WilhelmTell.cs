@@ -58,6 +58,5 @@ public class WilhelmTell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(EventSystem.current.IsPointerOverGameObject());
     }
 }
