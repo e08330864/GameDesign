@@ -564,15 +564,16 @@ MonoBehaviour:
   skipOnNo:
   - {fileID: 11400000, guid: 736afcd3beed75f4f9afa5cf014afb87, type: 2}
   - {fileID: 11400000, guid: 5f761db9b14d01142850c9515f95d0ab, type: 2}
+  skipOnIgnore: []
   gameShortText: "Erkl\xE4rung"
   question: Wo bist du gewesen?
-  yesAnswer: Ja, es ist alles in Ordnung
+  yesAnswer: Eine Ausrede.
   yesTimelineText: Du hast deine Frau angelogen
   yesDeltas:
     stressDelta: 0
     moneyDelta: 0
     sympathyDelta: 1
-  noAnswer: Das ist die traurige Wahrheit
+  noAnswer: Die Wahrheit.
   noTimelineText: "Du hast ihr die Wahrheit erz\xE4hlt, deine Frau wird w\xFCtend
     schreit dich an und droht damit auszuziehen!"
   noDeltas:
@@ -599,6 +600,8 @@ MonoBehaviour:
   noSpawner: {fileID: 2912253187122888812}
   initialDelay: 3
   timeMultiplier: 2
+  yesButtonOverride: Eine Ausrede.
+  noButtonOverride: Die Wahrheit.
 --- !u!1 &2912253188394763923
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,11 +916,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2912253188394763922}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,6 +1021,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1081,11 +1084,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2912253188663357591}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1191,6 +1189,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2150502465694239032, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1248,16 +1251,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2912253188663357591}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1363,6 +1356,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
@@ -1388,11 +1391,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2912253188663357591}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1498,6 +1496,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
@@ -1535,11 +1538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2912253188663357591}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1645,6 +1643,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_Text
@@ -1682,11 +1685,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2912253188663357591}
     m_Modifications:
-    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
-        type: 3}
-      propertyPath: m_Name
-      value: PostItTarget
-      objectReference: {fileID: 0}
     - target: {fileID: 4139061288214092865, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1791,6 +1789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139061288214092878, guid: 717d0dec01b8edc4cb1f2778c8559c84,
+        type: 3}
+      propertyPath: m_Name
+      value: PostItTarget
       objectReference: {fileID: 0}
     - target: {fileID: 649341681794397056, guid: 717d0dec01b8edc4cb1f2778c8559c84,
         type: 3}

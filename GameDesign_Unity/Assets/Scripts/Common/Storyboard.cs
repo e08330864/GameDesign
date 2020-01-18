@@ -110,8 +110,7 @@ public class Storyboard: MonoBehaviour {
                     return;
                 }
                 ambulanceOverlay.SetActive(true);
-                stress.SetValue(1);
-                SpawnNextLevel();
+                nextButton.SetActive(false);
             }
             else
             {
@@ -120,7 +119,10 @@ public class Storyboard: MonoBehaviour {
         }else if (ambulanceOverlay.activeInHierarchy) // Ambulance Screen open
         {
             ambulanceOverlay.SetActive(false);
-        }else if (currentLevelIndex < levels.Count && levels[currentLevelIndex] is CutSceneLevel)
+            nextButton.SetActive(true);
+            SpawnNextLevel();
+        }
+        else if (currentLevelIndex < levels.Count && levels[currentLevelIndex] is CutSceneLevel)
         {
             currentLevel.GetComponent<TextSceneController>().SkipText();
         }

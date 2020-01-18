@@ -1,15 +1,15 @@
 Wenn stress fast voll, dann evntl. Auswirkung auf Geschwindigkeit.
-Ignorieren Bug
-AbteilungslIeter
-Lügen am Schluss Button NEIN (sollte Antwort enthalten)
-Geld - kann 0 werden? Hotel, einladen Essen, Minigame um Geld ausborgen - Mehr umso weniger sie einen mögen und mehr stress, Like -> Stress, Geld.
-Geld weniger zu Beginn, falls kein Geld -> Minigame mit Geld ausborgen
+Ignorieren Bug - Done
+AbteilungslIeter - Done
+Lügen am Schluss Button NEIN (sollte Antwort enthalten) - Done
+Geld - kann 0 werden? Hotel, einladen Essen, Minigame um Geld ausborgen - Mehr umso weniger sie einen mögen und mehr stress, Like -> Stress, Geld. - half done
+Geld weniger zu Beginn, falls kein Geld -> Minigame mit Geld ausborgen - half done
 Antworten unterschiedlich schnell kleiner -> Antwort weg wenn size 0
 Stress hervorheben wenn fast voll
-Start Stress höher
-Start Geld niedriger
-Rettung kostet Geld
-Krankenhaus Szene "schöner"
+Start Stress höher - done
+Start Geld niedriger - done
+Rettung kostet Geld - done 
+Krankenhaus Szene "schöner" - done 
 
 Wenn sichs aus geht:
 Bessere Grafiken (Artist)
