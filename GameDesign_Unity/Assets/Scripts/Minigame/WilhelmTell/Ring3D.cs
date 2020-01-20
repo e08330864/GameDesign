@@ -34,7 +34,7 @@ public class Ring3D : MonoBehaviour
         Debug.Log("collision object = " + collision.name + "  label=" + label);
         if (collision.name == "Arrow(Clone)")
         {
-            target.ringHitCounts(this);
+            IsHit = target.ringHitCounts(this);
         }
         Debug.Log("hit = " + IsHit);
     }

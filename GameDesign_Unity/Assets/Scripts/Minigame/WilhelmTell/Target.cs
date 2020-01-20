@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
         get => hitCheckInProcess;
         set => hitCheckInProcess = value;
     }
-    private List<int> hitRank = new List<int>(); 
+    private bool isHit = false;
 
     private bool isInstanziated = false;
 
@@ -91,39 +91,12 @@ public class Target : MonoBehaviour
 
     public bool ringHitCounts(Ring3D ring)
     {
-        hitRank.Add(ring.label);
-        StartCoroutine(WaitForOthers());
-        // check for smalest label
-        int smallestLabel = hitRank[0];
-        foreach (int i in hitRank)
-        {
-            smallestLabel = (smallestLabel < i) ? smallestLabel : i;
-        }
-        if (ring.label != smallestLabel)
+        if (isHit)
         {
             return false;
         }
-        bool validHit = true;
-        foreach (Ring3D r in rings)
-        {
-            if (r.IsHit)
-            {
-                validHit = false;
-                break;
-            }
-        }
-        if (validHit)
-        {
-            ring.IsHit = true;
-            MeshRenderer mr = ring.transform.GetComponent<MeshRenderer>();
-            mr.material = yellow;
-        }
-        hitRank.Clear();
-        return validHit;
-    }
-
-    IEnumerator WaitForOthers()
-    {
-        yield return new WaitForSeconds(2f);
+        ring.transform.GetComponent<MeshRenderer>().material = yellow;
+        isHit = true;
+        return true;
     }
 }
