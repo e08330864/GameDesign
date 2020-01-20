@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ring : MonoBehaviour
+public class Ring3D : MonoBehaviour
 {
     private Target target = null;
-    public string label = "";
+    public int label;
 
     private bool ishit = false;
     public bool IsHit
     {
         get => ishit;
-        set => ishit = value;        
+        set => ishit = value;
     }
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Ring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -34,10 +34,7 @@ public class Ring : MonoBehaviour
         Debug.Log("collision object = " + collision.name + "  label=" + label);
         if (collision.name == "Arrow(Clone)")
         {
-            //if (target.ringHitCounts(this))
-            //{
-            //    IsHit = true;
-            //}
+            target.ringHitCounts(this);
         }
         Debug.Log("hit = " + IsHit);
     }

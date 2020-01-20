@@ -43,5 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095e5813cf9930e44800bdff9a80573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringPrefab: {fileID: 9166999051517799649, guid: a7a1c3d2999c8ef4a953efcfb4897fcb,
+  black: {fileID: 2100000, guid: fb0aa2fba72b11b4cbc03a415f382af0, type: 2}
+  red: {fileID: 2100000, guid: 758ff9e335252fd45b2a8a788618d76b, type: 2}
+  yellow: {fileID: 2100000, guid: 5bcbf37408950954da7b8801b9036493, type: 2}
+  ringPrefab: {fileID: 5880096219894324851, guid: 42395613df6367d4b9f17c9cc044e565,
     type: 3}

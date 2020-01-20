@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9039719610378383013}
   - component: {fileID: 408972330958991147}
   - component: {fileID: 9166999051517799649}
-  - component: {fileID: 6071104978176802074}
-  - component: {fileID: 4567867579678134452}
+  - component: {fileID: -6700010688116631693}
+  - component: {fileID: 3840266446222396716}
   m_Layer: 5
   m_Name: Ring
   m_TagString: Untagged
@@ -88,40 +88,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1648c07acb2c94948b0d74ba95ef342f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &6071104978176802074
-CircleCollider2D:
+  label: 
+--- !u!136 &-6700010688116631693
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676319501211913779}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
+  m_Enabled: 1
   m_Radius: 50
---- !u!50 &4567867579678134452
-Rigidbody2D:
-  serializedVersion: 4
+  m_Height: 0.01
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3840266446222396716
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676319501211913779}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
   m_Constraints: 0
+  m_CollisionDetection: 0
