@@ -5,27 +5,24 @@ using UnityEngine.EventSystems;
 
 public class ShootingRange : MonoBehaviour , IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    private WilhelmTell wilhelmTell = null;
+    [SerializeField]
+    private Texture2D crossHairTexture = null;
     [SerializeField]
     private Crossbow crossbow = null;
 
     private CursorMode cursorMode = CursorMode.Auto;
-    private Vector2 hotSpot = Vector2.zero;
+    private Vector2 cursorHotSpot = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
     {
-        if ((wilhelmTell = transform.parent.GetComponent<WilhelmTell>()) == null)
-        {
-            Debug.Log("wilhelmTell is NULL in ShootingRange");
-        }
+        cursorHotSpot = new Vector2(crossHairTexture.width / 2, crossHairTexture.height / 2);
     }
 
     private void Update()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            //Debug.Log("mouse Pos = " + Input.mousePosition);
             crossbow.SetTarget(Input.mousePosition);
         }
     }
@@ -52,7 +49,7 @@ public class ShootingRange : MonoBehaviour , IPointerEnterHandler, IPointerExitH
     {
         if (crossbow.CrossbowIsLoaded)
         {
-            Cursor.SetCursor(wilhelmTell.CrossHair, hotSpot, cursorMode);
+            Cursor.SetCursor(crossHairTexture, cursorHotSpot, cursorMode);
         }
         else
         {

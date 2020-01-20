@@ -18,12 +18,6 @@ public class WilhelmTell : MonoBehaviour
     [SerializeField]
     private float targetSpeed = 3.0f;
     [SerializeField]
-    private Texture2D crossHairTexture = null;
-    public Texture2D CrossHair
-    {
-        get => crossHairTexture;
-    }
-    [SerializeField]
     private Arrow arrowPrefab = null;
     [SerializeField]
     private int numberOfArrows = 3;

@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000f61f8defa6aa4d9bacf0927736d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crossHairTexture: {fileID: 2800000, guid: 522e2eec793857746ad0f1fa3fa2767b, type: 3}
   crossbow: {fileID: 7130942711909533397}
 --- !u!1 &1853741840011490527
 GameObject:
@@ -152,14 +153,10 @@ MonoBehaviour:
   level: 1
   targetPrefab: {fileID: 8437977309418463983, guid: c2c5ae0ffd0b83944889c2d98af34493,
     type: 3}
-  bullEyeSprite: {fileID: 21300000, guid: da1f6271f6c1ba94eac466c20d595918, type: 3}
-  secondRingSprite: {fileID: 21300000, guid: 35e16cdfe3dbcd146b9e263a37398ef7, type: 3}
-  hitRingSprite: {fileID: 21300000, guid: 30d42c0914de992419472ea3659c7a51, type: 3}
   numberOfTargets: 1
-  targetSize: 200
+  targetSize: 500
   numberOfTargetRings: 6
   targetSpeed: 3
-  crossHairTexture: {fileID: 2800000, guid: 522e2eec793857746ad0f1fa3fa2767b, type: 3}
   arrowPrefab: {fileID: 4811329545661424911, guid: 89930e54553d4bf44aa60bdf1c7915fd,
     type: 3}
   numberOfArrows: 3

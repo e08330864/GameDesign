@@ -77,6 +77,7 @@ public class Crossbow : MonoBehaviour
         {
             Debug.Log("in crossbos ShootArrow 1");
             Arrow arrow = transform.Find("Arrow(Clone)").GetComponent<Arrow>();
+            arrow.transform.localPosition = new Vector3(0f, 0f, 0f);
             Debug.Log("in crossbos ShootArrow 2");
             CrossbowIsLoaded = false;
             arrow.Fly = true;
