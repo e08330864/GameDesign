@@ -9,6 +9,7 @@ public class Storyboard: MonoBehaviour {
     public GameObject answerOverlay;
     public GameObject ambulanceOverlay;
     public GameObject trainingResultOverlay;
+    public LendMoney lendMoneyOverlay;
     public GameOverOverlay gameOver;
     public float displayAnswerDuration;
     public GameObject countdownPrefab;
@@ -104,7 +105,13 @@ public class Storyboard: MonoBehaviour {
 
     public void GoNextButtonPressed()
     {
-        
+        if (lendMoneyOverlay.gameObject.activeInHierarchy)
+        {
+            lendMoneyOverlay.gameObject.SetActive(false);
+            nextButton.SetActive(true);
+            SpawnNextLevel();
+        }
+
         if (answerOverlay.activeInHierarchy) //Player in Answer Screen
         {
             answerOverlay.SetActive(false);
@@ -156,11 +163,18 @@ public class Storyboard: MonoBehaviour {
         if (trainingAtLevel.Contains(currentLevelIndex)){
             SpawnArrowTraining();
             return;
+        }else if (money.Value < 0)
+        {
+            lendMoneyOverlay.Init();
+            nextButton.SetActive(false);
+            lendMoneyOverlay.gameObject.SetActive(true);
+            return;
         }
         else
         {
             currentLevelIndex++;
         }
+
         if(currentLevelIndex < levels.Count)
         {
             GameObject levelContainer = null;

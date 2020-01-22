@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     private Image image = null;
     private TextMeshProUGUI sympathyValue = null;
 
+    public bool hasBorrowedMoney = false;
     public string characterName = "";
     [SerializeField]
     private float playerSympathy = 3;
