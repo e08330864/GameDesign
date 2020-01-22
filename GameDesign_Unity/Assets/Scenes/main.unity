@@ -1768,6 +1768,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7591971ecdd4884a8430d55b8a5423d, type: 2}
   - {fileID: 11400000, guid: 662f318574a9ce24b9c575a5f4fd0f79, type: 2}
   - {fileID: 11400000, guid: e15dea95562fcc74d8fb4e96c792f527, type: 2}
+  - {fileID: 11400000, guid: 1b82d3483ee1a1840b91788f998adc93, type: 2}
+  - {fileID: 11400000, guid: 130d672a458818a47bd1e6834bcc614a, type: 2}
   - {fileID: 11400000, guid: 78198f55ea3cf874d9ccbb49e27fc503, type: 2}
   - {fileID: 11400000, guid: 55ee268c03ec51241bf1a37620cd2c3a, type: 2}
   - {fileID: 11400000, guid: c91bd182585644142a74fff8dcddc102, type: 2}
@@ -1782,13 +1784,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09082567bcdc3e347bd66ae2bb91d44c, type: 2}
   - {fileID: 11400000, guid: 96415e562b2c46b498bf161aea53a0c7, type: 2}
   - {fileID: 11400000, guid: 8f916848b4a83ef42981893dd8400032, type: 2}
+  - {fileID: 11400000, guid: 0ae22eab25675ae48a8cd4b2e6f4e872, type: 2}
+  - {fileID: 11400000, guid: 130d672a458818a47bd1e6834bcc614a, type: 2}
+  - {fileID: 11400000, guid: 130d672a458818a47bd1e6834bcc614a, type: 2}
   levelParent: {fileID: 319579943}
   currentLevelIndex: -1
   lifes: 2
   nextButton: {fileID: 582552097}
   arrowTrainingPrefab: {fileID: 5478795186839611171, guid: d162ff6003c8dc44594f17cabdf952da,
     type: 3}
-  trainingAtLevel: 02000000
+  trainingAtLevel: 020000000c0000001c000000
   currentJitterReduction: 0
   stress: {fileID: 0}
   money: {fileID: 0}
@@ -2941,7 +2946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1300085907
 RectTransform:
   m_ObjectHideFlags: 0

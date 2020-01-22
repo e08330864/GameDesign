@@ -44,6 +44,7 @@ public class Arrow : MonoBehaviour
             transform.Translate(velocity * Time.deltaTime);
             if (transform.position.z > 0)
             {
+                FindObjectOfType<WilhelmTell>().arrowShot();
                 Destroy(this);
             }
         }
@@ -62,5 +63,6 @@ public class Arrow : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        
     }
 }
