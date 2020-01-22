@@ -474,6 +474,21 @@ PrefabInstance:
       propertyPath: once
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1311828824562323013, guid: d76f340cce005944db3966287d885ed9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -197
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197050220499663785, guid: d76f340cce005944db3966287d885ed9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292588075051809759, guid: d76f340cce005944db3966287d885ed9,
+        type: 3}
+      propertyPath: m_Name
+      value: Drugs
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d76f340cce005944db3966287d885ed9, type: 3}
 --- !u!224 &2484774620957285087 stripped

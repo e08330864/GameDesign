@@ -28,26 +28,6 @@ public class Ring3D : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    //private void OnTriggerEnter(Collider collision)
-    //{
-    //    //Debug.Log("collision object = " + collision.name + "  label=" + label);
-    //    if (collision.name == "Arrow(Clone)")
-    //    {
-    //        if (!IsHit)
-    //        {
-    //            Destroy(collision.gameObject);
-    //            IsHit = target.ringHitCounts(this);
-    //        }
-    //    }
-    //    Debug.Log("hit = " + IsHit);
-    //}
-
     public void hit()
     {
         if (!IsHit)

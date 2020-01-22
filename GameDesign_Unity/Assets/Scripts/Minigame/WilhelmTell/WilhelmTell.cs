@@ -4,6 +4,39 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//--------------------------------------------------------------------------
+// The function of a 100% bull-eyes missel arrow is not implemented
+//
+// Input values (for the first naive implementation):
+//  
+//      Stress              ... current stress level - must be taken from player
+//      SumberOfTargets     ... defines the number of targets, depending on difficulty - for size and number of rings the standard parameters can be used
+//      NumberOfArrows
+//      JitterPercentage    ... Percentage factor of final Jitter (result of jitter reduction by jitter reduction tools)
+//
+//  Return VAlues
+//
+//      Score               ... reached score 
+//      MaximumScore        ... maximumScore = numberOfTargets * (numberOfTargetRings * 10)
+//      
+//
+//  There is also a draft of a JitterShop as prescene/cutscene for the training/turnament, in which you can buy the drugs
+//  100% bulls-eye arrow and continous valid crossbow weights fare not implemented in WT, so only the drucgs should be working in the first prototyp
+//
+//  Desired functionality in jitter shop: 
+//      
+//      +/- buttons for a jitter item to buy - whereby you only can buy up to the money you have
+//      the bought items are automatically valid for the upcoming training/tournament --> JitterPercentage
+//          (of course, if borrowing functionality is working related to persons likes, it would be great)
+//
+//  The effect of the reached score should be communicated afterwards and be calculated according following formula:
+//      delta_stress = Ceil( Score / (maximumScore / maximumStress) )
+//
+//  In the final turnament (with at least 4 targets and only 4 arrows), the score to be reached (otherwise game lost) should be given for example like this:
+//      scoreThreshold = 0.8 * maximumScore
+
+
+
 public class WilhelmTell : MonoBehaviour
 {
     [SerializeField]
@@ -12,6 +45,11 @@ public class WilhelmTell : MonoBehaviour
     private Target targetPrefab = null;
     [SerializeField]
     private int numberOfTargets = 1;
+    public int NumberOfTargets
+    {
+        set => NumberOfTargets = value;
+        get => numberOfTargets;
+    }
     [SerializeField]
     private int targetSize = 300;
     [SerializeField]
@@ -22,8 +60,21 @@ public class WilhelmTell : MonoBehaviour
     private Arrow arrowPrefab = null;
     [SerializeField]
     private int stress = 0;
+    public float Stress
+    {
+        set => Stress = value;
+        get => Stress;
+    }
+
     [SerializeField]
     private float jitter = 4;
+    [SerializeField]
+    private float jitterPercentage = 1f;  // the total calculatet jitter is multiplied by this factor, therefore it is the percentage of jitter
+    public float JitterPercentage
+    {
+        set => jitterPercentage = value;
+        get => jitterPercentage;
+    }
 
     //--------------------------------------------------------------
     private int numberOfArrows = 3;
@@ -41,6 +92,10 @@ public class WilhelmTell : MonoBehaviour
             scoreValueText.text = score.ToString();
         }
         get => score;
+    }
+    public int MaximumScore
+    {
+        get => NumberOfTargets * (numberOfTargetRings + 10);
     }
     //--------------------------------------------------------------
 
