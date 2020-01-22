@@ -1628,6 +1628,7 @@ MonoBehaviour:
     type: 3}
   levels:
   - {fileID: 11400000, guid: 71bac1ec78d74c34d867f85dc2b36beb, type: 2}
+  - {fileID: 11400000, guid: 88871a9219ccbf74b8ee819e743ce957, type: 2}
   - {fileID: 11400000, guid: a7837e16eb8ffd04cae9fe5d5534df5c, type: 2}
   - {fileID: 11400000, guid: 919329691f1f6a049a66925ef1f14a91, type: 2}
   - {fileID: 11400000, guid: 758721578990387448167f96583313df, type: 2}
@@ -1656,7 +1657,7 @@ MonoBehaviour:
   nextButton: {fileID: 582552097}
   arrowTrainingPrefab: {fileID: 5478795186839611171, guid: d162ff6003c8dc44594f17cabdf952da,
     type: 3}
-  trainingAtLevel: ffffffff0200000004000000
+  trainingAtLevel: 01000000050000000a000000
   stress: {fileID: 0}
 --- !u!1 &771014668
 GameObject:
