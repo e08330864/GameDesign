@@ -95,9 +95,10 @@ public class WilhelmTell : MonoBehaviour
     }
     public int MaximumScore
     {
-        get => NumberOfTargets * (numberOfTargetRings + 10);
+        get => NumberOfTargets * numberOfTargetRings;
     }
     //--------------------------------------------------------------
+    public int currentArrowCount;
 
     private ShootingRange shootingRange = null;
     private RectTransform shootingRangeRT = null;
@@ -117,7 +118,8 @@ public class WilhelmTell : MonoBehaviour
     void Start()
     {
         //sizeInScreen = transform.Find("ShootingRange").GetComponent<SpriteRenderer>().bounds.size; <-- User RectTransform for this
-        
+        stress = FindObjectOfType<Storyboard>().stress.Value;
+        jitter = 1;
         if ((shootingRange = GameObject.FindObjectOfType<ShootingRange>()) == null)
         {
             Debug.LogError("shootingRange is NULL in WilhelmTell");
@@ -187,6 +189,7 @@ public class WilhelmTell : MonoBehaviour
             arrows.Add(arrow);
         }
         arrowsArea.SetWidth(arrows.Count);
+        currentArrowCount = numberOfArrows;
     }
 
     public void LoadCrossbow()
@@ -213,5 +216,33 @@ public class WilhelmTell : MonoBehaviour
     public int GetNumArrowsOnStock()
     {
         return arrows.Count;
+    }
+
+    public void arrowShot()
+    {
+        currentArrowCount--;
+        Debug.Log($"Du hast {score} Punkte von {MaximumScore} Punkten erreicht!\n\n");
+        if (currentArrowCount == 0)
+        {
+            var sb = FindObjectOfType<Storyboard>();
+            sb.nextButton.SetActive(true);
+            var txt = sb.trainingResultOverlay.GetComponentInChildren<Text>();
+            txt.text = $"Du hast {score} Punkte von {MaximumScore} Punkten erreicht!\n\n";
+            if (Score / (float)MaximumScore >= 0.80f)
+            {
+                txt.text += "Du bist überglücklich mit deinem Ergebnis! \n Du fühlst dich weniger gestresst.";
+                sb.stress.ApplyDelta(-1);
+            }
+            else if(Score / (float)MaximumScore >= 0.5f)
+            {
+                txt.text += "Du bist zufrieden mit deinem Ergebnis. \n";
+            }
+            else
+            {
+                txt.text += "Du bist nicht zufrieden mit deinem Ergebnis. \n Beim Gedanken ans Bezirksturnier fühlst du dich gestresst...";
+                sb.stress.ApplyDelta(1);
+            }
+
+        }
     }
 }

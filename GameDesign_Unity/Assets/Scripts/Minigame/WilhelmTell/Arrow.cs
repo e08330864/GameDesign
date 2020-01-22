@@ -58,6 +58,7 @@ public class Arrow : MonoBehaviour
             {
                 hit = true;
                 collision.gameObject.GetComponent<Ring3D>().hit();
+                FindObjectOfType<WilhelmTell>().arrowShot();
                 Destroy(this.gameObject);
             }
         }

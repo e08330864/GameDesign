@@ -8,6 +8,7 @@ public class Storyboard: MonoBehaviour {
 
     public GameObject answerOverlay;
     public GameObject ambulanceOverlay;
+    public GameObject trainingResultOverlay;
     public GameOverOverlay gameOver;
     public float displayAnswerDuration;
     public GameObject countdownPrefab;
@@ -16,9 +17,13 @@ public class Storyboard: MonoBehaviour {
     public int currentLevelIndex;
     public int lifes = 2;
     public GameObject nextButton;
+    public GameObject arrowTrainingPrefab;
+    public List<int> trainingAtLevel;
 
+    [HideInInspector]
+    public Stress stress;
+    private GameObject arrowTraining;
     private GameObject currentLevel;
-    private Stress stress;
     private Money money;
 
     public void Start()
@@ -121,6 +126,15 @@ public class Storyboard: MonoBehaviour {
             ambulanceOverlay.SetActive(false);
             nextButton.SetActive(true);
             SpawnNextLevel();
+        }else if(arrowTraining != null)
+        {
+            Destroy(arrowTraining);
+            arrowTraining = null;
+            trainingResultOverlay.SetActive(true);
+        }else if (trainingResultOverlay.activeInHierarchy)
+        {
+            trainingResultOverlay.SetActive(false);
+            SpawnNextLevel();
         }
         else if (currentLevelIndex < levels.Count && levels[currentLevelIndex] is CutSceneLevel)
         {
@@ -136,7 +150,14 @@ public class Storyboard: MonoBehaviour {
 
     private void SpawnNextLevel()
     {
-        currentLevelIndex++;
+        if (trainingAtLevel.Contains(currentLevelIndex)){
+            SpawnArrowTraining();
+            return;
+        }
+        else
+        {
+            currentLevelIndex++;
+        }
         if(currentLevelIndex < levels.Count)
         {
             GameObject levelContainer = null;
@@ -163,6 +184,14 @@ public class Storyboard: MonoBehaviour {
         {
             GameOver("Gratuliere du hast es bis zum Ende geschafft!");
         }
+    }
+
+    private void SpawnArrowTraining()
+    {
+        trainingAtLevel.Remove(currentLevelIndex);
+        nextButton.SetActive(false);
+        arrowTrainingPrefab.GetComponent<Canvas>().worldCamera = Camera.main;
+        arrowTraining = GameObject.Instantiate(arrowTrainingPrefab);
     }
 
     private bool shouldSkip(LevelController nextLevel)
@@ -197,7 +226,13 @@ public class Storyboard: MonoBehaviour {
 
     public void GameOver(string endText)
     {
+        nextButton.SetActive(false);
         gameOver.GameOver(endText);
+    }
+
+    public void ArrowTrainingFinished()
+    {
+
     }
 
 }

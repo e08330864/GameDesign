@@ -122,7 +122,7 @@ public class Target : MonoBehaviour
         }
         ring.transform.GetComponent<MeshRenderer>().material = yellow;
         isHit = true;
-        wilhelmTell.Score += (ring.Label == 1) ? numberOfTargetRings + 10 : numberOfTargetRings - ring.Label + 1;
+        wilhelmTell.Score += numberOfTargetRings - ring.Label + 1;
         Debug.Log("hit score=" + wilhelmTell.Score);
         return true;
     }
