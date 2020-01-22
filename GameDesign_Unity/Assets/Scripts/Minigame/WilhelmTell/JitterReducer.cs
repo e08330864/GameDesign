@@ -56,5 +56,6 @@ public class JitterReducer : MonoBehaviour
         sb.currentJitterReduction = percentageReduction;
         sb.money.SetValue(sb.money.Value-price);
         sb.GoNextButtonPressed();
+        this.GetComponent<Button>().enabled = false;
     }
 }

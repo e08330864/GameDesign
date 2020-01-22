@@ -233,9 +233,4 @@ public class Storyboard: MonoBehaviour {
         gameOver.GameOver(endText);
     }
 
-    public void ArrowTrainingFinished()
-    {
-
-    }
-
 }

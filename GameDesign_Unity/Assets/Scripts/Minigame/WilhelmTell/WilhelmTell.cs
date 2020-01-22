@@ -121,7 +121,7 @@ public class WilhelmTell : MonoBehaviour
         //sizeInScreen = transform.Find("ShootingRange").GetComponent<SpriteRenderer>().bounds.size; <-- User RectTransform for this
         stress = FindObjectOfType<Storyboard>().stress.Value;
         JitterPercentage = FindObjectOfType<Storyboard>().currentJitterReduction;
-        jitter = 1;
+        jitter = jitter * 1/jitterPercentage;
         if(jitterPercentage > 0)
         {
             effects.text = "Aktuelle Effekte: \n" + $"{FindObjectOfType<Storyboard>().currentJitterReduction}% ruhigere Hände.";
