@@ -18,12 +18,12 @@ public class Crossbow : MonoBehaviour
             if (crossbowIsLoaded)
             {
                 arrowsArea.SetRaycast(false);
-                instruction.text = "";
+                instruction.enabled = false;
             }
             else
             {
                 arrowsArea.SetRaycast(true);
-                instruction.text = "load crossbow!!!";
+                instruction.enabled = true;
             }
         }
     }

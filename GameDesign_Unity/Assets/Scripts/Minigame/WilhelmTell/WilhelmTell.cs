@@ -99,6 +99,7 @@ public class WilhelmTell : MonoBehaviour
     }
     //--------------------------------------------------------------
     public int currentArrowCount;
+    public Text effects;
 
     private ShootingRange shootingRange = null;
     private RectTransform shootingRangeRT = null;
@@ -119,7 +120,17 @@ public class WilhelmTell : MonoBehaviour
     {
         //sizeInScreen = transform.Find("ShootingRange").GetComponent<SpriteRenderer>().bounds.size; <-- User RectTransform for this
         stress = FindObjectOfType<Storyboard>().stress.Value;
+        JitterPercentage = FindObjectOfType<Storyboard>().currentJitterReduction;
         jitter = 1;
+        if(jitterPercentage > 0)
+        {
+            effects.text = "Aktuelle Effekte: \n" + $"{FindObjectOfType<Storyboard>().currentJitterReduction}% ruhigere Hände.";
+        }
+        else
+        {
+            effects.text = "Aktuelle Effekte: \n Keine.";
+        }
+
         if ((shootingRange = GameObject.FindObjectOfType<ShootingRange>()) == null)
         {
             Debug.LogError("shootingRange is NULL in WilhelmTell");
@@ -225,15 +236,16 @@ public class WilhelmTell : MonoBehaviour
         if (currentArrowCount == 0)
         {
             var sb = FindObjectOfType<Storyboard>();
+            sb.currentJitterReduction = 0;
             sb.nextButton.SetActive(true);
             var txt = sb.trainingResultOverlay.GetComponentInChildren<Text>();
             txt.text = $"Du hast {score} Punkte von {MaximumScore} Punkten erreicht!\n\n";
             if (Score / (float)MaximumScore >= 0.80f)
             {
-                txt.text += "Du bist überglücklich mit deinem Ergebnis! \n Du fühlst dich weniger gestresst.";
+                txt.text += "Du bist überglücklich mit deinem Ergebnis und fühlst dich weniger gestresst.";
                 sb.stress.ApplyDelta(-1);
             }
-            else if(Score / (float)MaximumScore >= 0.5f)
+            else if(Score / (float)MaximumScore >= 0.7f)
             {
                 txt.text += "Du bist zufrieden mit deinem Ergebnis. \n";
             }

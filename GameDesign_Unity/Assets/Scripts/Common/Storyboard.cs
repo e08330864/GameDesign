@@ -21,10 +21,13 @@ public class Storyboard: MonoBehaviour {
     public List<int> trainingAtLevel;
 
     [HideInInspector]
+    public int currentJitterReduction;
+    [HideInInspector]
     public Stress stress;
+    [HideInInspector]
+    public Money money;
     private GameObject arrowTraining;
     private GameObject currentLevel;
-    private Money money;
 
     public void Start()
     {
