@@ -19,10 +19,6 @@ public class ArrowsArea : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("wilhelmTell is NULL in ArrowsArea");
         }
-        //if ((crossbow = transform.parent.GetComponent<Crossbow>()) == null)
-        //{
-        //    Debug.Log("crossbow is NULL in ArrowsArea");
-        //}
         img = transform.GetComponent<Image>();
     }
     

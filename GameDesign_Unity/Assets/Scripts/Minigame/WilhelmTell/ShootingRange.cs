@@ -12,6 +12,18 @@ public class ShootingRange : MonoBehaviour , IPointerEnterHandler, IPointerExitH
 
     private CursorMode cursorMode = CursorMode.Auto;
     private Vector2 cursorHotSpot = Vector2.zero;
+    private int stress = 0;
+    public int Stress
+    {
+        set => stress = value;
+    }
+    private float jitter = 4;
+    public float Jitter
+    {
+        set => jitter = value;
+    }
+    Vector3 tremble = Vector3.zero;
+    Vector2 tremble2 = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +35,11 @@ public class ShootingRange : MonoBehaviour , IPointerEnterHandler, IPointerExitH
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            crossbow.SetTarget(Input.mousePosition);
+            tremble = new Vector3(Random.Range(-1f, +1f) * stress * jitter,
+                                  Random.Range(-1f, +1f) * stress * jitter,
+                                  0f);
+            SetCurserInShootingRange();
+            crossbow.SetTarget(Input.mousePosition + tremble);
         }
     }
 
@@ -47,9 +63,10 @@ public class ShootingRange : MonoBehaviour , IPointerEnterHandler, IPointerExitH
 
     public void SetCurserInShootingRange()
     {
+        tremble2 = tremble;
         if (crossbow.CrossbowIsLoaded)
         {
-            Cursor.SetCursor(crossHairTexture, cursorHotSpot, cursorMode);
+            Cursor.SetCursor(crossHairTexture, cursorHotSpot - tremble2, cursorMode);
         }
         else
         {

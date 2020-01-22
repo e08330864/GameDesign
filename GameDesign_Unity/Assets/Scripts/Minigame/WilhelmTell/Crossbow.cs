@@ -7,6 +7,8 @@ public class Crossbow : MonoBehaviour
 {
     [SerializeField]
     private bool crossbowIsLoaded = false;
+
+    private Text instruction = null;
     public bool CrossbowIsLoaded
     {
         get => crossbowIsLoaded;
@@ -16,10 +18,12 @@ public class Crossbow : MonoBehaviour
             if (crossbowIsLoaded)
             {
                 arrowsArea.SetRaycast(false);
+                instruction.text = "";
             }
             else
             {
                 arrowsArea.SetRaycast(true);
+                instruction.text = "load crossbow!!!";
             }
         }
     }
@@ -41,6 +45,10 @@ public class Crossbow : MonoBehaviour
         if ((arrowsArea = GameObject.FindObjectOfType<ArrowsArea>()) == null)
         {
             Debug.LogError("arrowsArea is NULL in Crossbow");
+        }
+        if ((instruction = GameObject.Find("Instruction").GetComponent<Text>()) == null)
+        {
+            Debug.LogError("instruction is NULL in WilhelmTell");
         }
         leftOffset = ((RectTransform)shootingRange.transform).rect.width / 2.0f + transform.localPosition.x;
         bottomOffset = ((RectTransform)shootingRange.transform).rect.height / 2.0f + transform.localPosition.y + 250;
@@ -75,10 +83,8 @@ public class Crossbow : MonoBehaviour
     {
         if (CrossbowIsLoaded)
         {
-            Debug.Log("in crossbos ShootArrow 1");
             Arrow arrow = transform.Find("Arrow(Clone)").GetComponent<Arrow>();
             arrow.transform.localPosition = new Vector3(0f, 0f, 0f);
-            Debug.Log("in crossbos ShootArrow 2");
             CrossbowIsLoaded = false;
             arrow.Fly = true;
             shootingRange.SetCurserInShootingRange();
