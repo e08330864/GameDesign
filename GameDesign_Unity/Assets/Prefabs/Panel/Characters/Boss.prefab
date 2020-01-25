@@ -316,7 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc29ca2d60e82cb438fc873600a7d36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasBorrowedMoney: 0
   characterName: Boss
-  playerSympathy: 3
+  playerSympathy: 1
   maxSympathy: 5
   minSympathy: 0

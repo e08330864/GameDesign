@@ -149,8 +149,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.7
-  m_Text: "In wenigen Tagen ist es so\nweit, das gro\xDFe Bezirks-\nturnier du schaust
-    lieber\nnochmal bei der Apotheke\nvorbei..."
+  m_Text: "Du versuchst die Ereignisse\nder letzten Tage hinter dir\nzu lassen, das
+    alles hatte\nkaum Bedeutung im Vergleich\nzu diesem Moment...\n\nDu solltest nochmal\nsicherstellen
+    das alles\nglatt l\xE4uft..."
 --- !u!1 &4036134869718351948
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.7
-  m_Text: "Du machst dich wieder auf\nden Weg zum\nArmbrustschie\xDFen..."
+  m_Text: "Endlich ist es soweit, das\ngro\xDFe Turnier beginnt!"
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ GameObject:
   - component: {fileID: 5660194306687184695}
   - component: {fileID: 2353748259037242279}
   m_Layer: 5
-  m_Name: 2-ArmbrustTraining
+  m_Name: 3-TurnierArmbrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
