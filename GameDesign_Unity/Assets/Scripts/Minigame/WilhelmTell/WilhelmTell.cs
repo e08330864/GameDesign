@@ -240,7 +240,17 @@ public class WilhelmTell : MonoBehaviour
             sb.nextButton.SetActive(true);
             var txt = sb.trainingResultOverlay.GetComponentInChildren<Text>();
             txt.text = $"Du hast {score} Punkte von {MaximumScore} Punkten erreicht!\n\n";
-            if (Score / (float)MaximumScore >= 0.80f)
+            if (sb.currentLevelIndex == sb.levels.Count - 1) //Final Competition, adujst Text
+            {
+                if(Score / (float)MaximumScore >= 0.80f)
+                {
+                    txt.text += "Wow du hast es geschafft! Du bist neuer Bezirksmeister!!!";
+                }
+                else
+                {
+                    sb.GameOver("Was für eine Enttäuschung, all das Training umsonst...");
+                }
+            }else if (Score / (float)MaximumScore >= 0.80f)
             {
                 txt.text += "Du bist überglücklich mit deinem Ergebnis und fühlst dich weniger gestresst.";
                 sb.stress.ApplyDelta(-1);
@@ -254,6 +264,8 @@ public class WilhelmTell : MonoBehaviour
                 txt.text += "Du bist nicht zufrieden mit deinem Ergebnis. \n Beim Gedanken ans Bezirksturnier fühlst du dich gestresst...";
                 sb.stress.ApplyDelta(1);
             }
+
+            
 
         }
     }

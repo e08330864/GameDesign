@@ -112,38 +112,39 @@ public class Storyboard: MonoBehaviour {
             SpawnNextLevel();
         }
 
-        if (answerOverlay.activeInHierarchy) //Player in Answer Screen
+        if (stress.Value >= 5)
         {
-            answerOverlay.SetActive(false);
+            lifes--; 
+            if (lifes <= 0)
+            {
+                GameOver("Du hättest auf den Arzt hören sollen...");
+                return;
+            }
+            ambulanceOverlay.SetActive(true);
+            nextButton.SetActive(false);
+            return;
+        }
 
-            if (stress.Value >= 5)
-            {
-                lifes--;
-                if (lifes <= 0)
-                {
-                    GameOver("Du hättest auf den Arzt hören sollen...");
-                    return;
-                }
-                ambulanceOverlay.SetActive(true);
-                nextButton.SetActive(false);
-            }
-            else
-            {
-                SpawnNextLevel();
-            }
-        }else if (ambulanceOverlay.activeInHierarchy) // Ambulance Screen open
-        {
-            ambulanceOverlay.SetActive(false);
-            nextButton.SetActive(true);
-            SpawnNextLevel();
-        }else if(arrowTraining != null)
+        if (arrowTraining != null)
         {
             Destroy(arrowTraining);
             arrowTraining = null;
             trainingResultOverlay.SetActive(true);
-        }else if (trainingResultOverlay.activeInHierarchy)
+        }
+        else if (trainingResultOverlay.activeInHierarchy)
         {
             trainingResultOverlay.SetActive(false);
+            SpawnNextLevel();
+        }
+
+        if (answerOverlay.activeInHierarchy) //Player in Answer Screen
+        {
+            answerOverlay.SetActive(false);
+            SpawnNextLevel();
+        }else if (ambulanceOverlay.activeInHierarchy) // Ambulance Screen open
+        {
+            ambulanceOverlay.SetActive(false);
+            nextButton.SetActive(true);
             SpawnNextLevel();
         }
         else if (currentLevelIndex < levels.Count && levels[currentLevelIndex] is CutSceneLevel)
