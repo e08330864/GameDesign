@@ -302,9 +302,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.7
-  m_Text: "Endlich ist der Arbeitstag vorbei...\njetzt geht es nach hause und nochmal
-    \xFCber den Urlaub reden!\nSonne, Wein und Pasta...mit Blick auf den Sonnenuntergang
-    am Meereshorizont - ITALIEN RUFT!!!\n\n...pl\xF6tzlich taucht dein Chef auf"
+  m_Text: "Endlich ist der Arbeitstag vorbei...\njetzt geht es nach hause, hoffentlich
+    hat Vanessa schon etwas\ngekocht...\n\n...pl\xF6tzlich taucht dein Chef auf"
 --- !u!1 &4036134869989247675
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipOnYes: []
   skipOnNo: []
+  skipOnIgnore: []
   dialogTextList:
   - {fileID: 4036134869718351986}
   - {fileID: 2802882192695043472}
