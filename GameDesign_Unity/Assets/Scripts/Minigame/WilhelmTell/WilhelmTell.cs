@@ -156,7 +156,7 @@ public class WilhelmTell : MonoBehaviour
             Debug.LogError("thisRT is NULL in WilhelmTell");
         }
         shootingRange.Stress = stress;
-        shootingRange.Jitter = jitter * 1 / jitterPercentage;
+        shootingRange.Jitter = jitter * (1 - jitterPercentage / 100.0f);
         // targets
         // randomly path
         bool fromLeft = (Random.Range(0,2) == 0) ? true : false;

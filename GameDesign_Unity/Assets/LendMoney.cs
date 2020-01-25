@@ -36,7 +36,7 @@ public class LendMoney : MonoBehaviour
         if (inScene != null)
         {
             text.gameObject.SetActive(true);
-            amount = inScene.GetComponent<Character>().GetPlayerSympathy() * 200;
+            amount = inScene.GetComponent<Character>().GetPlayerSympathy() * 50;
             text.text = ""+amount+"€ ausborgen.";
             if (inScene.GetComponent<Character>().hasBorrowedMoney)
             {

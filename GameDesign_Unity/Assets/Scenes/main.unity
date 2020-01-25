@@ -1786,6 +1786,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09082567bcdc3e347bd66ae2bb91d44c, type: 2}
   - {fileID: 11400000, guid: 96415e562b2c46b498bf161aea53a0c7, type: 2}
   - {fileID: 11400000, guid: 8f916848b4a83ef42981893dd8400032, type: 2}
+  - {fileID: 11400000, guid: 28074b5f27971ac42a326ea715a15e31, type: 2}
   - {fileID: 11400000, guid: 43a5152d96250e34e9c5a0ee8b08c007, type: 2}
   - {fileID: 11400000, guid: 130d672a458818a47bd1e6834bcc614a, type: 2}
   levelParent: {fileID: 319579943}
@@ -1794,7 +1795,7 @@ MonoBehaviour:
   nextButton: {fileID: 582552097}
   arrowTrainingPrefab: {fileID: 5478795186839611171, guid: d162ff6003c8dc44594f17cabdf952da,
     type: 3}
-  trainingAtLevel: 020000000c000000140000001d000000
+  trainingAtLevel: 020000000c000000140000001f000000
   currentJitterReduction: 0
   stress: {fileID: 0}
   money: {fileID: 0}

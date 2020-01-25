@@ -14,9 +14,9 @@ public class TextSceneController : LevelController
     private DateTime time;
     private string toWrite;
     private Text currentText;
-    private int counter = 0;
-    private bool finished = false;
-    private Image charImage;
+    internal int counter = 0;
+    internal bool finished = false;
+    internal Image charImage;
     private int charsPerTick = 2;
 
     void Start()
@@ -34,7 +34,7 @@ public class TextSceneController : LevelController
         StartCoroutine(TypeText(dialogText, CallNextText));
     }
 
-    void CallNextText()  {
+    internal void CallNextText()  {
         counter += 1;
         if (counter == 1)
         {
@@ -51,7 +51,7 @@ public class TextSceneController : LevelController
         }
     } 
 
-    IEnumerator TypeText(Text dialogText, System.Action callback)
+    internal IEnumerator TypeText(Text dialogText, System.Action callback)
     {
         toWrite = dialogText.text;
         currentText = dialogText;
