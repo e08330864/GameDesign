@@ -4463,6 +4463,7 @@ GameObject:
   - component: {fileID: 1832338016}
   - component: {fileID: 1832338015}
   - component: {fileID: 1832338014}
+  - component: {fileID: 1832338017}
   m_Layer: 5
   m_Name: StressContainer
   m_TagString: Untagged
@@ -4552,6 +4553,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832338012}
   m_CullTransparentMesh: 0
+--- !u!114 &1832338017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832338012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec99dcf754022b4a8571d0a3e9a2599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stressedColor: {r: 0.6132076, g: 0.072312206, b: 0.072312206, a: 1}
 --- !u!1 &1865647620
 GameObject:
   m_ObjectHideFlags: 0
