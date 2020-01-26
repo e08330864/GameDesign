@@ -539,14 +539,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skipOnYes: []
   skipOnNo: []
+  skipOnIgnore: []
   gameShortText: Carolin's Projekt
   question: Do you help?
   yesAnswer: Du entscheidest dich ihr zu helfen!
   yesTimelineText: Du hast Carolin bei ihrem Projekt geholfen!
   yesDeltas:
-    stressDelta: 2
+    stressDelta: 1
     moneyDelta: 0
-    sympathyDelta: 3
+    sympathyDelta: 2
   noAnswer: "Du entschlie\xDFt dich ihr nicht zu helfen und stattdessen nach Hause
     zu eilen!"
   noTimelineText: Du hast Carolin alleine gelassen mit ihrem Projekt
@@ -557,9 +558,9 @@ MonoBehaviour:
   silentTimelineText: "Nach zu langen \xDCberlegungen, \xFCberzeugt Carolin dich ihr
     zu helfen und ihr macht euch sofort daran!"
   silentDeltas:
-    stressDelta: 0
+    stressDelta: 1
     moneyDelta: 0
-    sympathyDelta: 2
+    sympathyDelta: 1
   gameCharacterPrefab: {fileID: 100507515729380145, guid: f3a445a7f2b0dc347b78b347c5f7de08,
     type: 3}
   yesMoreDifficultYes: []

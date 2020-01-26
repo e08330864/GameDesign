@@ -21,12 +21,21 @@ public class LendMoney : MonoBehaviour
     private float carolineAmount;
     private float johnAmount;
 
+    int borrowedTimes = 0;
+
+
     public void Init()
     {
         bossAmount = setupChar(bossChar, boss);
         vanessaAmount = setupChar(vanessaChar, vanessa);
         carolineAmount = setupChar(carolineChar, caroline);
         johnAmount = setupChar(johnChar, john);
+
+        if (borrowedTimes == 4)
+        {
+            //No more money to borrow
+            FindObjectOfType<Storyboard>().GameOver("Du hast dir von allen Freunden und Bekannten Geld geborgt und trotzdem hast du es nicht bis zum Bezirksturnier geschafft...");
+        }
     }
 
     private float setupChar(Character ch, Text text)
@@ -42,6 +51,7 @@ public class LendMoney : MonoBehaviour
             {
                 text.gameObject.GetComponent<Button>().interactable = false;
                 text.text = "Hat dir schon etwas geborgt.";
+                borrowedTimes++;
             }
         }
         else
@@ -57,7 +67,6 @@ public class LendMoney : MonoBehaviour
     {
         var selected = EventSystem.current.currentSelectedGameObject.GetComponent<Text>();
         var sb = FindObjectOfType<Storyboard>();
-
         if(selected == boss)
         {
             sb.money.SetValue(sb.money.Value + (int)bossAmount);
@@ -67,20 +76,18 @@ public class LendMoney : MonoBehaviour
         {
             sb.money.SetValue(sb.money.Value + (int)vanessaAmount);
             GameObject.FindGameObjectWithTag(vanessaChar.tag).GetComponent<Character>().hasBorrowedMoney = true;
-
         }
         else if(selected == caroline)
         {
             sb.money.SetValue(sb.money.Value + (int)carolineAmount);
             GameObject.FindGameObjectWithTag(carolineChar.tag).GetComponent<Character>().hasBorrowedMoney = true;
-
         }
         else if(selected == john)
         {
             sb.money.SetValue(sb.money.Value + (int)johnAmount);
             GameObject.FindGameObjectWithTag(johnChar.tag).GetComponent<Character>().hasBorrowedMoney = true;
-
         }
+
         sb.GoNextButtonPressed();
     }
 

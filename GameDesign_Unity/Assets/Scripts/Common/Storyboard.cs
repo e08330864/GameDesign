@@ -105,11 +105,12 @@ public class Storyboard: MonoBehaviour {
 
     public void GoNextButtonPressed()
     {
-        if (lendMoneyOverlay.gameObject.activeInHierarchy)
+        if (currentLevelIndex < levels.Count &&
+            levels[currentLevelIndex] is CutSceneLevel &&
+            currentLevel != null)
         {
-            lendMoneyOverlay.gameObject.SetActive(false);
-            nextButton.SetActive(true);
-            SpawnNextLevel();
+            currentLevel.GetComponent<TextSceneController>().SkipText();
+            return;
         }
 
         if (stress.Value >= 5)
@@ -125,32 +126,37 @@ public class Storyboard: MonoBehaviour {
             return;
         }
 
+        if (ambulanceOverlay.activeInHierarchy) // Ambulance Screen open
+        {
+            ambulanceOverlay.SetActive(false);
+            nextButton.SetActive(true);
+        }
+
         if (arrowTraining != null)
         {
             Destroy(arrowTraining);
             arrowTraining = null;
             trainingResultOverlay.SetActive(true);
+            return;
         }
-        else if (trainingResultOverlay.activeInHierarchy)
+
+        if (lendMoneyOverlay.gameObject.activeInHierarchy) //Player Lending Money
+        {
+            lendMoneyOverlay.gameObject.SetActive(false);
+            nextButton.SetActive(true);
+        }
+        //Close Overlays on Next Button
+        if (trainingResultOverlay.activeInHierarchy) //Player Training Result
         {
             trainingResultOverlay.SetActive(false);
-            SpawnNextLevel();
         }
 
         if (answerOverlay.activeInHierarchy) //Player in Answer Screen
         {
             answerOverlay.SetActive(false);
-            SpawnNextLevel();
-        }else if (ambulanceOverlay.activeInHierarchy) // Ambulance Screen open
-        {
-            ambulanceOverlay.SetActive(false);
-            nextButton.SetActive(true);
-            SpawnNextLevel();
         }
-        else if (currentLevelIndex < levels.Count && levels[currentLevelIndex] is CutSceneLevel)
-        {
-            currentLevel.GetComponent<TextSceneController>().SkipText();
-        }
+        
+        SpawnNextLevel();
     }
 
     private void ShowAnswer(Answer answer)
@@ -161,14 +167,14 @@ public class Storyboard: MonoBehaviour {
 
     private void SpawnNextLevel()
     {
-        if (trainingAtLevel.Contains(currentLevelIndex)){
-            SpawnArrowTraining();
-            return;
-        }else if (money.Value < 0)
+        if (money.Value < 0)
         {
             lendMoneyOverlay.Init();
             nextButton.SetActive(false);
             lendMoneyOverlay.gameObject.SetActive(true);
+            return;
+        }else if (trainingAtLevel.Contains(currentLevelIndex)){
+            SpawnArrowTraining();
             return;
         }
         else

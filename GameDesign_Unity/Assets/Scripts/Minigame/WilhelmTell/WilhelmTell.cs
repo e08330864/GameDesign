@@ -248,7 +248,7 @@ public class WilhelmTell : MonoBehaviour
                 }
                 else
                 {
-                    sb.GameOver("Was für eine Enttäuschung, all das Training umsonst...");
+                    sb.GameOver($"Du hast nur {score} Punkte von {MaximumScore} Punkten erreicht!\n\n"+"Was für eine Enttäuschung, all das Training umsonst...");
                 }
             }else if (Score / (float)MaximumScore >= 0.80f)
             {
