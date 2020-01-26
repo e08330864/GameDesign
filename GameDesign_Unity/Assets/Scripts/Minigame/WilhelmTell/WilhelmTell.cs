@@ -100,6 +100,7 @@ public class WilhelmTell : MonoBehaviour
     //--------------------------------------------------------------
     public int currentArrowCount;
     public Text effects;
+    public Text header;
 
     private ShootingRange shootingRange = null;
     private RectTransform shootingRangeRT = null;
@@ -129,6 +130,11 @@ public class WilhelmTell : MonoBehaviour
         else
         {
             effects.text = "Aktuelle Effekte: \n Keine.";
+        }
+        var sb = FindObjectOfType<Storyboard>();
+        if (sb.currentLevelIndex == sb.levels.Count - 1)
+        {
+            header.text = "Bezirksturnier";
         }
 
         if ((shootingRange = GameObject.FindObjectOfType<ShootingRange>()) == null)

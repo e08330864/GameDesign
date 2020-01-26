@@ -167,6 +167,7 @@ MonoBehaviour:
   jitterPercentage: 1
   currentArrowCount: 0
   effects: {fileID: 6106178531290233919}
+  header: {fileID: 8195064082609869878}
 --- !u!212 &1853741840011490526
 SpriteRenderer:
   m_ObjectHideFlags: 0
