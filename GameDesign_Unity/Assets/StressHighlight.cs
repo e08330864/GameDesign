@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StressHighlight : MonoBehaviour
 {
     public Color stressedColor;
+    public GameObject warning;
 
     Color defaultColor;
     Image bg;
@@ -26,10 +27,12 @@ public class StressHighlight : MonoBehaviour
         if(playerStress.Value >= 4)
         {
             bg.color = Color.Lerp(defaultColor, stressedColor, Mathf.PingPong(Time.time, 1));
+            warning.SetActive(true);
         }
         else
         {
             bg.color = defaultColor;
+            warning.SetActive(false);
         }
     }
 }
