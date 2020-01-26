@@ -113,6 +113,14 @@ public class Storyboard: MonoBehaviour {
             return;
         }
 
+        if (arrowTraining != null)
+        {
+            Destroy(arrowTraining);
+            arrowTraining = null;
+            trainingResultOverlay.SetActive(true);
+            return;
+        }
+
         if (stress.Value >= 5)
         {
             lifes--; 
@@ -132,13 +140,6 @@ public class Storyboard: MonoBehaviour {
             nextButton.SetActive(true);
         }
 
-        if (arrowTraining != null)
-        {
-            Destroy(arrowTraining);
-            arrowTraining = null;
-            trainingResultOverlay.SetActive(true);
-            return;
-        }
 
         if (lendMoneyOverlay.gameObject.activeInHierarchy) //Player Lending Money
         {

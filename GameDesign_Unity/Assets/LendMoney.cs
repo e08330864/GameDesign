@@ -26,12 +26,13 @@ public class LendMoney : MonoBehaviour
 
     public void Init()
     {
+        borrowedTimes = 0;
         bossAmount = setupChar(bossChar, boss);
         vanessaAmount = setupChar(vanessaChar, vanessa);
         carolineAmount = setupChar(carolineChar, caroline);
         johnAmount = setupChar(johnChar, john);
 
-        if (borrowedTimes == 4)
+        if (borrowedTimes >= 4)
         {
             //No more money to borrow
             FindObjectOfType<Storyboard>().GameOver("Du hast dir von allen Freunden und Bekannten Geld geborgt und trotzdem hast du es nicht bis zum Bezirksturnier geschafft...");
